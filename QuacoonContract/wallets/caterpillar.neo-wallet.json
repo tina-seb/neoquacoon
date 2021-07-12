@@ -1,0 +1,29 @@
+{
+  "name": "caterpillar",
+  "version": "1.0",
+  "scrypt": {
+    "n": 16384,
+    "r": 8,
+    "p": 8,
+    "size": 64
+  },
+  "accounts": [
+    {
+      "address": "NU38HG5GGUD567BQ3AP9GPwUX8HKZ8Q3aE",
+      "label": "Default account",
+      "isDefault": true,
+      "lock": false,
+      "key": "6PYNvVZA3qX6MQYJ3TcX4afJy5PBckrBrm9j9UgXEieWaYkBfaS2eLDYEJ",
+      "contract": {
+        "script": "DCED1JXIgA7p/PhZauWuivcRnRA7PbhC+yFyQ5Rx0Imi6/RBVuezJw==",
+        "parameters": [
+          {
+            "name": "signature",
+            "type": "Signature"
+          }
+        ],
+        "deployed": false
+      }
+    }
+  ]
+}

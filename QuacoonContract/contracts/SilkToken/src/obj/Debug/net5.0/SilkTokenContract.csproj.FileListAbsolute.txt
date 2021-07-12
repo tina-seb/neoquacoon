@@ -1,0 +1,12 @@
+C:\Users\tinas\source\QuacoonContract\contracts\SilkToken\src\bin\Debug\net5.0\SilkTokenContract.deps.json
+C:\Users\tinas\source\QuacoonContract\contracts\SilkToken\src\bin\Debug\net5.0\SilkTokenContract.dll
+C:\Users\tinas\source\QuacoonContract\contracts\SilkToken\src\bin\Debug\net5.0\ref\SilkTokenContract.dll
+C:\Users\tinas\source\QuacoonContract\contracts\SilkToken\src\bin\Debug\net5.0\SilkTokenContract.pdb
+C:\Users\tinas\source\QuacoonContract\contracts\SilkToken\src\obj\Debug\net5.0\SilkTokenContract.csproj.AssemblyReference.cache
+C:\Users\tinas\source\QuacoonContract\contracts\SilkToken\src\obj\Debug\net5.0\SilkTokenContract.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tinas\source\QuacoonContract\contracts\SilkToken\src\obj\Debug\net5.0\SilkTokenContract.AssemblyInfoInputs.cache
+C:\Users\tinas\source\QuacoonContract\contracts\SilkToken\src\obj\Debug\net5.0\SilkTokenContract.AssemblyInfo.cs
+C:\Users\tinas\source\QuacoonContract\contracts\SilkToken\src\obj\Debug\net5.0\SilkTokenContract.csproj.CoreCompileInputs.cache
+C:\Users\tinas\source\QuacoonContract\contracts\SilkToken\src\obj\Debug\net5.0\SilkTokenContract.dll
+C:\Users\tinas\source\QuacoonContract\contracts\SilkToken\src\obj\Debug\net5.0\ref\SilkTokenContract.dll
+C:\Users\tinas\source\QuacoonContract\contracts\SilkToken\src\obj\Debug\net5.0\SilkTokenContract.pdb

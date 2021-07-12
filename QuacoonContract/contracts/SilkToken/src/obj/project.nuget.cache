@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "8akASorGacXxeG+1LgyXmI8AP/jycMhesWaPDs3tpt6txDrwv0dN1XN4wP3nWwmT7tyKdJxRdCo+PsEDRqXLPw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\tinas\\source\\QuacoonContract\\contracts\\SilkToken\\src\\SilkTokenContract.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\tinas\\.nuget\\packages\\neo.smartcontract.framework\\3.0.0-rc3\\neo.smartcontract.framework.3.0.0-rc3.nupkg.sha512"
+  ],
+  "logs": []
+}
