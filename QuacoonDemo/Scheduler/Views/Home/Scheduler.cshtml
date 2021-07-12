@@ -1,0 +1,294 @@
+﻿@using Quacoon.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Scheduler Demo";
+}
+
+<div id="bodyContainer" onload="loadSVG()" ng-app="CardApp">
+    <div id="bodyctrl" ng-controller="CardCtrl" ng-init="init()">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel">
+                    <div style="font-size:24px;font-weight:bold;" class="panel-heading">Test your skills against a quantum computer with a simple employee scheduling problem.</div>
+                    <div class="panel-body">
+                        <p>
+                            The constraints to be satisfied are as follows :
+                        </p>
+                        <p>
+                            At least one employee must be assigned for each working day. One, and only one, employee should be assigned to each day.
+                            No employee works two or more consecutive days.
+                            All employees should have roughly even work schedules.
+                        </p>
+                        <p>
+                            Alyssa cannot work on October 3rd, 9th and 10th.
+                            Sarah cannot work on October 2nd, 7th and 11th.
+                            Tina cannot work on October 4th, 7th, 11th and 12th.
+                            Aaron cannot work on October 6th, 11th, 15th.
+                            Joe cannot work on October 1st, 2nd, 3rd, 4th, 10th and 14th.
+                        </p>
+
+                            <p  style="font-size:24px;font-weight:bold;">Click on the cells below to schedule an employee for a certain day. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel">
+                    <div class="panel-heading"></div>
+                    <div class="panel-body">
+                        <img class="img-responsive" src="https://quacoo.s3.us-east-2.amazonaws.com/schedule.jpg" id="Panel_Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <table id="qtable" class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Employee</th>
+                    <th>October 1</th>
+                    <th>October 2</th>
+                    <th>October 3</th>
+                    <th>October 4</th>
+                    <th>October 5</th>
+                    <th>October 6</th>
+                    <th>October 7</th>
+                    <th>October 8</th>
+                    <th>October 9</th>
+                    <th>October 10</th>
+                    <th>October 11</th>
+                    <th>October 12</th>
+                    <th>October 13</th>
+                    <th>October 14</th>
+                    <th>October 15</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sarah</td>
+                    <td id="Sarah_1"></td>
+                    <td id="Sarah_2"></td>
+                    <td id="Sarah_3"></td>
+                    <td id="Sarah_4"></td>
+                    <td id="Sarah_5"></td>
+                    <td id="Sarah_6"></td>
+                    <td id="Sarah_7"></td>
+                    <td id="Sarah_8"></td>
+                    <td id="Sarah_9"></td>
+                    <td id="Sarah_10"></td>
+                    <td id="Sarah_11"></td>
+                    <td id="Sarah_12"></td>
+                    <td id="Sarah_13"></td>
+                    <td id="Sarah_14"></td>
+                    <td id="Sarah_15"></td>
+                </tr>
+                <tr>
+                    <td>Tina</td>
+                    <td id="Tina_1"></td>
+                    <td id="Tina_2"></td>
+                    <td id="Tina_3"></td>
+                    <td id="Tina_4"></td>
+                    <td id="Tina_5"></td>
+                    <td id="Tina_6"></td>
+                    <td id="Tina_7"></td>
+                    <td id="Tina_8"></td>
+                    <td id="Tina_9"></td>
+                    <td id="Tina_10"></td>
+                    <td id="Tina_11"></td>
+                    <td id="Tina_12"></td>
+                    <td id="Tina_13"></td>
+                    <td id="Tina_14"></td>
+                    <td id="Tina_15"></td>
+                </tr>
+                <tr>
+                    <td>Alyssa</td>
+                    <td id="Alyssa_1"></td>
+                    <td id="Alyssa_2"></td>
+                    <td id="Alyssa_3"></td>
+                    <td id="Alyssa_4"></td>
+                    <td id="Alyssa_5"></td>
+                    <td id="Alyssa_6"></td>
+                    <td id="Alyssa_7"></td>
+                    <td id="Alyssa_8"></td>
+                    <td id="Alyssa_9"></td>
+                    <td id="Alyssa_10"></td>
+                    <td id="Alyssa_11"></td>
+                    <td id="Alyssa_12"></td>
+                    <td id="Alyssa_13"></td>
+                    <td id="Alyssa_14"></td>
+                    <td id="Alyssa_15"></td>
+                </tr>
+                <tr>
+                    <td>Aaron</td>
+                    <td id="Aaron_1"></td>
+                    <td id="Aaron_2"></td>
+                    <td id="Aaron_3"></td>
+                    <td id="Aaron_4"></td>
+                    <td id="Aaron_5"></td>
+                    <td id="Aaron_6"></td>
+                    <td id="Aaron_7"></td>
+                    <td id="Aaron_8"></td>
+                    <td id="Aaron_9"></td>
+                    <td id="Aaron_10"></td>
+                    <td id="Aaron_11"></td>
+                    <td id="Aaron_12"></td>
+                    <td id="Aaron_13"></td>
+                    <td id="Aaron_14"></td>
+                    <td id="Aaron_15"></td>
+                </tr>
+                <tr>
+                    <td>Joe</td>
+                    <td id="Joe_1"></td>
+                    <td id="Joe_2"></td>
+                    <td id="Joe_3"></td>
+                    <td id="Joe_4"></td>
+                    <td id="Joe_5"></td>
+                    <td id="Joe_6"></td>
+                    <td id="Joe_7"></td>
+                    <td id="Joe_8"></td>
+                    <td id="Joe_9"></td>
+                    <td id="Joe_10"></td>
+                    <td id="Joe_11"></td>
+                    <td id="Joe_12"></td>
+                    <td id="Joe_13"></td>
+                    <td id="Joe_14"></td>
+                    <td id="Joe_15"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button type="button" id="qbutton" class="btn btn-primary"> Click to solve with quantum below</button>
+
+        <table class="table table-bordered table-striped" style="margin-top:20px;">
+            <thead>
+                <tr>
+                    <th>Employee</th>
+                    <th>October 1</th>
+                    <th>October 2</th>
+                    <th>October 3</th>
+                    <th>October 4</th>
+                    <th>October 5</th>
+                    <th>October 6</th>
+                    <th>October 7</th>
+                    <th>October 8</th>
+                    <th>October 9</th>
+                    <th>October 10</th>
+                    <th>October 11</th>
+                    <th>October 12</th>
+                    <th>October 13</th>
+                    <th>October 14</th>
+                    <th>October 15</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sarah</td>
+                    <td id="select1"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td id="select2"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td id="select3"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Tina</td>
+                    <td></td>
+                    <td id="select4"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td id="select5"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td id="select6"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Alyssa</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td id="select7"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td id="select8"></td>
+                    <td></td>
+                    <td></td>
+                    <td id="select9"></td>
+                </tr>
+                <tr>
+                    <td>Aaron</td>
+                    <td></td>
+                    <td></td>
+                    <td id="select10"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td id="select11"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td id="select12"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Joe</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td id="select13"></td>
+                    <td></td>
+                    <td id="select14"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td id="select15"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4 id="timetaken" style="visibility:hidden;">Time Taken : < 5 seconds</h4>
+
+    </div>
+</div>
+
+@section scripts {
+    @Scripts.Render("https://d3js.org/d3.v4.js")
+    @Scripts.Render("https://d3js.org/d3-scale-chromatic.v1.min.js")
+    @Scripts.Render("https://d3js.org/d3-geo-projection.v2.min.js")
+    @Scripts.Render("~/Scripts/angular.js")
+    @Scripts.Render("~/Scripts/app/cardcontroller.js")
+    @Scripts.Render("~/Scripts/app/cb-controller.js")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/Chart.js")
+    @Scripts.Render("~/Scripts/angular-chart.js")
+    @Scripts.Render("~/Scripts/jasny-bootstrap.js")
+
+}

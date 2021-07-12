@@ -1,0 +1,233 @@
+﻿/* Button*/
+
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:600&display=swap");
+
+@-webkit-keyframes active {
+    from {
+        box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 10px 0px rgba(0, 0, 250, 0.6);
+    }
+
+    to {
+        box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 3px 3px #db4914;
+    }
+}
+
+@keyframes active {
+    from {
+        box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 10px 0px rgba(254, 216, 177, 0.6);
+    }
+
+    to {
+        box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 3px 3px #db4914;
+    }
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.grid {
+    max-width: 400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 150px 150px 50px;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    grid-gap: 40px 25px;
+}
+
+.swal2-styled.swal2-confirm {
+    -webkit-appearance: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    outline: none;
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
+    background-image: -webkit-gradient(linear, left bottom, left top, from(#D8D9DB), color-stop(80%, #fff), to(#FDFDFD));
+    background-image: linear-gradient(to top, #D8D9DB 0%, #fff 80%, #FDFDFD 100%);
+    border-radius: 30px;
+    border: 1px solid #8F9092;
+    box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 3px 0 #CECFD1;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    /*font-family: "Source Sans Pro", sans-serif;*/
+    font-size: 14px;
+    font-weight: 600;
+    /*color: #606060;*/
+    color: #606060;
+    text-shadow: 0 1px #fff;
+}
+
+button,
+[role="button"] {
+    -webkit-appearance: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    outline: none;
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
+    background-image: -webkit-gradient(linear, left bottom, left top, from(#D8D9DB), color-stop(80%, #fff), to(#FDFDFD));
+    background-image: linear-gradient(to top, #D8D9DB 0%, #fff 80%, #FDFDFD 100%);
+    border-radius: 30px;
+    border: 1px solid #8F9092;
+    box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 3px 0 #CECFD1;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    /*font-family: "Source Sans Pro", sans-serif;*/
+    font-size: 14px;
+    font-weight: 600;
+    /*color: #606060;*/
+    color: #606060;
+    text-shadow: 0 1px #fff;
+}
+
+    .swal2-styled.swal2-confirm::-moz-focus-inner,
+    [role="button"]::-moz-focus-inner {
+        border: 0;
+    }
+
+    button::-moz-focus-inner,
+    [role="button"]::-moz-focus-inner {
+        border: 0;
+    }
+
+    .swal2-styled.swal2-confirm > *,
+    [role="button"] > * {
+        -webkit-transition: -webkit-transform 0.2s ease;
+        transition: -webkit-transform 0.2s ease;
+        transition: transform 0.2s ease;
+        transition: transform 0.2s ease, -webkit-transform 0.2s ease;
+    }
+
+    button > *,
+    [role="button"] > * {
+        -webkit-transition: -webkit-transform 0.2s ease;
+        transition: -webkit-transform 0.2s ease;
+        transition: transform 0.2s ease;
+        transition: transform 0.2s ease, -webkit-transform 0.2s ease;
+    }
+
+    .swal2-styled.swal2-confirm:hover:not([disabled]),
+    [role="button"]:hover:not([disabled]) {
+        box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 3px 3px #CECFD1;
+    }
+
+    button:hover:not([disabled]),
+    [role="button"]:hover:not([disabled]) {
+        box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 3px 3px #CECFD1;
+    }
+
+        .swal2-styled.swal2-confirm:hover:not([disabled]) > *,
+        [role="button"]:hover:not([disabled]) > * {
+            -webkit-transform: scale(0.975);
+            transform: scale(0.975);
+        }
+
+        button:hover:not([disabled]) > *,
+        [role="button"]:hover:not([disabled]) > * {
+            -webkit-transform: scale(0.975);
+            transform: scale(0.975);
+        }
+
+    .swal2-styled.swal2-confirm:focus:not(:active),
+    [role="button"]:focus:not(:active) {
+        -webkit-animation: active 0.9s alternate 0.9s;
+        animation: active 0.9s alternate 0.9s;
+        outline: none;
+    }
+
+    button:focus:not(:active),
+    [role="button"]:focus:not(:active) {
+        -webkit-animation: active 0.9s alternate 0.9s;
+        animation: active 0.9s alternate 0.9s;
+        outline: none;
+    }
+
+    .swal2-styled.swal2-confirm:active:not([disabled]),
+    [role="button"]:active:not([disabled]) {
+        box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+    }
+
+    button:active:not([disabled]),
+    [role="button"]:active:not([disabled]) {
+        box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+    }
+
+        .swal2-styled.swal2-confirm:active:not([disabled]) > *,
+        [role="button"]:active:not([disabled]) > * {
+            -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+        }
+
+        button:active:not([disabled]) > *,
+        [role="button"]:active:not([disabled]) > * {
+            -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+        }
+
+    .swal2-styled.swal2-confirm:disabled,
+    [role="button"]:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+    button:disabled,
+    [role="button"]:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+    .swal2-styled.swal2-confirm.icon,
+    [role="button"].icon {
+        width: 50px;
+    }
+
+    button.icon,
+    [role="button"].icon {
+        width: 50px;
+    }
+
+        .swal2-styled.swal2-confirm.icon svg,
+        [role="button"].icon svg {
+            margin-top: 3px;
+            width: 30px;
+            height: 30px;
+        }
+
+        button.icon svg,
+        [role="button"].icon svg {
+            margin-top: 3px;
+            width: 30px;
+            height: 30px;
+        }

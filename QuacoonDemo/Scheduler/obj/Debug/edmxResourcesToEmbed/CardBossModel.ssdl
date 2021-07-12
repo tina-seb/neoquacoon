@@ -1,0 +1,414 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CardBossModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="AspNetRoles_Id" />
+      <PropertyRef Name="AspNetUsers_Id" />
+    </Key>
+    <Property Name="AspNetRoles_Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="AspNetUsers_Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="AccountId" Type="int" />
+    <Property Name="FirstName" Type="varchar" MaxLength="20" />
+    <Property Name="LastName" Type="varchar" MaxLength="30" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="UserType" Type="int" />
+    <Property Name="LastLoggedIn" Type="datetime" />
+    <Property Name="AddressId" Type="int" />
+    <Property Name="Bio" Type="varchar" MaxLength="200" />
+    <Property Name="BusinessId" Type="int" />
+  </EntityType>
+  <EntityType Name="BorderRef">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Border" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Box">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Box" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BuyerPersona">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Stage" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Goals" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Budget" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Card">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EBayItemID" Type="bigint" Nullable="false" />
+    <Property Name="ItemURL" Type="nvarchar" MaxLength="4000" />
+    <Property Name="GalleryURL" Type="nvarchar" MaxLength="4000" />
+    <Property Name="CategoryID" Type="bigint" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="100" />
+    <Property Name="BuyerLocation" Type="nvarchar" MaxLength="200" />
+    <Property Name="Sellingprice" Type="float" />
+    <Property Name="ShippingPrice" Type="float" />
+    <Property Name="SoldTime" Type="datetime" />
+    <Property Name="PopulationSupply" Type="int" />
+    <Property Name="Grade" Type="nvarchar" MaxLength="50" />
+    <Property Name="GradingCompany" Type="nvarchar" MaxLength="255" />
+    <Property Name="NumPlayers" Type="int" />
+    <Property Name="CardYear" Type="int" />
+    <Property Name="Design" Type="nvarchar" MaxLength="50" />
+    <Property Name="CardManufacturer" Type="nvarchar" MaxLength="50" />
+    <Property Name="Border" Type="nvarchar" MaxLength="50" />
+    <Property Name="Era" Type="nvarchar" MaxLength="50" />
+    <Property Name="Feature" Type="nvarchar" MaxLength="50" />
+    <Property Name="Licensed" Type="int" />
+    <Property Name="AvgPastFiveSellingPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Original" Type="nvarchar" MaxLength="50" />
+    <Property Name="Product" Type="nvarchar" MaxLength="100" />
+    <Property Name="League" Type="nvarchar" MaxLength="100" />
+    <Property Name="Player" Type="nvarchar" MaxLength="100" />
+    <Property Name="Season" Type="nvarchar" MaxLength="100" />
+    <Property Name="Series" Type="nvarchar" MaxLength="100" />
+    <Property Name="Team" Type="nvarchar" MaxLength="100" />
+    <Property Name="Sport" Type="nvarchar" MaxLength="100" />
+    <Property Name="HighDemand" Type="int" />
+  </EntityType>
+  <EntityType Name="CardBuyer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CardID" Type="int" Nullable="false" />
+    <Property Name="BuyerPersonaID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CardCompanyRef">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CardCompany" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CardDetails">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EBayItemID" Type="nvarchar" MaxLength="400" Nullable="false" />
+    <Property Name="label" Type="nvarchar" MaxLength="400" Nullable="false" />
+    <Property Name="value" Type="nvarchar" MaxLength="400" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CardFeatureRef">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CardFeature" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CurrentInventory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EBayItemID" Type="bigint" Nullable="false" />
+    <Property Name="ItemURL" Type="nvarchar" MaxLength="4000" />
+    <Property Name="GalleryURL" Type="nvarchar" MaxLength="4000" />
+    <Property Name="SellingState" Type="nvarchar" MaxLength="100" />
+    <Property Name="CategoryID" Type="bigint" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="100" />
+    <Property Name="BuyerLocation" Type="nvarchar" MaxLength="200" />
+    <Property Name="Sellingprice" Type="float" />
+    <Property Name="ShippingPrice" Type="float" />
+    <Property Name="SoldTime" Type="datetime" />
+    <Property Name="PopulationSupply" Type="int" />
+    <Property Name="Grade" Type="nvarchar" MaxLength="50" />
+    <Property Name="GradingCompany" Type="nvarchar" MaxLength="255" />
+    <Property Name="NumPlayers" Type="int" />
+    <Property Name="CardYear" Type="int" />
+    <Property Name="Design" Type="nvarchar" MaxLength="50" />
+    <Property Name="CardManufacturer" Type="nvarchar" MaxLength="50" />
+    <Property Name="Border" Type="nvarchar" MaxLength="50" />
+    <Property Name="Era" Type="nvarchar" MaxLength="50" />
+    <Property Name="Feature" Type="nvarchar" MaxLength="50" />
+    <Property Name="Licensed" Type="int" />
+    <Property Name="AvgPastFiveSellingPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Original" Type="nvarchar" MaxLength="50" />
+    <Property Name="Product" Type="nvarchar" MaxLength="100" />
+    <Property Name="League" Type="nvarchar" MaxLength="100" />
+    <Property Name="Player" Type="nvarchar" MaxLength="100" />
+    <Property Name="Season" Type="nvarchar" MaxLength="100" />
+    <Property Name="Series" Type="nvarchar" MaxLength="100" />
+    <Property Name="Team" Type="nvarchar" MaxLength="100" />
+    <Property Name="Sport" Type="nvarchar" MaxLength="100" />
+    <Property Name="WatchCount" Type="int" />
+    <Property Name="HighDemand" Type="int" />
+  </EntityType>
+  <EntityType Name="DesignRef">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Design" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Era">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Era" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GradingRef">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GradingCompany" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Grade" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="GradeDesc" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="HallOfFame">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HallOfFame" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InitialTrainingData">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EBayItemID" Type="bigint" />
+    <Property Name="EbayTitle" Type="nvarchar" MaxLength="400" />
+    <Property Name="SellingPrice" Type="float" />
+    <Property Name="SoldTime" Type="datetime" />
+    <Property Name="Original" Type="nvarchar" MaxLength="50" />
+    <Property Name="Grader" Type="nvarchar" MaxLength="100" />
+    <Property Name="Manufacturer" Type="nvarchar" MaxLength="100" />
+    <Property Name="CardYear" Type="nvarchar" MaxLength="10" />
+    <Property Name="Product" Type="nvarchar" MaxLength="50" />
+    <Property Name="Grade" Type="nvarchar" MaxLength="50" />
+    <Property Name="League" Type="nvarchar" MaxLength="50" />
+    <Property Name="Era" Type="nvarchar" MaxLength="100" />
+    <Property Name="Player" Type="nvarchar" MaxLength="100" />
+    <Property Name="CardAttributes" Type="nvarchar" MaxLength="100" />
+    <Property Name="Season" Type="nvarchar" MaxLength="100" />
+    <Property Name="Series" Type="nvarchar" MaxLength="100" />
+    <Property Name="Team" Type="nvarchar" MaxLength="100" />
+    <Property Name="ItemURL" Type="nvarchar" MaxLength="4000" />
+    <Property Name="GalleryURL" Type="nvarchar" MaxLength="4000" />
+    <Property Name="CategoryID" Type="bigint" />
+    <Property Name="Sport" Type="nvarchar" MaxLength="100" />
+    <Property Name="BuyerLocation" Type="nvarchar" MaxLength="200" />
+    <Property Name="BidderCount" Type="int" />
+    <Property Name="CardNo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="InjuryHistory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InjuryHistory" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="League">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="League" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="License">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Company" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Sport" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Original">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Original" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Player">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar(max)" Nullable="false" />
+    <Property Name="PER" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="FutureExpectationDesc" Type="varchar(max)" />
+    <Property Name="FutureExpectationRating" Type="int" />
+    <Property Name="FiveYearMarketValue" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="PersonalAttributesDesc" Type="varchar(max)" />
+    <Property Name="PersonalAttributesRating" Type="int" />
+    <Property Name="Tweets" Type="varchar(max)" />
+    <Property Name="TwitterSentimentScore" Type="int" />
+    <Property Name="RecentInjuryHistory" Type="int" />
+    <Property Name="TeamName" Type="varchar(max)" />
+    <Property Name="TeamRank" Type="int" />
+    <Property Name="HallofFame" Type="int" />
+    <Property Name="Retirement" Type="int" />
+    <Property Name="League" Type="int" />
+  </EntityType>
+  <EntityType Name="PlayerStats">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar(max)" Nullable="false" />
+    <Property Name="PlayerEfficiencyRating" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TrueShootingPerc" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="AssistRatio" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TurnoverRatio" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="UsageRatio" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="OffensiveReboundRate" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DefensiveReboundRate" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ReboundRate" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ValueAdded" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="EstimatedWinsAdded" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="PriceChangeRef">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PriceChange" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Retirement">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Retirement" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RookieCardInfluence">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RookieCardInfluence" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SoldInventory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EBayItemID" Type="bigint" />
+    <Property Name="EbayTitle" Type="nvarchar" MaxLength="400" />
+    <Property Name="CardID" Type="int" />
+    <Property Name="ItemURL" Type="nvarchar" MaxLength="4000" />
+    <Property Name="GalleryURL" Type="nvarchar" MaxLength="4000" />
+    <Property Name="CategoryID" Type="bigint" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="100" />
+    <Property Name="PostalCode" Type="nvarchar" MaxLength="30" />
+    <Property Name="BuyerLocation" Type="nvarchar" MaxLength="200" />
+    <Property Name="SellingPrice" Type="float" />
+    <Property Name="ShippingPrice" Type="float" />
+    <Property Name="SoldTime" Type="datetime" />
+    <Property Name="PlayerID" Type="int" />
+    <Property Name="PriceChange" Type="int" />
+    <Property Name="BidCount" Type="bigint" />
+    <Property Name="HighDemand" Type="int" />
+  </EntityType>
+  <EntityType Name="TeamRank">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Team" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="TeamRank" Type="int" />
+  </EntityType>
+  <EntityType Name="Year">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Year" Type="int" Nullable="false" />
+  </EntityType>
+  <Function Name="ExtractTitleData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ExtractTitleDataCurrentInventory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GenerateModelTrainingFile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="UpdateCardData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="CardBossModelStoreContainer">
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BorderRef" EntityType="Self.BorderRef" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Box" EntityType="Self.Box" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BuyerPersona" EntityType="Self.BuyerPersona" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Card" EntityType="Self.Card" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CardBuyer" EntityType="Self.CardBuyer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CardCompanyRef" EntityType="Self.CardCompanyRef" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CardDetails" EntityType="Self.CardDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CardFeatureRef" EntityType="Self.CardFeatureRef" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CurrentInventory" EntityType="Self.CurrentInventory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DesignRef" EntityType="Self.DesignRef" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Era" EntityType="Self.Era" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GradingRef" EntityType="Self.GradingRef" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HallOfFame" EntityType="Self.HallOfFame" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InitialTrainingData" EntityType="Self.InitialTrainingData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InjuryHistory" EntityType="Self.InjuryHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="League" EntityType="Self.League" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="License" EntityType="Self.License" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Original" EntityType="Self.Original" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Player" EntityType="Self.Player" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PlayerStats" EntityType="Self.PlayerStats" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PriceChangeRef" EntityType="Self.PriceChangeRef" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Retirement" EntityType="Self.Retirement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RookieCardInfluence" EntityType="Self.RookieCardInfluence" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SoldInventory" EntityType="Self.SoldInventory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TeamRank" EntityType="Self.TeamRank" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Year" EntityType="Self.Year" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

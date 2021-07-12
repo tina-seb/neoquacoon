@@ -1,0 +1,929 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CardBossModel1StoreContainer" CdmEntityContainer="CardBossEntities1">
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="CardBossModel1.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="CardBossModel1.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="CardBossModel1.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserRoles">
+      <EntityTypeMapping TypeName="CardBossModel1.AspNetUserRole">
+        <MappingFragment StoreEntitySet="AspNetUserRoles">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Centers">
+      <EntityTypeMapping TypeName="CardBossModel1.Center">
+        <MappingFragment StoreEntitySet="Center">
+          <ScalarProperty Name="CenterCountry" ColumnName="CenterCountry" />
+          <ScalarProperty Name="CenterState" ColumnName="CenterState" />
+          <ScalarProperty Name="CenterCity" ColumnName="CenterCity" />
+          <ScalarProperty Name="CenterAddress2" ColumnName="CenterAddress2" />
+          <ScalarProperty Name="CenterAddress1" ColumnName="CenterAddress1" />
+          <ScalarProperty Name="CenterName" ColumnName="CenterName" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="CenterID" ColumnName="CenterID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CenterFunctions">
+      <EntityTypeMapping TypeName="CardBossModel1.CenterFunction">
+        <MappingFragment StoreEntitySet="CenterFunction">
+          <ScalarProperty Name="FunctionType" ColumnName="FunctionType" />
+          <ScalarProperty Name="FunctionName" ColumnName="FunctionName" />
+          <ScalarProperty Name="FunctionID" ColumnName="FunctionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="CardBossModel1.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="CompanyLongitude" ColumnName="CompanyLongitude" />
+          <ScalarProperty Name="CompanyLatitude" ColumnName="CompanyLatitude" />
+          <ScalarProperty Name="CompanyLocationPhone" ColumnName="CompanyLocationPhone" />
+          <ScalarProperty Name="CompanyZipCode" ColumnName="CompanyZipCode" />
+          <ScalarProperty Name="CompanyCountry" ColumnName="CompanyCountry" />
+          <ScalarProperty Name="CompanyState" ColumnName="CompanyState" />
+          <ScalarProperty Name="CompanyCity" ColumnName="CompanyCity" />
+          <ScalarProperty Name="CompanyAddressLine2" ColumnName="CompanyAddressLine2" />
+          <ScalarProperty Name="CompanyAddressLine1" ColumnName="CompanyAddressLine1" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompanyAdmins">
+      <EntityTypeMapping TypeName="CardBossModel1.CompanyAdmin">
+        <MappingFragment StoreEntitySet="CompanyAdmin">
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="CompanyAdminID" ColumnName="CompanyAdminID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompanyFunctions">
+      <EntityTypeMapping TypeName="CardBossModel1.CompanyFunction">
+        <MappingFragment StoreEntitySet="CompanyFunction">
+          <ScalarProperty Name="FunctionID" ColumnName="FunctionID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="CompanyFunctionID" ColumnName="CompanyFunctionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompanyLocations">
+      <EntityTypeMapping TypeName="CardBossModel1.CompanyLocation">
+        <MappingFragment StoreEntitySet="CompanyLocation">
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="CompanyLongitude" ColumnName="CompanyLongitude" />
+          <ScalarProperty Name="CompanyLatitude" ColumnName="CompanyLatitude" />
+          <ScalarProperty Name="CompanyLocationPhone" ColumnName="CompanyLocationPhone" />
+          <ScalarProperty Name="CompanyZipCode" ColumnName="CompanyZipCode" />
+          <ScalarProperty Name="CompanyCountry" ColumnName="CompanyCountry" />
+          <ScalarProperty Name="CompanyState" ColumnName="CompanyState" />
+          <ScalarProperty Name="CompanyCity" ColumnName="CompanyCity" />
+          <ScalarProperty Name="CompanyAddressLine2" ColumnName="CompanyAddressLine2" />
+          <ScalarProperty Name="CompanyAddressLine1" ColumnName="CompanyAddressLine1" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="CompanyLocationID" ColumnName="CompanyLocationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Connections">
+      <EntityTypeMapping TypeName="CardBossModel1.Connection">
+        <MappingFragment StoreEntitySet="Connection">
+          <ScalarProperty Name="ConnectStatus" ColumnName="ConnectStatus" />
+          <ScalarProperty Name="ConnectAcceptDate" ColumnName="ConnectAcceptDate" />
+          <ScalarProperty Name="ConnectRequestDate" ColumnName="ConnectRequestDate" />
+          <ScalarProperty Name="IndividualTo" ColumnName="IndividualTo" />
+          <ScalarProperty Name="IndividualFrom" ColumnName="IndividualFrom" />
+          <ScalarProperty Name="ConnectionID" ColumnName="ConnectionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Deliveries">
+      <EntityTypeMapping TypeName="CardBossModel1.Delivery">
+        <MappingFragment StoreEntitySet="Delivery">
+          <ScalarProperty Name="DeliveryLimitLongitude4" ColumnName="DeliveryLimitLongitude4" />
+          <ScalarProperty Name="DeliveryLimitLatitude4" ColumnName="DeliveryLimitLatitude4" />
+          <ScalarProperty Name="DeliveryLimitLongitude3" ColumnName="DeliveryLimitLongitude3" />
+          <ScalarProperty Name="DeliveryLimitLatitude3" ColumnName="DeliveryLimitLatitude3" />
+          <ScalarProperty Name="DeliveryLimitLongitude2" ColumnName="DeliveryLimitLongitude2" />
+          <ScalarProperty Name="DeliveryLimitLatitude2" ColumnName="DeliveryLimitLatitude2" />
+          <ScalarProperty Name="DeliveryLimitLongitude1" ColumnName="DeliveryLimitLongitude1" />
+          <ScalarProperty Name="DeliveryLimitLatitude1" ColumnName="DeliveryLimitLatitude1" />
+          <ScalarProperty Name="DeliveryAddress" ColumnName="DeliveryAddress" />
+          <ScalarProperty Name="DeliveryName" ColumnName="DeliveryName" />
+          <ScalarProperty Name="DeliveryID" ColumnName="DeliveryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeliveryProducts">
+      <EntityTypeMapping TypeName="CardBossModel1.DeliveryProduct">
+        <MappingFragment StoreEntitySet="DeliveryProduct">
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="TrackCountry" ColumnName="TrackCountry" />
+          <ScalarProperty Name="TrackState" ColumnName="TrackState" />
+          <ScalarProperty Name="TrackCity" ColumnName="TrackCity" />
+          <ScalarProperty Name="TrackAddress2" ColumnName="TrackAddress2" />
+          <ScalarProperty Name="TrackAddress1" ColumnName="TrackAddress1" />
+          <ScalarProperty Name="TrackTime" ColumnName="TrackTime" />
+          <ScalarProperty Name="ProductUnitID" ColumnName="ProductUnitID" />
+          <ScalarProperty Name="DeliveryUnitID" ColumnName="DeliveryUnitID" />
+          <ScalarProperty Name="DeliveryProductID" ColumnName="DeliveryProductID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeliveryProductTracingUpdateRequests">
+      <EntityTypeMapping TypeName="CardBossModel1.DeliveryProductTracingUpdateRequest">
+        <MappingFragment StoreEntitySet="DeliveryProductTracingUpdateRequest">
+          <ScalarProperty Name="RequestStatus" ColumnName="RequestStatus" />
+          <ScalarProperty Name="IndividualID" ColumnName="IndividualID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="ProductUnitID" ColumnName="ProductUnitID" />
+          <ScalarProperty Name="DeliveryUnitID" ColumnName="DeliveryUnitID" />
+          <ScalarProperty Name="DeliveryProductTracingUpdateRequestID" ColumnName="DeliveryProductTracingUpdateRequestID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeliveryUnits">
+      <EntityTypeMapping TypeName="CardBossModel1.DeliveryUnit">
+        <MappingFragment StoreEntitySet="DeliveryUnit">
+          <ScalarProperty Name="DeliveryUnitLimitLongitude4" ColumnName="DeliveryUnitLimitLongitude4" />
+          <ScalarProperty Name="DeliveryUnitLimitLatitude4" ColumnName="DeliveryUnitLimitLatitude4" />
+          <ScalarProperty Name="DeliveryUnitLimitLongitude3" ColumnName="DeliveryUnitLimitLongitude3" />
+          <ScalarProperty Name="DeliveryUnitLimitLatitude3" ColumnName="DeliveryUnitLimitLatitude3" />
+          <ScalarProperty Name="DeliveryUnitLimitLongitude2" ColumnName="DeliveryUnitLimitLongitude2" />
+          <ScalarProperty Name="DeliveryUnitLimitLatitude2" ColumnName="DeliveryUnitLimitLatitude2" />
+          <ScalarProperty Name="DeliveryUnitLimitLongitude1" ColumnName="DeliveryUnitLimitLongitude1" />
+          <ScalarProperty Name="DeliveryUnitLimitLatitude1" ColumnName="DeliveryUnitLimitLatitude1" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+          <ScalarProperty Name="DeliveryName" ColumnName="DeliveryName" />
+          <ScalarProperty Name="DeliveryID" ColumnName="DeliveryID" />
+          <ScalarProperty Name="DeliveryUnitID" ColumnName="DeliveryUnitID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="CardBossModel1.Event">
+        <MappingFragment StoreEntitySet="Event">
+          <ScalarProperty Name="EventImpact" ColumnName="EventImpact" />
+          <ScalarProperty Name="EventType" ColumnName="EventType" />
+          <ScalarProperty Name="EventName" ColumnName="EventName" />
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventFunctions">
+      <EntityTypeMapping TypeName="CardBossModel1.EventFunction">
+        <MappingFragment StoreEntitySet="EventFunction">
+          <ScalarProperty Name="ImpactLevel" ColumnName="ImpactLevel" />
+          <ScalarProperty Name="FunctionID" ColumnName="FunctionID" />
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+          <ScalarProperty Name="EventFunctionID" ColumnName="EventFunctionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IndividualCompanyHistories">
+      <EntityTypeMapping TypeName="CardBossModel1.IndividualCompanyHistory">
+        <MappingFragment StoreEntitySet="IndividualCompanyHistory">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="IndividualID" ColumnName="IndividualID" />
+          <ScalarProperty Name="IndividualCompanyHistoryID" ColumnName="IndividualCompanyHistoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IndividualInterests">
+      <EntityTypeMapping TypeName="CardBossModel1.IndividualInterest">
+        <MappingFragment StoreEntitySet="IndividualInterests">
+          <ScalarProperty Name="InterestID" ColumnName="InterestID" />
+          <ScalarProperty Name="IndividualID" ColumnName="IndividualID" />
+          <ScalarProperty Name="IndividualInterestsID" ColumnName="IndividualInterestsID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Interests">
+      <EntityTypeMapping TypeName="CardBossModel1.Interest">
+        <MappingFragment StoreEntitySet="Interest">
+          <ScalarProperty Name="InterestName" ColumnName="InterestName" />
+          <ScalarProperty Name="InterestID" ColumnName="InterestID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Messages">
+      <EntityTypeMapping TypeName="CardBossModel1.Message">
+        <MappingFragment StoreEntitySet="Messages">
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="Message1" ColumnName="Message" />
+          <ScalarProperty Name="ToID" ColumnName="ToID" />
+          <ScalarProperty Name="FromID" ColumnName="FromID" />
+          <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notifications">
+      <EntityTypeMapping TypeName="CardBossModel1.Notification">
+        <MappingFragment StoreEntitySet="Notifications">
+          <ScalarProperty Name="NotificationTime" ColumnName="NotificationTime" />
+          <ScalarProperty Name="NotificationType" ColumnName="NotificationType" />
+          <ScalarProperty Name="NotificationMessage" ColumnName="NotificationMessage" />
+          <ScalarProperty Name="NotificationID" ColumnName="NotificationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Posts">
+      <EntityTypeMapping TypeName="CardBossModel1.Post">
+        <MappingFragment StoreEntitySet="Post">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="imageURL" ColumnName="imageURL" />
+          <ScalarProperty Name="createdate" ColumnName="createdate" />
+          <ScalarProperty Name="InterestID" ColumnName="InterestID" />
+          <ScalarProperty Name="Privacy" ColumnName="Privacy" />
+          <ScalarProperty Name="Post1" ColumnName="Post" />
+          <ScalarProperty Name="PostID" ColumnName="PostID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Privacies">
+      <EntityTypeMapping TypeName="CardBossModel1.Privacy">
+        <MappingFragment StoreEntitySet="Privacy">
+          <ScalarProperty Name="PrivacyLabel" ColumnName="PrivacyLabel" />
+          <ScalarProperty Name="PrivacyID" ColumnName="PrivacyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="CardBossModel1.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="imageURL" ColumnName="imageURL" />
+          <ScalarProperty Name="OtherID" ColumnName="OtherID" />
+          <ScalarProperty Name="SKU" ColumnName="SKU" />
+          <ScalarProperty Name="ProductCategory" ColumnName="ProductCategory" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductCompanyDemandUpdateRequests">
+      <EntityTypeMapping TypeName="CardBossModel1.ProductCompanyDemandUpdateRequest">
+        <MappingFragment StoreEntitySet="ProductCompanyDemandUpdateRequest">
+          <ScalarProperty Name="RequestStatus" ColumnName="RequestStatus" />
+          <ScalarProperty Name="IndividualID" ColumnName="IndividualID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="ProductUnitID" ColumnName="ProductUnitID" />
+          <ScalarProperty Name="ProductCompanyDemandUpdateRequestID" ColumnName="ProductCompanyDemandUpdateRequestID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductCompanySupplies">
+      <EntityTypeMapping TypeName="CardBossModel1.ProductCompanySupply">
+        <MappingFragment StoreEntitySet="ProductCompanySupply">
+          <ScalarProperty Name="SupplyUnit" ColumnName="SupplyUnit" />
+          <ScalarProperty Name="Supply" ColumnName="Supply" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="ProductCompanySupplyID" ColumnName="ProductCompanySupplyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductCompanySupplyUpdateRequests">
+      <EntityTypeMapping TypeName="CardBossModel1.ProductCompanySupplyUpdateRequest">
+        <MappingFragment StoreEntitySet="ProductCompanySupplyUpdateRequest">
+          <ScalarProperty Name="RequestStatus" ColumnName="RequestStatus" />
+          <ScalarProperty Name="IndividualID" ColumnName="IndividualID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="ProductUnitID" ColumnName="ProductUnitID" />
+          <ScalarProperty Name="ProductCompanySupplyUpdateRequestID" ColumnName="ProductCompanySupplyUpdateRequestID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductDestinations">
+      <EntityTypeMapping TypeName="CardBossModel1.ProductDestination">
+        <MappingFragment StoreEntitySet="ProductDestination">
+          <ScalarProperty Name="ExpectedLevelUnit" ColumnName="ExpectedLevelUnit" />
+          <ScalarProperty Name="ExpectedLevel" ColumnName="ExpectedLevel" />
+          <ScalarProperty Name="ExpectedDate" ColumnName="ExpectedDate" />
+          <ScalarProperty Name="DestinationCompanyID" ColumnName="DestinationCompanyID" />
+          <ScalarProperty Name="SupplierCompanyID" ColumnName="SupplierCompanyID" />
+          <ScalarProperty Name="ProductUnitID" ColumnName="ProductUnitID" />
+          <ScalarProperty Name="ProductDestinationID" ColumnName="ProductDestinationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductDestinationLeadTimes">
+      <EntityTypeMapping TypeName="CardBossModel1.ProductDestinationLeadTime">
+        <MappingFragment StoreEntitySet="ProductDestinationLeadTime">
+          <ScalarProperty Name="MaxLeadTime" ColumnName="MaxLeadTime" />
+          <ScalarProperty Name="MinLeadTime" ColumnName="MinLeadTime" />
+          <ScalarProperty Name="DestinationCompanyID" ColumnName="DestinationCompanyID" />
+          <ScalarProperty Name="ProductUnitID" ColumnName="ProductUnitID" />
+          <ScalarProperty Name="ProductDestinationLeadTimeID" ColumnName="ProductDestinationLeadTimeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductMaterials">
+      <EntityTypeMapping TypeName="CardBossModel1.ProductMaterial">
+        <MappingFragment StoreEntitySet="ProductMaterial">
+          <ScalarProperty Name="ProcessCategory" ColumnName="ProcessCategory" />
+          <ScalarProperty Name="MakeQuantityUnit" ColumnName="MakeQuantityUnit" />
+          <ScalarProperty Name="MakeQuantity" ColumnName="MakeQuantity" />
+          <ScalarProperty Name="MakeOrder" ColumnName="MakeOrder" />
+          <ScalarProperty Name="MaxLeadTime" ColumnName="MaxLeadTime" />
+          <ScalarProperty Name="MinLeadTime" ColumnName="MinLeadTime" />
+          <ScalarProperty Name="MaterialUnitID" ColumnName="MaterialUnitID" />
+          <ScalarProperty Name="ProductUnitID" ColumnName="ProductUnitID" />
+          <ScalarProperty Name="ProductMaterialID" ColumnName="ProductMaterialID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductReplacements">
+      <EntityTypeMapping TypeName="CardBossModel1.ProductReplacement">
+        <MappingFragment StoreEntitySet="ProductReplacement">
+          <ScalarProperty Name="Scarcity" ColumnName="Scarcity" />
+          <ScalarProperty Name="ReplacementID" ColumnName="ReplacementID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductReplacementID" ColumnName="ProductReplacementID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductTotalDemands">
+      <EntityTypeMapping TypeName="CardBossModel1.ProductTotalDemand">
+        <MappingFragment StoreEntitySet="ProductTotalDemand">
+          <ScalarProperty Name="DemandUnit" ColumnName="DemandUnit" />
+          <ScalarProperty Name="Demand" ColumnName="Demand" />
+          <ScalarProperty Name="DemandMonth" ColumnName="DemandMonth" />
+          <ScalarProperty Name="DemandYear" ColumnName="DemandYear" />
+          <ScalarProperty Name="ProductUnitID" ColumnName="ProductUnitID" />
+          <ScalarProperty Name="ProductTotalDemandID" ColumnName="ProductTotalDemandID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductTracingUpdateRequests">
+      <EntityTypeMapping TypeName="CardBossModel1.ProductTracingUpdateRequest">
+        <MappingFragment StoreEntitySet="ProductTracingUpdateRequest">
+          <ScalarProperty Name="RequestStatus" ColumnName="RequestStatus" />
+          <ScalarProperty Name="IndividualID" ColumnName="IndividualID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="ProductUnitID" ColumnName="ProductUnitID" />
+          <ScalarProperty Name="ProductTracingUpdateRequestID" ColumnName="ProductTracingUpdateRequestID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductUnitTracings">
+      <EntityTypeMapping TypeName="CardBossModel1.ProductUnitTracing">
+        <MappingFragment StoreEntitySet="ProductUnitTracing">
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="TrackCountry" ColumnName="TrackCountry" />
+          <ScalarProperty Name="TrackState" ColumnName="TrackState" />
+          <ScalarProperty Name="TrackCity" ColumnName="TrackCity" />
+          <ScalarProperty Name="TrackAddress2" ColumnName="TrackAddress2" />
+          <ScalarProperty Name="TrackAddress1" ColumnName="TrackAddress1" />
+          <ScalarProperty Name="TrackTime" ColumnName="TrackTime" />
+          <ScalarProperty Name="ProductUnitID" ColumnName="ProductUnitID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recommendations">
+      <EntityTypeMapping TypeName="CardBossModel1.Recommendation">
+        <MappingFragment StoreEntitySet="Recommendation">
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="Reco" ColumnName="Reco" />
+          <ScalarProperty Name="RecoTimeStamp" ColumnName="RecoTimeStamp" />
+          <ScalarProperty Name="RecoID" ColumnName="RecoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResellLevels">
+      <EntityTypeMapping TypeName="CardBossModel1.ResellLevel">
+        <MappingFragment StoreEntitySet="ResellLevel">
+          <ScalarProperty Name="ResellLevelTimestamp" ColumnName="ResellLevelTimestamp" />
+          <ScalarProperty Name="ExcessLevelUnit" ColumnName="ExcessLevelUnit" />
+          <ScalarProperty Name="ExcessLevel" ColumnName="ExcessLevel" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="ProductUnitID" ColumnName="ProductUnitID" />
+          <ScalarProperty Name="ResellLevelID" ColumnName="ResellLevelID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResellUpdateRequests">
+      <EntityTypeMapping TypeName="CardBossModel1.ResellUpdateRequest">
+        <MappingFragment StoreEntitySet="ResellUpdateRequest">
+          <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+          <ScalarProperty Name="RequestStatus" ColumnName="RequestStatus" />
+          <ScalarProperty Name="IndividualID" ColumnName="IndividualID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="ProductUnitID" ColumnName="ProductUnitID" />
+          <ScalarProperty Name="ResellUpdateRequestID" ColumnName="ResellUpdateRequestID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShareLists">
+      <EntityTypeMapping TypeName="CardBossModel1.ShareList">
+        <MappingFragment StoreEntitySet="ShareList">
+          <ScalarProperty Name="IndividualID" ColumnName="IndividualID" />
+          <ScalarProperty Name="PostID" ColumnName="PostID" />
+          <ScalarProperty Name="ShareListID" ColumnName="ShareListID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShortageLevels">
+      <EntityTypeMapping TypeName="CardBossModel1.ShortageLevel">
+        <MappingFragment StoreEntitySet="ShortageLevel">
+          <ScalarProperty Name="ResellLevelTimestamp" ColumnName="ResellLevelTimestamp" />
+          <ScalarProperty Name="ShoratgeLevelUnit" ColumnName="ShoratgeLevelUnit" />
+          <ScalarProperty Name="ShortageLevel1" ColumnName="ShortageLevel" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="ProductUnitID" ColumnName="ProductUnitID" />
+          <ScalarProperty Name="ShortageLevelID" ColumnName="ShortageLevelID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShortageUpdateRequests">
+      <EntityTypeMapping TypeName="CardBossModel1.ShortageUpdateRequest">
+        <MappingFragment StoreEntitySet="ShortageUpdateRequest">
+          <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+          <ScalarProperty Name="RequestStatus" ColumnName="RequestStatus" />
+          <ScalarProperty Name="IndividualID" ColumnName="IndividualID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="ProductUnitID" ColumnName="ProductUnitID" />
+          <ScalarProperty Name="ShortageUpdateRequestID" ColumnName="ShortageUpdateRequestID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Skills">
+      <EntityTypeMapping TypeName="CardBossModel1.Skill">
+        <MappingFragment StoreEntitySet="Skill">
+          <ScalarProperty Name="Available" ColumnName="Available" />
+          <ScalarProperty Name="IndividualID" ColumnName="IndividualID" />
+          <ScalarProperty Name="SkillID" ColumnName="SkillID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StorageCategories">
+      <EntityTypeMapping TypeName="CardBossModel1.StorageCategory">
+        <MappingFragment StoreEntitySet="StorageCategory">
+          <ScalarProperty Name="StorageCategoryName" ColumnName="StorageCategoryName" />
+          <ScalarProperty Name="StorageCategoryID" ColumnName="StorageCategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StorageUnits">
+      <EntityTypeMapping TypeName="CardBossModel1.StorageUnit">
+        <MappingFragment StoreEntitySet="StorageUnit">
+          <ScalarProperty Name="StorageLongitude" ColumnName="StorageLongitude" />
+          <ScalarProperty Name="StorageLatitude" ColumnName="StorageLatitude" />
+          <ScalarProperty Name="StorageCountry" ColumnName="StorageCountry" />
+          <ScalarProperty Name="StorageState" ColumnName="StorageState" />
+          <ScalarProperty Name="StorageCity" ColumnName="StorageCity" />
+          <ScalarProperty Name="StorageAddress2" ColumnName="StorageAddress2" />
+          <ScalarProperty Name="StorageAddress1" ColumnName="StorageAddress1" />
+          <ScalarProperty Name="AvailableCapacity" ColumnName="AvailableCapacity" />
+          <ScalarProperty Name="TotalCapacity" ColumnName="TotalCapacity" />
+          <ScalarProperty Name="StorageName" ColumnName="StorageName" />
+          <ScalarProperty Name="StorageID" ColumnName="StorageID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StorageUnitCategories">
+      <EntityTypeMapping TypeName="CardBossModel1.StorageUnitCategory">
+        <MappingFragment StoreEntitySet="StorageUnitCategory">
+          <ScalarProperty Name="StorageCategoryID" ColumnName="StorageCategoryID" />
+          <ScalarProperty Name="StorageID" ColumnName="StorageID" />
+          <ScalarProperty Name="StorageUnitCategoryID" ColumnName="StorageUnitCategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SupplierCompanies">
+      <EntityTypeMapping TypeName="CardBossModel1.SupplierCompany">
+        <MappingFragment StoreEntitySet="SupplierCompany">
+          <ScalarProperty Name="ContractDesc" ColumnName="ContractDesc" />
+          <ScalarProperty Name="ContractEndDate" ColumnName="ContractEndDate" />
+          <ScalarProperty Name="ContractStartDate" ColumnName="ContractStartDate" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="SupplierCompanyID" ColumnName="SupplierCompanyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SupplierInvites">
+      <EntityTypeMapping TypeName="CardBossModel1.SupplierInvite">
+        <MappingFragment StoreEntitySet="SupplierInvite">
+          <ScalarProperty Name="InviteAccepted" ColumnName="InviteAccepted" />
+          <ScalarProperty Name="InviteCount" ColumnName="InviteCount" />
+          <ScalarProperty Name="InviteLastSent" ColumnName="InviteLastSent" />
+          <ScalarProperty Name="User" ColumnName="User" />
+          <ScalarProperty Name="InviteDate" ColumnName="InviteDate" />
+          <ScalarProperty Name="SupplierEmail" ColumnName="SupplierEmail" />
+          <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="SupplierInviteID" ColumnName="SupplierInviteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Units">
+      <EntityTypeMapping TypeName="CardBossModel1.Unit">
+        <MappingFragment StoreEntitySet="Unit">
+          <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RiskAlerts">
+      <EntityTypeMapping TypeName="CardBossModel1.RiskAlert">
+        <MappingFragment StoreEntitySet="RiskAlerts">
+          <ScalarProperty Name="RiskFunction" ColumnName="RiskFunction" />
+          <ScalarProperty Name="RiskLongitude" ColumnName="RiskLongitude" />
+          <ScalarProperty Name="RiskLatitude" ColumnName="RiskLatitude" />
+          <ScalarProperty Name="RiskDate" ColumnName="RiskDate" />
+          <ScalarProperty Name="RiskImpact" ColumnName="RiskImpact" />
+          <ScalarProperty Name="RiskDesc" ColumnName="RiskDesc" />
+          <ScalarProperty Name="RiskLocation" ColumnName="RiskLocation" />
+          <ScalarProperty Name="RiskAlertID" ColumnName="RiskAlertID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductCompanies">
+      <EntityTypeMapping TypeName="CardBossModel1.ProductCompany">
+        <MappingFragment StoreEntitySet="ProductCompany">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="ProductCompanyID" ColumnName="ProductCompanyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductCompanyDemands">
+      <EntityTypeMapping TypeName="CardBossModel1.ProductCompanyDemand">
+        <MappingFragment StoreEntitySet="ProductCompanyDemand">
+          <ScalarProperty Name="demanddate" ColumnName="demanddate" />
+          <ScalarProperty Name="instock" ColumnName="instock" />
+          <ScalarProperty Name="backorder" ColumnName="backorder" />
+          <ScalarProperty Name="sold" ColumnName="sold" />
+          <ScalarProperty Name="safety" ColumnName="safety" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="DemandUnit" ColumnName="DemandUnit" />
+          <ScalarProperty Name="Demand" ColumnName="Demand" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="ProductCompanyDemandID" ColumnName="ProductCompanyDemandID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProfilePics">
+      <EntityTypeMapping TypeName="CardBossModel1.ProfilePic">
+        <MappingFragment StoreEntitySet="ProfilePics">
+          <ScalarProperty Name="ProfilePicURL" ColumnName="ProfilePicURL" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ProfilePicID" ColumnName="ProfilePicID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FunctionLookups">
+      <EntityTypeMapping TypeName="CardBossModel1.FunctionLookup">
+        <MappingFragment StoreEntitySet="FunctionLookup">
+          <ScalarProperty Name="FunctionName" ColumnName="FunctionName" />
+          <ScalarProperty Name="FunctionLookupID" ColumnName="FunctionLookupID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UnitOfMeasures">
+      <EntityTypeMapping TypeName="CardBossModel1.UnitOfMeasure">
+        <MappingFragment StoreEntitySet="UnitOfMeasure">
+          <ScalarProperty Name="UnitMeasure" ColumnName="UnitMeasure" />
+          <ScalarProperty Name="UnitMeasureID" ColumnName="UnitMeasureID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="InitializeCompanyProductDemand" FunctionName="CardBossModel1.Store.InitializeCompanyProductDemand" />
+    <EntitySetMapping Name="GraphConnections">
+      <EntityTypeMapping TypeName="CardBossModel1.GraphConnection">
+        <MappingFragment StoreEntitySet="GraphConnections">
+          <ScalarProperty Name="NodeNameTwo" ColumnName="NodeNameTwo" />
+          <ScalarProperty Name="NodeNameOne" ColumnName="NodeNameOne" />
+          <ScalarProperty Name="SubChainId" ColumnName="SubChainId" />
+          <ScalarProperty Name="ChainId" ColumnName="ChainId" />
+          <ScalarProperty Name="GraphConnectionID" ColumnName="GraphConnectionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GraphNodes">
+      <EntityTypeMapping TypeName="CardBossModel1.GraphNode">
+        <MappingFragment StoreEntitySet="GraphNodes">
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="NodeName" ColumnName="NodeName" />
+          <ScalarProperty Name="ChainId" ColumnName="ChainId" />
+          <ScalarProperty Name="GraphNodeID" ColumnName="GraphNodeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GreenCompanies">
+      <EntityTypeMapping TypeName="CardBossModel1.GreenCompany">
+        <MappingFragment StoreEntitySet="GreenCompany">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="FoodWastageScore" ColumnName="FoodWastageScore" />
+          <ScalarProperty Name="EnergyAuditScore" ColumnName="EnergyAuditScore" />
+          <ScalarProperty Name="GreenFleetScore" ColumnName="GreenFleetScore" />
+          <ScalarProperty Name="RenewableElectricitySource" ColumnName="RenewableElectricitySource" />
+          <ScalarProperty Name="PensionFundInvestmentScore" ColumnName="PensionFundInvestmentScore" />
+          <ScalarProperty Name="GreenProductScore" ColumnName="GreenProductScore" />
+          <ScalarProperty Name="CertificationScore" ColumnName="CertificationScore" />
+          <ScalarProperty Name="TotalScore" ColumnName="TotalScore" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="GreenCompanyID" ColumnName="GreenCompanyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GreenFunctionAverages">
+      <EntityTypeMapping TypeName="CardBossModel1.GreenFunctionAverage">
+        <MappingFragment StoreEntitySet="GreenFunctionAverage">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="AvgFoodWastageScore" ColumnName="AvgFoodWastageScore" />
+          <ScalarProperty Name="AvgEnergyAuditScore" ColumnName="AvgEnergyAuditScore" />
+          <ScalarProperty Name="AvgGreenFleetScore" ColumnName="AvgGreenFleetScore" />
+          <ScalarProperty Name="AvgRenewableElectricitySource" ColumnName="AvgRenewableElectricitySource" />
+          <ScalarProperty Name="AvgPensionFundInvestmentScore" ColumnName="AvgPensionFundInvestmentScore" />
+          <ScalarProperty Name="AvgGreenProductScore" ColumnName="AvgGreenProductScore" />
+          <ScalarProperty Name="AvgCertificationScore" ColumnName="AvgCertificationScore" />
+          <ScalarProperty Name="AvgTotalScore" ColumnName="AvgTotalScore" />
+          <ScalarProperty Name="GreenFunctionAverageID" ColumnName="GreenFunctionAverageID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GreenRecoes">
+      <EntityTypeMapping TypeName="CardBossModel1.GreenReco">
+        <MappingFragment StoreEntitySet="GreenReco">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="FoodWastageReco" ColumnName="FoodWastageReco" />
+          <ScalarProperty Name="EnergyAuditReco" ColumnName="EnergyAuditReco" />
+          <ScalarProperty Name="GreenFleetReco" ColumnName="GreenFleetReco" />
+          <ScalarProperty Name="RenewableElectricityReco" ColumnName="RenewableElectricityReco" />
+          <ScalarProperty Name="PensionFundInvestmentReco" ColumnName="PensionFundInvestmentReco" />
+          <ScalarProperty Name="GreenProductReco" ColumnName="GreenProductReco" />
+          <ScalarProperty Name="CertificationReco" ColumnName="CertificationReco" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="GreenRecoID" ColumnName="GreenRecoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="News">
+      <EntityTypeMapping TypeName="CardBossModel1.News">
+        <MappingFragment StoreEntitySet="News">
+          <ScalarProperty Name="NewsDate" ColumnName="NewsDate" />
+          <ScalarProperty Name="NewsImpact" ColumnName="NewsImpact" />
+          <ScalarProperty Name="NewsBody" ColumnName="NewsBody" />
+          <ScalarProperty Name="NewsMapID" ColumnName="NewsMapID" />
+          <ScalarProperty Name="NewsID" ColumnName="NewsID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NewsMaps">
+      <EntityTypeMapping TypeName="CardBossModel1.NewsMap">
+        <MappingFragment StoreEntitySet="NewsMap">
+          <ScalarProperty Name="NewsWord" ColumnName="NewsWord" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="NewsMapID" ColumnName="NewsMapID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompanyProductGraphs">
+      <EntityTypeMapping TypeName="CardBossModel1.CompanyProductGraph">
+        <MappingFragment StoreEntitySet="CompanyProductGraph">
+          <ScalarProperty Name="ChainId" ColumnName="ChainId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="CompanyProductGraphID" ColumnName="CompanyProductGraphID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Holidays">
+      <EntityTypeMapping TypeName="CardBossModel1.Holiday">
+        <MappingFragment StoreEntitySet="Holiday">
+          <ScalarProperty Name="Regional" ColumnName="Regional" />
+          <ScalarProperty Name="Federal" ColumnName="Federal" />
+          <ScalarProperty Name="HolidayDate" ColumnName="HolidayDate" />
+          <ScalarProperty Name="HolidayName" ColumnName="HolidayName" />
+          <ScalarProperty Name="HolidayID" ColumnName="HolidayID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="IsTypeOf(CardBossModel1.AspNetUser)">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="zipCode" ColumnName="zipCode" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="LastLoggedIn" ColumnName="LastLoggedIn" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExcelPaths">
+      <EntityTypeMapping TypeName="CardBossModel1.ExcelPath">
+        <MappingFragment StoreEntitySet="ExcelPath">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ExcelPath1" ColumnName="ExcelPath" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="ExcelPathID" ColumnName="ExcelPathID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vendors">
+      <EntityTypeMapping TypeName="CardBossModel1.Vendor">
+        <MappingFragment StoreEntitySet="Vendor">
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="HourlyCost" ColumnName="HourlyCost" />
+          <ScalarProperty Name="ServiceImage" ColumnName="ServiceImage" />
+          <ScalarProperty Name="ServiceDesc" ColumnName="ServiceDesc" />
+          <ScalarProperty Name="ServiceType" ColumnName="ServiceType" />
+          <ScalarProperty Name="ServiceVendorID" ColumnName="ServiceVendorID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VendorMessages">
+      <EntityTypeMapping TypeName="CardBossModel1.VendorMessage">
+        <MappingFragment StoreEntitySet="VendorMessage">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="VendorMessage1" ColumnName="VendorMessage" />
+          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+          <ScalarProperty Name="VendorMessageID" ColumnName="VendorMessageID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductInfoes">
+      <EntityTypeMapping TypeName="CardBossModel1.ProductInfo">
+        <MappingFragment StoreEntitySet="ProductInfo">
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+          <ScalarProperty Name="ShelfLifeUnit" ColumnName="ShelfLifeUnit" />
+          <ScalarProperty Name="ShelfLife" ColumnName="ShelfLife" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="MOQUnit" ColumnName="MOQUnit" />
+          <ScalarProperty Name="MinimumOrderQuantity" ColumnName="MinimumOrderQuantity" />
+          <ScalarProperty Name="PriceUnit" ColumnName="PriceUnit" />
+          <ScalarProperty Name="PricePerUnit" ColumnName="PricePerUnit" />
+          <ScalarProperty Name="OtherID" ColumnName="OtherID" />
+          <ScalarProperty Name="SKU" ColumnName="SKU" />
+          <ScalarProperty Name="ProductSubCategory" ColumnName="ProductSubCategory" />
+          <ScalarProperty Name="ProductCategory" ColumnName="ProductCategory" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExpertMessages">
+      <EntityTypeMapping TypeName="CardBossModel1.ExpertMessage">
+        <MappingFragment StoreEntitySet="ExpertMessage">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="ExpertID" ColumnName="ExpertID" />
+          <ScalarProperty Name="ExpertMessageID" ColumnName="ExpertMessageID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Expert1">
+      <EntityTypeMapping TypeName="CardBossModel1.Expert1">
+        <MappingFragment StoreEntitySet="Experts">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="HourlyCost" ColumnName="HourlyCost" />
+          <ScalarProperty Name="ExpertDesc" ColumnName="ExpertDesc" />
+          <ScalarProperty Name="ExpertType" ColumnName="ExpertType" />
+          <ScalarProperty Name="ExpertID" ColumnName="ExpertID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Professionals">
+      <EntityTypeMapping TypeName="CardBossModel1.Professional">
+        <MappingFragment StoreEntitySet="Professional">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="HourlyCost" ColumnName="HourlyCost" />
+          <ScalarProperty Name="ProfessionalDesc" ColumnName="ProfessionalDesc" />
+          <ScalarProperty Name="ProfessionalType" ColumnName="ProfessionalType" />
+          <ScalarProperty Name="ProfessionalID" ColumnName="ProfessionalID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bios">
+      <EntityTypeMapping TypeName="CardBossModel1.Bio">
+        <MappingFragment StoreEntitySet="Bio">
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="HourlyCost" ColumnName="HourlyCost" />
+          <ScalarProperty Name="BioDesc" ColumnName="BioDesc" />
+          <ScalarProperty Name="BioType" ColumnName="BioType" />
+          <ScalarProperty Name="BioID" ColumnName="BioID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Resumes">
+      <EntityTypeMapping TypeName="CardBossModel1.Resume">
+        <MappingFragment StoreEntitySet="Resume">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="HourlyCost" ColumnName="HourlyCost" />
+          <ScalarProperty Name="ResumeDesc" ColumnName="ResumeDesc" />
+          <ScalarProperty Name="ResumeType" ColumnName="ResumeType" />
+          <ScalarProperty Name="ResumeID" ColumnName="ResumeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MonitorProducts">
+      <EntityTypeMapping TypeName="CardBossModel1.MonitorProduct">
+        <MappingFragment StoreEntitySet="MonitorProduct">
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="OtherID" ColumnName="OtherID" />
+          <ScalarProperty Name="SKU" ColumnName="SKU" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="MonitorProductName" ColumnName="MonitorProductName" />
+          <ScalarProperty Name="MonitorProductID" ColumnName="MonitorProductID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MonStatus">
+      <EntityTypeMapping TypeName="CardBossModel1.MonStatu">
+        <MappingFragment StoreEntitySet="MonStatus">
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="MonitorStatus" ColumnName="MonitorStatus" />
+          <ScalarProperty Name="MonitorProductID" ColumnName="MonitorProductID" />
+          <ScalarProperty Name="MonitorStatusID" ColumnName="MonitorStatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

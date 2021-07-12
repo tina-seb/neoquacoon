@@ -1,0 +1,410 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CardBossModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRole">
+    <Key>
+      <PropertyRef Name="AspNetRoles_Id" />
+      <PropertyRef Name="AspNetUsers_Id" />
+    </Key>
+    <Property Name="AspNetRoles_Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AspNetUsers_Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AccountId" Type="Int32" />
+    <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="UserType" Type="Int32" />
+    <Property Name="LastLoggedIn" Type="DateTime" Precision="3" />
+    <Property Name="AddressId" Type="Int32" />
+    <Property Name="Bio" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="BusinessId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="BorderRef">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Border" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Box">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Box1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BuyerPersona">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Stage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Goals" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Budget" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Card">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EBayItemID" Type="Int64" Nullable="false" />
+    <Property Name="ItemURL" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="GalleryURL" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryID" Type="Int64" />
+    <Property Name="CategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BuyerLocation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Sellingprice" Type="Double" />
+    <Property Name="ShippingPrice" Type="Double" />
+    <Property Name="SoldTime" Type="DateTime" Precision="3" />
+    <Property Name="PopulationSupply" Type="Int32" />
+    <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GradingCompany" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NumPlayers" Type="Int32" />
+    <Property Name="CardYear" Type="Int32" />
+    <Property Name="Design" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CardManufacturer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Border" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Era" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Feature" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Licensed" Type="Int32" />
+    <Property Name="AvgPastFiveSellingPrice" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Original" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Product" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="League" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Player" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Season" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Series" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Team" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Sport" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="HighDemand" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CardBuyer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CardID" Type="Int32" Nullable="false" />
+    <Property Name="BuyerPersonaID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CardCompanyRef">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CardCompany" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CardDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EBayItemID" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="label" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="value" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CardFeatureRef">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CardFeature" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CurrentInventory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EBayItemID" Type="Int64" Nullable="false" />
+    <Property Name="ItemURL" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="GalleryURL" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="SellingState" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryID" Type="Int64" />
+    <Property Name="CategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BuyerLocation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Sellingprice" Type="Double" />
+    <Property Name="ShippingPrice" Type="Double" />
+    <Property Name="SoldTime" Type="DateTime" Precision="3" />
+    <Property Name="PopulationSupply" Type="Int32" />
+    <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GradingCompany" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NumPlayers" Type="Int32" />
+    <Property Name="CardYear" Type="Int32" />
+    <Property Name="Design" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CardManufacturer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Border" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Era" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Feature" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Licensed" Type="Int32" />
+    <Property Name="AvgPastFiveSellingPrice" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Original" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Product" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="League" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Player" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Season" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Series" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Team" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Sport" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="WatchCount" Type="Int32" />
+    <Property Name="HighDemand" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DesignRef">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Design" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Era">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Era1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GradingRef">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GradingCompany" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Grade" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GradeDesc" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="HallOfFame">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HallOfFame1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InitialTrainingData">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EBayItemID" Type="Int64" />
+    <Property Name="EbayTitle" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="SellingPrice" Type="Double" />
+    <Property Name="SoldTime" Type="DateTime" Precision="3" />
+    <Property Name="Original" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Grader" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Manufacturer" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CardYear" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Product" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="League" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Era" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Player" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CardAttributes" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Season" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Series" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Team" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ItemURL" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="GalleryURL" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryID" Type="Int64" />
+    <Property Name="Sport" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BuyerLocation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="BidderCount" Type="Int32" />
+    <Property Name="CardNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="InjuryHistory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InjuryHistory1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="League">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="League1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="License">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Company" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Sport" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Original">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Original1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Player">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PER" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="FutureExpectationDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FutureExpectationRating" Type="Int32" />
+    <Property Name="FiveYearMarketValue" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="PersonalAttributesDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PersonalAttributesRating" Type="Int32" />
+    <Property Name="Tweets" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TwitterSentimentScore" Type="Int32" />
+    <Property Name="RecentInjuryHistory" Type="Int32" />
+    <Property Name="TeamName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TeamRank" Type="Int32" />
+    <Property Name="HallofFame" Type="Int32" />
+    <Property Name="Retirement" Type="Int32" />
+    <Property Name="League" Type="Int32" />
+  </EntityType>
+  <EntityType Name="PlayerStat">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PlayerEfficiencyRating" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TrueShootingPerc" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="AssistRatio" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TurnoverRatio" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="UsageRatio" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="OffensiveReboundRate" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DefensiveReboundRate" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ReboundRate" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ValueAdded" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="EstimatedWinsAdded" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="PriceChangeRef">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PriceChange" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Retirement">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Retirement1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RookieCardInfluence">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RookieCardInfluence1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SoldInventory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EBayItemID" Type="Int64" />
+    <Property Name="EbayTitle" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="CardID" Type="Int32" />
+    <Property Name="ItemURL" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="GalleryURL" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryID" Type="Int64" />
+    <Property Name="CategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PostalCode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="BuyerLocation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SellingPrice" Type="Double" />
+    <Property Name="ShippingPrice" Type="Double" />
+    <Property Name="SoldTime" Type="DateTime" Precision="3" />
+    <Property Name="PlayerID" Type="Int32" />
+    <Property Name="PriceChange" Type="Int32" />
+    <Property Name="BidCount" Type="Int64" />
+    <Property Name="HighDemand" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TeamRank">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Team" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TeamRank1" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Year">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Year1" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="CardBossEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRole" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+    <EntitySet Name="BorderRefs" EntityType="Self.BorderRef" />
+    <EntitySet Name="Boxes" EntityType="Self.Box" />
+    <EntitySet Name="BuyerPersonas" EntityType="Self.BuyerPersona" />
+    <EntitySet Name="Cards" EntityType="Self.Card" />
+    <EntitySet Name="CardBuyers" EntityType="Self.CardBuyer" />
+    <EntitySet Name="CardCompanyRefs" EntityType="Self.CardCompanyRef" />
+    <EntitySet Name="CardDetails" EntityType="Self.CardDetail" />
+    <EntitySet Name="CardFeatureRefs" EntityType="Self.CardFeatureRef" />
+    <EntitySet Name="CurrentInventories" EntityType="Self.CurrentInventory" />
+    <EntitySet Name="DesignRefs" EntityType="Self.DesignRef" />
+    <EntitySet Name="Eras" EntityType="Self.Era" />
+    <EntitySet Name="GradingRefs" EntityType="Self.GradingRef" />
+    <EntitySet Name="HallOfFames" EntityType="Self.HallOfFame" />
+    <EntitySet Name="InitialTrainingDatas" EntityType="Self.InitialTrainingData" />
+    <EntitySet Name="InjuryHistories" EntityType="Self.InjuryHistory" />
+    <EntitySet Name="Leagues" EntityType="Self.League" />
+    <EntitySet Name="Licenses" EntityType="Self.License" />
+    <EntitySet Name="Originals" EntityType="Self.Original" />
+    <EntitySet Name="Players" EntityType="Self.Player" />
+    <EntitySet Name="PlayerStats" EntityType="Self.PlayerStat" />
+    <EntitySet Name="PriceChangeRefs" EntityType="Self.PriceChangeRef" />
+    <EntitySet Name="Retirements" EntityType="Self.Retirement" />
+    <EntitySet Name="RookieCardInfluences" EntityType="Self.RookieCardInfluence" />
+    <EntitySet Name="SoldInventories" EntityType="Self.SoldInventory" />
+    <EntitySet Name="TeamRanks" EntityType="Self.TeamRank" />
+    <EntitySet Name="Years" EntityType="Self.Year" />
+  </EntityContainer>
+</Schema>

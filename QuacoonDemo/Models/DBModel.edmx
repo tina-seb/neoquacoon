@@ -1,0 +1,2929 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CardBossModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="AccountId" Type="int" />
+          <Property Name="FirstName" Type="varchar(max)" />
+          <Property Name="LastName" Type="varchar(max)" />
+          <Property Name="CreateDate" Type="datetime2" Precision="7" />
+          <Property Name="UserType" Type="int" />
+          <Property Name="LastLoggedIn" Type="datetime2" Precision="7" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="Title" Type="varchar(max)" />
+          <Property Name="zipCode" Type="varchar" MaxLength="12" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Quacoon.dbo.Bio' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Bio">
+          <Key>
+            <PropertyRef Name="BioID" />
+            <PropertyRef Name="BioType" />
+          </Key>
+          <Property Name="BioID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BioType" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="BioDesc" Type="nvarchar(max)" />
+          <Property Name="HourlyCost" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar(max)" />
+          <Property Name="CompanyId" Type="int" />
+        </EntityType>
+        <EntityType Name="Center">
+          <Key>
+            <PropertyRef Name="CenterID" />
+          </Key>
+          <Property Name="CenterID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="CenterName" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="CenterAddress1" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CenterAddress2" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CenterCity" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CenterState" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CenterCountry" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CenterFunction">
+          <Key>
+            <PropertyRef Name="FunctionID" />
+          </Key>
+          <Property Name="FunctionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FunctionName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FunctionType" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+          </Key>
+          <Property Name="CompanyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="CompanyAddressLine1" Type="nvarchar(max)" />
+          <Property Name="CompanyAddressLine2" Type="nvarchar(max)" />
+          <Property Name="CompanyCity" Type="nvarchar" MaxLength="400" />
+          <Property Name="CompanyState" Type="nvarchar" MaxLength="400" />
+          <Property Name="CompanyCountry" Type="nvarchar" MaxLength="400" />
+          <Property Name="CompanyZipCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="CompanyLocationPhone" Type="nvarchar" MaxLength="20" />
+          <Property Name="CompanyLatitude" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="CompanyLongitude" Type="decimal" Precision="18" Scale="5" />
+        </EntityType>
+        <EntityType Name="CompanyAdmin">
+          <Key>
+            <PropertyRef Name="CompanyAdminID" />
+          </Key>
+          <Property Name="CompanyAdminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="AdminID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CompanyFunction">
+          <Key>
+            <PropertyRef Name="CompanyFunctionID" />
+          </Key>
+          <Property Name="CompanyFunctionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="FunctionID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CompanyLocation">
+          <Key>
+            <PropertyRef Name="CompanyLocationID" />
+          </Key>
+          <Property Name="CompanyLocationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="CompanyAddressLine1" Type="nvarchar(max)" />
+          <Property Name="CompanyAddressLine2" Type="nvarchar(max)" />
+          <Property Name="CompanyCity" Type="nvarchar" MaxLength="400" />
+          <Property Name="CompanyState" Type="nvarchar" MaxLength="400" />
+          <Property Name="CompanyCountry" Type="nvarchar" MaxLength="400" />
+          <Property Name="CompanyZipCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="CompanyLocationPhone" Type="nvarchar" MaxLength="20" />
+          <Property Name="CompanyLatitude" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="CompanyLongitude" Type="decimal" Precision="18" Scale="5" />
+        </EntityType>
+        <EntityType Name="CompanyProductGraph">
+          <Key>
+            <PropertyRef Name="CompanyProductGraphID" />
+          </Key>
+          <Property Name="CompanyProductGraphID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="ChainId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Connection">
+          <Key>
+            <PropertyRef Name="ConnectionID" />
+          </Key>
+          <Property Name="ConnectionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IndividualFrom" Type="int" Nullable="false" />
+          <Property Name="IndividualTo" Type="int" Nullable="false" />
+          <Property Name="ConnectRequestDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="ConnectAcceptDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="ConnectStatus" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Delivery">
+          <Key>
+            <PropertyRef Name="DeliveryID" />
+          </Key>
+          <Property Name="DeliveryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DeliveryName" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="DeliveryAddress" Type="nvarchar(max)" />
+          <Property Name="DeliveryLimitLatitude1" Type="int" />
+          <Property Name="DeliveryLimitLongitude1" Type="int" />
+          <Property Name="DeliveryLimitLatitude2" Type="int" />
+          <Property Name="DeliveryLimitLongitude2" Type="int" />
+          <Property Name="DeliveryLimitLatitude3" Type="int" />
+          <Property Name="DeliveryLimitLongitude3" Type="int" />
+          <Property Name="DeliveryLimitLatitude4" Type="int" />
+          <Property Name="DeliveryLimitLongitude4" Type="int" />
+        </EntityType>
+        <EntityType Name="DeliveryProduct">
+          <Key>
+            <PropertyRef Name="DeliveryProductID" />
+          </Key>
+          <Property Name="DeliveryProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DeliveryUnitID" Type="int" Nullable="false" />
+          <Property Name="ProductUnitID" Type="int" Nullable="false" />
+          <Property Name="TrackTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="TrackAddress1" Type="varchar(max)" Nullable="false" />
+          <Property Name="TrackAddress2" Type="varchar(max)" />
+          <Property Name="TrackCity" Type="varchar(max)" />
+          <Property Name="TrackState" Type="varchar(max)" />
+          <Property Name="TrackCountry" Type="varchar(max)" />
+          <Property Name="Latitude" Type="int" Nullable="false" />
+          <Property Name="Longitude" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DeliveryProductTracingUpdateRequest">
+          <Key>
+            <PropertyRef Name="DeliveryProductTracingUpdateRequestID" />
+          </Key>
+          <Property Name="DeliveryProductTracingUpdateRequestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DeliveryUnitID" Type="int" Nullable="false" />
+          <Property Name="ProductUnitID" Type="int" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="IndividualID" Type="int" Nullable="false" />
+          <Property Name="RequestStatus" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DeliveryUnit">
+          <Key>
+            <PropertyRef Name="DeliveryUnitID" />
+          </Key>
+          <Property Name="DeliveryUnitID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DeliveryID" Type="int" Nullable="false" />
+          <Property Name="DeliveryName" Type="nvarchar(max)" />
+          <Property Name="Capacity" Type="int" />
+          <Property Name="DeliveryUnitLimitLatitude1" Type="int" />
+          <Property Name="DeliveryUnitLimitLongitude1" Type="int" />
+          <Property Name="DeliveryUnitLimitLatitude2" Type="int" />
+          <Property Name="DeliveryUnitLimitLongitude2" Type="int" />
+          <Property Name="DeliveryUnitLimitLatitude3" Type="int" />
+          <Property Name="DeliveryUnitLimitLongitude3" Type="int" />
+          <Property Name="DeliveryUnitLimitLatitude4" Type="int" />
+          <Property Name="DeliveryUnitLimitLongitude4" Type="int" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="EventID" />
+          </Key>
+          <Property Name="EventID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EventName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="EventType" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="EventImpact" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventFunction">
+          <Key>
+            <PropertyRef Name="EventFunctionID" />
+          </Key>
+          <Property Name="EventFunctionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EventID" Type="int" Nullable="false" />
+          <Property Name="FunctionID" Type="int" Nullable="false" />
+          <Property Name="ImpactLevel" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ExcelPath">
+          <Key>
+            <PropertyRef Name="ExcelPathID" />
+          </Key>
+          <Property Name="ExcelPathID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="ExcelPath" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Quacoon.dbo.ExpertMessage' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ExpertMessage">
+          <Key>
+            <PropertyRef Name="ExpertMessageID" />
+            <PropertyRef Name="ExpertID" />
+            <PropertyRef Name="Message" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="CreateDate" />
+          </Key>
+          <Property Name="ExpertMessageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExpertID" Type="int" Nullable="false" />
+          <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Quacoon.dbo.Experts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Experts">
+          <Key>
+            <PropertyRef Name="ExpertID" />
+            <PropertyRef Name="ExpertType" />
+          </Key>
+          <Property Name="ExpertID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExpertType" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ExpertDesc" Type="nvarchar(max)" />
+          <Property Name="HourlyCost" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar(max)" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="FunctionLookup">
+          <Key>
+            <PropertyRef Name="FunctionLookupID" />
+          </Key>
+          <Property Name="FunctionLookupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FunctionName" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GraphConnections">
+          <Key>
+            <PropertyRef Name="GraphConnectionID" />
+          </Key>
+          <Property Name="GraphConnectionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ChainId" Type="int" Nullable="false" />
+          <Property Name="SubChainId" Type="int" />
+          <Property Name="NodeNameOne" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="NodeNameTwo" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GraphNodes">
+          <Key>
+            <PropertyRef Name="GraphNodeID" />
+          </Key>
+          <Property Name="GraphNodeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ChainId" Type="int" Nullable="false" />
+          <Property Name="NodeName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Color" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Category" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GreenCompany">
+          <Key>
+            <PropertyRef Name="GreenCompanyID" />
+          </Key>
+          <Property Name="GreenCompanyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="TotalScore" Type="int" Nullable="false" />
+          <Property Name="CertificationScore" Type="int" Nullable="false" />
+          <Property Name="GreenProductScore" Type="int" Nullable="false" />
+          <Property Name="PensionFundInvestmentScore" Type="int" Nullable="false" />
+          <Property Name="RenewableElectricitySource" Type="int" Nullable="false" />
+          <Property Name="GreenFleetScore" Type="int" Nullable="false" />
+          <Property Name="EnergyAuditScore" Type="int" Nullable="false" />
+          <Property Name="FoodWastageScore" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GreenFunctionAverage">
+          <Key>
+            <PropertyRef Name="GreenFunctionAverageID" />
+          </Key>
+          <Property Name="GreenFunctionAverageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AvgTotalScore" Type="int" Nullable="false" />
+          <Property Name="AvgCertificationScore" Type="int" Nullable="false" />
+          <Property Name="AvgGreenProductScore" Type="int" Nullable="false" />
+          <Property Name="AvgPensionFundInvestmentScore" Type="int" Nullable="false" />
+          <Property Name="AvgRenewableElectricitySource" Type="int" Nullable="false" />
+          <Property Name="AvgGreenFleetScore" Type="int" Nullable="false" />
+          <Property Name="AvgEnergyAuditScore" Type="int" Nullable="false" />
+          <Property Name="AvgFoodWastageScore" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GreenReco">
+          <Key>
+            <PropertyRef Name="GreenRecoID" />
+          </Key>
+          <Property Name="GreenRecoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="CertificationReco" Type="int" Nullable="false" />
+          <Property Name="GreenProductReco" Type="int" Nullable="false" />
+          <Property Name="PensionFundInvestmentReco" Type="int" Nullable="false" />
+          <Property Name="RenewableElectricityReco" Type="int" Nullable="false" />
+          <Property Name="GreenFleetReco" Type="int" Nullable="false" />
+          <Property Name="EnergyAuditReco" Type="int" Nullable="false" />
+          <Property Name="FoodWastageReco" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Holiday">
+          <Key>
+            <PropertyRef Name="HolidayID" />
+          </Key>
+          <Property Name="HolidayID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HolidayName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="HolidayDate" Type="datetime" Nullable="false" />
+          <Property Name="Federal" Type="int" Nullable="false" />
+          <Property Name="Regional" Type="int" />
+        </EntityType>
+        <EntityType Name="IndividualCompanyHistory">
+          <Key>
+            <PropertyRef Name="IndividualCompanyHistoryID" />
+          </Key>
+          <Property Name="IndividualCompanyHistoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IndividualID" Type="int" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="EndDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Title" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IndividualInterests">
+          <Key>
+            <PropertyRef Name="IndividualInterestsID" />
+          </Key>
+          <Property Name="IndividualInterestsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IndividualID" Type="int" Nullable="false" />
+          <Property Name="InterestID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Interest">
+          <Key>
+            <PropertyRef Name="InterestID" />
+          </Key>
+          <Property Name="InterestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InterestName" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Messages">
+          <Key>
+            <PropertyRef Name="MessageID" />
+          </Key>
+          <Property Name="MessageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FromID" Type="int" />
+          <Property Name="ToID" Type="int" />
+          <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ParentID" Type="int" />
+        </EntityType>
+        <EntityType Name="MonitorProduct">
+          <Key>
+            <PropertyRef Name="MonitorProductID" />
+          </Key>
+          <Property Name="MonitorProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MonitorProductName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SKU" Type="nvarchar(max)" />
+          <Property Name="OtherID" Type="nvarchar(max)" />
+          <Property Name="Priority" Type="int" />
+        </EntityType>
+        <EntityType Name="MonStatus">
+          <Key>
+            <PropertyRef Name="MonitorStatusID" />
+          </Key>
+          <Property Name="MonitorStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MonitorProductID" Type="int" Nullable="false" />
+          <Property Name="MonitorStatus" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CompanyID" Type="int" />
+          <Property Name="latitude" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="longitude" Type="decimal" Precision="18" Scale="5" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="NewsID" />
+          </Key>
+          <Property Name="NewsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NewsMapID" Type="int" Nullable="false" />
+          <Property Name="NewsBody" Type="nvarchar(max)" />
+          <Property Name="NewsImpact" Type="nvarchar" MaxLength="20" />
+          <Property Name="NewsDate" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Quacoon.dbo.NewsMap' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="NewsMap">
+          <Key>
+            <PropertyRef Name="NewsMapID" />
+            <PropertyRef Name="CompanyID" />
+            <PropertyRef Name="NewsWord" />
+          </Key>
+          <Property Name="NewsMapID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="NewsWord" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Notifications">
+          <Key>
+            <PropertyRef Name="NotificationID" />
+          </Key>
+          <Property Name="NotificationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NotificationMessage" Type="varchar(max)" Nullable="false" />
+          <Property Name="NotificationType" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="NotificationTime" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="PostID" />
+          </Key>
+          <Property Name="PostID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Post" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Privacy" Type="int" />
+          <Property Name="InterestID" Type="int" />
+          <Property Name="createdate" Type="datetime2" Precision="7" />
+          <Property Name="imageURL" Type="nvarchar(max)" />
+          <Property Name="username" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Privacy">
+          <Key>
+            <PropertyRef Name="PrivacyID" />
+          </Key>
+          <Property Name="PrivacyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PrivacyLabel" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ProductCategory" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SKU" Type="nvarchar(max)" />
+          <Property Name="OtherID" Type="nvarchar(max)" />
+          <Property Name="imageURL" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ProductCompany">
+          <Key>
+            <PropertyRef Name="ProductCompanyID" />
+          </Key>
+          <Property Name="ProductCompanyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyID" Type="int" />
+          <Property Name="ProductID" Type="int" />
+        </EntityType>
+        <EntityType Name="ProductCompanyDemand">
+          <Key>
+            <PropertyRef Name="ProductCompanyDemandID" />
+          </Key>
+          <Property Name="ProductCompanyDemandID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
+          <Property Name="Month" Type="int" Nullable="false" />
+          <Property Name="Demand" Type="int" Nullable="false" />
+          <Property Name="DemandUnit" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="safety" Type="int" Nullable="false" />
+          <Property Name="sold" Type="int" Nullable="false" />
+          <Property Name="backorder" Type="int" Nullable="false" />
+          <Property Name="instock" Type="int" />
+          <Property Name="demanddate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ProductCompanyDemandUpdateRequest">
+          <Key>
+            <PropertyRef Name="ProductCompanyDemandUpdateRequestID" />
+          </Key>
+          <Property Name="ProductCompanyDemandUpdateRequestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductUnitID" Type="int" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="IndividualID" Type="int" Nullable="false" />
+          <Property Name="RequestStatus" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductCompanySupply">
+          <Key>
+            <PropertyRef Name="ProductCompanySupplyID" />
+          </Key>
+          <Property Name="ProductCompanySupplyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
+          <Property Name="Month" Type="int" Nullable="false" />
+          <Property Name="Supply" Type="int" Nullable="false" />
+          <Property Name="SupplyUnit" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductCompanySupplyUpdateRequest">
+          <Key>
+            <PropertyRef Name="ProductCompanySupplyUpdateRequestID" />
+          </Key>
+          <Property Name="ProductCompanySupplyUpdateRequestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductUnitID" Type="int" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="IndividualID" Type="int" Nullable="false" />
+          <Property Name="RequestStatus" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductDestination">
+          <Key>
+            <PropertyRef Name="ProductDestinationID" />
+          </Key>
+          <Property Name="ProductDestinationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductUnitID" Type="int" Nullable="false" />
+          <Property Name="SupplierCompanyID" Type="int" Nullable="false" />
+          <Property Name="DestinationCompanyID" Type="int" Nullable="false" />
+          <Property Name="ExpectedDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="ExpectedLevel" Type="float" Nullable="false" />
+          <Property Name="ExpectedLevelUnit" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductDestinationLeadTime">
+          <Key>
+            <PropertyRef Name="ProductDestinationLeadTimeID" />
+          </Key>
+          <Property Name="ProductDestinationLeadTimeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductUnitID" Type="int" Nullable="false" />
+          <Property Name="DestinationCompanyID" Type="int" Nullable="false" />
+          <Property Name="MinLeadTime" Type="int" Nullable="false" />
+          <Property Name="MaxLeadTime" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductInfo">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ProductCategory" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ProductSubCategory" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SKU" Type="nvarchar(max)" />
+          <Property Name="OtherID" Type="nvarchar(max)" />
+          <Property Name="ImageURL" Type="nvarchar(max)" />
+          <Property Name="PricePerUnit" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="PriceUnit" Type="nvarchar" MaxLength="100" />
+          <Property Name="MinimumOrderQuantity" Type="int" />
+          <Property Name="MOQUnit" Type="nvarchar" MaxLength="100" />
+          <Property Name="Rating" Type="nvarchar(max)" />
+          <Property Name="ShelfLife" Type="int" />
+          <Property Name="ShelfLifeUnit" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ProductMaterial">
+          <Key>
+            <PropertyRef Name="ProductMaterialID" />
+          </Key>
+          <Property Name="ProductMaterialID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductUnitID" Type="int" Nullable="false" />
+          <Property Name="MaterialUnitID" Type="int" Nullable="false" />
+          <Property Name="MinLeadTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="MaxLeadTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="MakeOrder" Type="int" Nullable="false" />
+          <Property Name="MakeQuantity" Type="int" />
+          <Property Name="MakeQuantityUnit" Type="int" />
+          <Property Name="ProcessCategory" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ProductReplacement">
+          <Key>
+            <PropertyRef Name="ProductReplacementID" />
+          </Key>
+          <Property Name="ProductReplacementID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="ReplacementID" Type="int" Nullable="false" />
+          <Property Name="Scarcity" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductTotalDemand">
+          <Key>
+            <PropertyRef Name="ProductTotalDemandID" />
+          </Key>
+          <Property Name="ProductTotalDemandID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductUnitID" Type="int" Nullable="false" />
+          <Property Name="DemandYear" Type="int" Nullable="false" />
+          <Property Name="DemandMonth" Type="int" Nullable="false" />
+          <Property Name="Demand" Type="float" Nullable="false" />
+          <Property Name="DemandUnit" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductTracingUpdateRequest">
+          <Key>
+            <PropertyRef Name="ProductTracingUpdateRequestID" />
+          </Key>
+          <Property Name="ProductTracingUpdateRequestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductUnitID" Type="int" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="IndividualID" Type="int" Nullable="false" />
+          <Property Name="RequestStatus" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductUnitTracing">
+          <Key>
+            <PropertyRef Name="ProductUnitID" />
+          </Key>
+          <Property Name="ProductUnitID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TrackTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="TrackAddress1" Type="varchar(max)" Nullable="false" />
+          <Property Name="TrackAddress2" Type="varchar(max)" />
+          <Property Name="TrackCity" Type="varchar(max)" />
+          <Property Name="TrackState" Type="varchar(max)" />
+          <Property Name="TrackCountry" Type="varchar(max)" />
+          <Property Name="Latitude" Type="int" Nullable="false" />
+          <Property Name="Longitude" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Quacoon.dbo.Professional' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Professional">
+          <Key>
+            <PropertyRef Name="ProfessionalID" />
+            <PropertyRef Name="ProfessionalType" />
+          </Key>
+          <Property Name="ProfessionalID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProfessionalType" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ProfessionalDesc" Type="nvarchar(max)" />
+          <Property Name="HourlyCost" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar(max)" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="ProfilePics">
+          <Key>
+            <PropertyRef Name="ProfilePicID" />
+          </Key>
+          <Property Name="ProfilePicID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProfilePicURL" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Recommendation">
+          <Key>
+            <PropertyRef Name="RecoID" />
+          </Key>
+          <Property Name="RecoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RecoTimeStamp" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Reco" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Reason" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ResellLevel">
+          <Key>
+            <PropertyRef Name="ResellLevelID" />
+          </Key>
+          <Property Name="ResellLevelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductUnitID" Type="int" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="ExcessLevel" Type="int" Nullable="false" />
+          <Property Name="ExcessLevelUnit" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ResellLevelTimestamp" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ResellUpdateRequest">
+          <Key>
+            <PropertyRef Name="ResellUpdateRequestID" />
+          </Key>
+          <Property Name="ResellUpdateRequestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductUnitID" Type="int" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="IndividualID" Type="int" Nullable="false" />
+          <Property Name="RequestStatus" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="RequestDate" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Quacoon.dbo.Resume' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Resume">
+          <Key>
+            <PropertyRef Name="ResumeID" />
+            <PropertyRef Name="ResumeType" />
+          </Key>
+          <Property Name="ResumeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ResumeType" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ResumeDesc" Type="nvarchar(max)" />
+          <Property Name="HourlyCost" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar(max)" />
+          <Property Name="UserId" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="RiskAlerts">
+          <Key>
+            <PropertyRef Name="RiskAlertID" />
+          </Key>
+          <Property Name="RiskAlertID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RiskLocation" Type="nvarchar(max)" />
+          <Property Name="RiskDesc" Type="nvarchar(max)" />
+          <Property Name="RiskImpact" Type="nvarchar" MaxLength="20" />
+          <Property Name="RiskDate" Type="datetime" />
+          <Property Name="RiskLatitude" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="RiskLongitude" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="RiskFunction" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ShareList">
+          <Key>
+            <PropertyRef Name="ShareListID" />
+          </Key>
+          <Property Name="ShareListID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PostID" Type="int" Nullable="false" />
+          <Property Name="IndividualID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ShortageLevel">
+          <Key>
+            <PropertyRef Name="ShortageLevelID" />
+          </Key>
+          <Property Name="ShortageLevelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductUnitID" Type="int" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="ShortageLevel" Type="int" Nullable="false" />
+          <Property Name="ShoratgeLevelUnit" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ResellLevelTimestamp" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ShortageUpdateRequest">
+          <Key>
+            <PropertyRef Name="ShortageUpdateRequestID" />
+          </Key>
+          <Property Name="ShortageUpdateRequestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductUnitID" Type="int" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="IndividualID" Type="int" Nullable="false" />
+          <Property Name="RequestStatus" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="RequestDate" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Skill">
+          <Key>
+            <PropertyRef Name="SkillID" />
+          </Key>
+          <Property Name="SkillID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IndividualID" Type="int" Nullable="false" />
+          <Property Name="Available" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StorageCategory">
+          <Key>
+            <PropertyRef Name="StorageCategoryID" />
+          </Key>
+          <Property Name="StorageCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StorageCategoryName" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StorageUnit">
+          <Key>
+            <PropertyRef Name="StorageID" />
+          </Key>
+          <Property Name="StorageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StorageName" Type="nvarchar(max)" />
+          <Property Name="TotalCapacity" Type="int" />
+          <Property Name="AvailableCapacity" Type="int" />
+          <Property Name="StorageAddress1" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="StorageAddress2" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="StorageCity" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="StorageState" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="StorageCountry" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="StorageLatitude" Type="int" />
+          <Property Name="StorageLongitude" Type="int" />
+        </EntityType>
+        <EntityType Name="StorageUnitCategory">
+          <Key>
+            <PropertyRef Name="StorageUnitCategoryID" />
+          </Key>
+          <Property Name="StorageUnitCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StorageID" Type="int" Nullable="false" />
+          <Property Name="StorageCategoryID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SupplierCompany">
+          <Key>
+            <PropertyRef Name="SupplierCompanyID" />
+          </Key>
+          <Property Name="SupplierCompanyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SupplierID" Type="int" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="ContractStartDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="ContractEndDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="ContractDesc" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SupplierInvite">
+          <Key>
+            <PropertyRef Name="SupplierInviteID" />
+          </Key>
+          <Property Name="SupplierInviteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="SupplierName" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="SupplierEmail" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="User" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="InviteDate" Type="datetime" Nullable="false" />
+          <Property Name="InviteLastSent" Type="datetime" />
+          <Property Name="InviteCount" Type="int" />
+          <Property Name="InviteAccepted" Type="int" />
+        </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="UnitID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UnitOfMeasure">
+          <Key>
+            <PropertyRef Name="UnitMeasureID" />
+          </Key>
+          <Property Name="UnitMeasureID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UnitMeasure" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Vendor">
+          <Key>
+            <PropertyRef Name="ServiceVendorID" />
+          </Key>
+          <Property Name="ServiceVendorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ServiceType" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ServiceDesc" Type="nvarchar(max)" />
+          <Property Name="ServiceImage" Type="nvarchar(max)" />
+          <Property Name="HourlyCost" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar(max)" />
+          <Property Name="CompanyId" Type="int" />
+        </EntityType>
+        <EntityType Name="VendorMessage">
+          <Key>
+            <PropertyRef Name="VendorMessageID" />
+          </Key>
+          <Property Name="VendorMessageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VendorID" Type="int" Nullable="false" />
+          <Property Name="VendorMessage" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Function Name="InitializeCompanyProductDemand" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="companyid" Type="int" Mode="In" />
+          <Parameter Name="productid" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="CardBossModel1StoreContainer">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Center" EntityType="Self.Center" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CenterFunction" EntityType="Self.CenterFunction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompanyAdmin" EntityType="Self.CompanyAdmin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompanyFunction" EntityType="Self.CompanyFunction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompanyLocation" EntityType="Self.CompanyLocation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompanyProductGraph" EntityType="Self.CompanyProductGraph" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Connection" EntityType="Self.Connection" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Delivery" EntityType="Self.Delivery" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeliveryProduct" EntityType="Self.DeliveryProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeliveryProductTracingUpdateRequest" EntityType="Self.DeliveryProductTracingUpdateRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeliveryUnit" EntityType="Self.DeliveryUnit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EventFunction" EntityType="Self.EventFunction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExcelPath" EntityType="Self.ExcelPath" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FunctionLookup" EntityType="Self.FunctionLookup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GraphConnections" EntityType="Self.GraphConnections" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GraphNodes" EntityType="Self.GraphNodes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GreenCompany" EntityType="Self.GreenCompany" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GreenFunctionAverage" EntityType="Self.GreenFunctionAverage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GreenReco" EntityType="Self.GreenReco" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Holiday" EntityType="Self.Holiday" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IndividualCompanyHistory" EntityType="Self.IndividualCompanyHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IndividualInterests" EntityType="Self.IndividualInterests" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Interest" EntityType="Self.Interest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MonitorProduct" EntityType="Self.MonitorProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MonStatus" EntityType="Self.MonStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notifications" EntityType="Self.Notifications" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Privacy" EntityType="Self.Privacy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductCompany" EntityType="Self.ProductCompany" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductCompanyDemand" EntityType="Self.ProductCompanyDemand" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductCompanyDemandUpdateRequest" EntityType="Self.ProductCompanyDemandUpdateRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductCompanySupply" EntityType="Self.ProductCompanySupply" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductCompanySupplyUpdateRequest" EntityType="Self.ProductCompanySupplyUpdateRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductDestination" EntityType="Self.ProductDestination" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductDestinationLeadTime" EntityType="Self.ProductDestinationLeadTime" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductInfo" EntityType="Self.ProductInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductMaterial" EntityType="Self.ProductMaterial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductReplacement" EntityType="Self.ProductReplacement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductTotalDemand" EntityType="Self.ProductTotalDemand" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductTracingUpdateRequest" EntityType="Self.ProductTracingUpdateRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductUnitTracing" EntityType="Self.ProductUnitTracing" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProfilePics" EntityType="Self.ProfilePics" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recommendation" EntityType="Self.Recommendation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResellLevel" EntityType="Self.ResellLevel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResellUpdateRequest" EntityType="Self.ResellUpdateRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RiskAlerts" EntityType="Self.RiskAlerts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShareList" EntityType="Self.ShareList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShortageLevel" EntityType="Self.ShortageLevel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShortageUpdateRequest" EntityType="Self.ShortageUpdateRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Skill" EntityType="Self.Skill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StorageCategory" EntityType="Self.StorageCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StorageUnit" EntityType="Self.StorageUnit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StorageUnitCategory" EntityType="Self.StorageUnitCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SupplierCompany" EntityType="Self.SupplierCompany" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SupplierInvite" EntityType="Self.SupplierInvite" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Unit" EntityType="Self.Unit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UnitOfMeasure" EntityType="Self.UnitOfMeasure" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vendor" EntityType="Self.Vendor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VendorMessage" EntityType="Self.VendorMessage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bio" EntityType="Self.Bio" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Bio].[BioID] AS [BioID], 
+    [Bio].[BioType] AS [BioType], 
+    [Bio].[BioDesc] AS [BioDesc], 
+    [Bio].[HourlyCost] AS [HourlyCost], 
+    [Bio].[CreateDate] AS [CreateDate], 
+    [Bio].[CreatedBy] AS [CreatedBy], 
+    [Bio].[UpdateDate] AS [UpdateDate], 
+    [Bio].[UpdatedBy] AS [UpdatedBy], 
+    [Bio].[CompanyId] AS [CompanyId]
+    FROM [dbo].[Bio] AS [Bio]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ExpertMessage" EntityType="Self.ExpertMessage" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ExpertMessage].[ExpertMessageID] AS [ExpertMessageID], 
+    [ExpertMessage].[ExpertID] AS [ExpertID], 
+    [ExpertMessage].[Message] AS [Message], 
+    [ExpertMessage].[UserID] AS [UserID], 
+    [ExpertMessage].[UserName] AS [UserName], 
+    [ExpertMessage].[Email] AS [Email], 
+    [ExpertMessage].[CreateDate] AS [CreateDate]
+    FROM [dbo].[ExpertMessage] AS [ExpertMessage]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Experts" EntityType="Self.Experts" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Experts].[ExpertID] AS [ExpertID], 
+    [Experts].[ExpertType] AS [ExpertType], 
+    [Experts].[ExpertDesc] AS [ExpertDesc], 
+    [Experts].[HourlyCost] AS [HourlyCost], 
+    [Experts].[CreateDate] AS [CreateDate], 
+    [Experts].[CreatedBy] AS [CreatedBy], 
+    [Experts].[UpdateDate] AS [UpdateDate], 
+    [Experts].[UpdatedBy] AS [UpdatedBy], 
+    [Experts].[UserId] AS [UserId]
+    FROM [dbo].[Experts] AS [Experts]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="NewsMap" EntityType="Self.NewsMap" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [NewsMap].[NewsMapID] AS [NewsMapID], 
+    [NewsMap].[CompanyID] AS [CompanyID], 
+    [NewsMap].[NewsWord] AS [NewsWord]
+    FROM [dbo].[NewsMap] AS [NewsMap]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Professional" EntityType="Self.Professional" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Professional].[ProfessionalID] AS [ProfessionalID], 
+    [Professional].[ProfessionalType] AS [ProfessionalType], 
+    [Professional].[ProfessionalDesc] AS [ProfessionalDesc], 
+    [Professional].[HourlyCost] AS [HourlyCost], 
+    [Professional].[CreateDate] AS [CreateDate], 
+    [Professional].[CreatedBy] AS [CreatedBy], 
+    [Professional].[UpdateDate] AS [UpdateDate], 
+    [Professional].[UpdatedBy] AS [UpdatedBy], 
+    [Professional].[UserId] AS [UserId]
+    FROM [dbo].[Professional] AS [Professional]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Resume" EntityType="Self.Resume" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Resume].[ResumeID] AS [ResumeID], 
+    [Resume].[ResumeType] AS [ResumeType], 
+    [Resume].[ResumeDesc] AS [ResumeDesc], 
+    [Resume].[HourlyCost] AS [HourlyCost], 
+    [Resume].[CreateDate] AS [CreateDate], 
+    [Resume].[CreatedBy] AS [CreatedBy], 
+    [Resume].[UpdateDate] AS [UpdateDate], 
+    [Resume].[UpdatedBy] AS [UpdatedBy], 
+    [Resume].[UserId] AS [UserId]
+    FROM [dbo].[Resume] AS [Resume]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CardBossModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRole">
+          <Key>
+            <PropertyRef Name="RoleId" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="RoleId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AccountId" Type="Int32" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="7" />
+          <Property Name="UserType" Type="Int32" />
+          <Property Name="LastLoggedIn" Type="DateTime" Precision="7" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="zipCode" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="CardBossEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRole" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="Centers" EntityType="CardBossModel1.Center" />
+          <EntitySet Name="CenterFunctions" EntityType="CardBossModel1.CenterFunction" />
+          <EntitySet Name="Companies" EntityType="CardBossModel1.Company" />
+          <EntitySet Name="CompanyAdmins" EntityType="CardBossModel1.CompanyAdmin" />
+          <EntitySet Name="CompanyFunctions" EntityType="CardBossModel1.CompanyFunction" />
+          <EntitySet Name="CompanyLocations" EntityType="CardBossModel1.CompanyLocation" />
+          <EntitySet Name="Connections" EntityType="CardBossModel1.Connection" />
+          <EntitySet Name="Deliveries" EntityType="CardBossModel1.Delivery" />
+          <EntitySet Name="DeliveryProducts" EntityType="CardBossModel1.DeliveryProduct" />
+          <EntitySet Name="DeliveryProductTracingUpdateRequests" EntityType="CardBossModel1.DeliveryProductTracingUpdateRequest" />
+          <EntitySet Name="DeliveryUnits" EntityType="CardBossModel1.DeliveryUnit" />
+          <EntitySet Name="Events" EntityType="CardBossModel1.Event" />
+          <EntitySet Name="EventFunctions" EntityType="CardBossModel1.EventFunction" />
+          <EntitySet Name="IndividualCompanyHistories" EntityType="CardBossModel1.IndividualCompanyHistory" />
+          <EntitySet Name="IndividualInterests" EntityType="CardBossModel1.IndividualInterest" />
+          <EntitySet Name="Interests" EntityType="CardBossModel1.Interest" />
+          <EntitySet Name="Messages" EntityType="CardBossModel1.Message" />
+          <EntitySet Name="Notifications" EntityType="CardBossModel1.Notification" />
+          <EntitySet Name="Posts" EntityType="CardBossModel1.Post" />
+          <EntitySet Name="Privacies" EntityType="CardBossModel1.Privacy" />
+          <EntitySet Name="Products" EntityType="CardBossModel1.Product" />
+          <EntitySet Name="ProductCompanyDemandUpdateRequests" EntityType="CardBossModel1.ProductCompanyDemandUpdateRequest" />
+          <EntitySet Name="ProductCompanySupplies" EntityType="CardBossModel1.ProductCompanySupply" />
+          <EntitySet Name="ProductCompanySupplyUpdateRequests" EntityType="CardBossModel1.ProductCompanySupplyUpdateRequest" />
+          <EntitySet Name="ProductDestinations" EntityType="CardBossModel1.ProductDestination" />
+          <EntitySet Name="ProductDestinationLeadTimes" EntityType="CardBossModel1.ProductDestinationLeadTime" />
+          <EntitySet Name="ProductMaterials" EntityType="CardBossModel1.ProductMaterial" />
+          <EntitySet Name="ProductReplacements" EntityType="CardBossModel1.ProductReplacement" />
+          <EntitySet Name="ProductTotalDemands" EntityType="CardBossModel1.ProductTotalDemand" />
+          <EntitySet Name="ProductTracingUpdateRequests" EntityType="CardBossModel1.ProductTracingUpdateRequest" />
+          <EntitySet Name="ProductUnitTracings" EntityType="CardBossModel1.ProductUnitTracing" />
+          <EntitySet Name="Recommendations" EntityType="CardBossModel1.Recommendation" />
+          <EntitySet Name="ResellLevels" EntityType="CardBossModel1.ResellLevel" />
+          <EntitySet Name="ResellUpdateRequests" EntityType="CardBossModel1.ResellUpdateRequest" />
+          <EntitySet Name="ShareLists" EntityType="CardBossModel1.ShareList" />
+          <EntitySet Name="ShortageLevels" EntityType="CardBossModel1.ShortageLevel" />
+          <EntitySet Name="ShortageUpdateRequests" EntityType="CardBossModel1.ShortageUpdateRequest" />
+          <EntitySet Name="Skills" EntityType="CardBossModel1.Skill" />
+          <EntitySet Name="StorageCategories" EntityType="CardBossModel1.StorageCategory" />
+          <EntitySet Name="StorageUnits" EntityType="CardBossModel1.StorageUnit" />
+          <EntitySet Name="StorageUnitCategories" EntityType="CardBossModel1.StorageUnitCategory" />
+          <EntitySet Name="SupplierCompanies" EntityType="CardBossModel1.SupplierCompany" />
+          <EntitySet Name="SupplierInvites" EntityType="CardBossModel1.SupplierInvite" />
+          <EntitySet Name="Units" EntityType="CardBossModel1.Unit" />
+          <EntitySet Name="RiskAlerts" EntityType="CardBossModel1.RiskAlert" />
+          <EntitySet Name="ProductCompanies" EntityType="CardBossModel1.ProductCompany" />
+          <EntitySet Name="ProductCompanyDemands" EntityType="CardBossModel1.ProductCompanyDemand" />
+          <EntitySet Name="ProfilePics" EntityType="CardBossModel1.ProfilePic" />
+          <EntitySet Name="FunctionLookups" EntityType="CardBossModel1.FunctionLookup" />
+          <EntitySet Name="UnitOfMeasures" EntityType="CardBossModel1.UnitOfMeasure" />
+          <FunctionImport Name="InitializeCompanyProductDemand">
+            <Parameter Name="companyid" Mode="In" Type="Int32" />
+            <Parameter Name="productid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="GraphConnections" EntityType="CardBossModel1.GraphConnection" />
+          <EntitySet Name="GraphNodes" EntityType="CardBossModel1.GraphNode" />
+          <EntitySet Name="GreenCompanies" EntityType="CardBossModel1.GreenCompany" />
+          <EntitySet Name="GreenFunctionAverages" EntityType="CardBossModel1.GreenFunctionAverage" />
+          <EntitySet Name="GreenRecoes" EntityType="CardBossModel1.GreenReco" />
+          <EntitySet Name="News" EntityType="CardBossModel1.News" />
+          <EntitySet Name="NewsMaps" EntityType="CardBossModel1.NewsMap" />
+          <EntitySet Name="CompanyProductGraphs" EntityType="CardBossModel1.CompanyProductGraph" />
+          <EntitySet Name="Holidays" EntityType="CardBossModel1.Holiday" />
+          <EntitySet Name="ExcelPaths" EntityType="CardBossModel1.ExcelPath" />
+          <EntitySet Name="Vendors" EntityType="CardBossModel1.Vendor" />
+          <EntitySet Name="VendorMessages" EntityType="CardBossModel1.VendorMessage" />
+          <EntitySet Name="ProductInfoes" EntityType="CardBossModel1.ProductInfo" />
+          <EntitySet Name="ExpertMessages" EntityType="CardBossModel1.ExpertMessage" />
+          <EntitySet Name="Expert1" EntityType="CardBossModel1.Expert1" />
+          <EntitySet Name="Professionals" EntityType="CardBossModel1.Professional" />
+          <EntitySet Name="Bios" EntityType="CardBossModel1.Bio" />
+          <EntitySet Name="Resumes" EntityType="CardBossModel1.Resume" />
+          <EntitySet Name="MonitorProducts" EntityType="CardBossModel1.MonitorProduct" />
+          <EntitySet Name="MonStatus" EntityType="CardBossModel1.MonStatu" />
+        </EntityContainer>
+        <EntityType Name="Center">
+          <Key>
+            <PropertyRef Name="CenterID" />
+          </Key>
+          <Property Name="CenterID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="CenterName" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="CenterAddress1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CenterAddress2" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CenterCity" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CenterState" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CenterCountry" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CenterFunction">
+          <Key>
+            <PropertyRef Name="FunctionID" />
+          </Key>
+          <Property Name="FunctionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FunctionName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FunctionType" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+          </Key>
+          <Property Name="CompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyAddressLine1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyAddressLine2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyCity" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyState" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyCountry" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyZipCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyLocationPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyLatitude" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="CompanyLongitude" Type="Decimal" Precision="18" Scale="5" />
+        </EntityType>
+        <EntityType Name="CompanyAdmin">
+          <Key>
+            <PropertyRef Name="CompanyAdminID" />
+          </Key>
+          <Property Name="CompanyAdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="AdminID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CompanyFunction">
+          <Key>
+            <PropertyRef Name="CompanyFunctionID" />
+          </Key>
+          <Property Name="CompanyFunctionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="FunctionID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CompanyLocation">
+          <Key>
+            <PropertyRef Name="CompanyLocationID" />
+          </Key>
+          <Property Name="CompanyLocationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyAddressLine1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyAddressLine2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyCity" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyState" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyCountry" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyZipCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyLocationPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyLatitude" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="CompanyLongitude" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Connection">
+          <Key>
+            <PropertyRef Name="ConnectionID" />
+          </Key>
+          <Property Name="ConnectionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IndividualFrom" Type="Int32" Nullable="false" />
+          <Property Name="IndividualTo" Type="Int32" Nullable="false" />
+          <Property Name="ConnectRequestDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="ConnectAcceptDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="ConnectStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Delivery">
+          <Key>
+            <PropertyRef Name="DeliveryID" />
+          </Key>
+          <Property Name="DeliveryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeliveryName" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="DeliveryAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DeliveryLimitLatitude1" Type="Int32" />
+          <Property Name="DeliveryLimitLongitude1" Type="Int32" />
+          <Property Name="DeliveryLimitLatitude2" Type="Int32" />
+          <Property Name="DeliveryLimitLongitude2" Type="Int32" />
+          <Property Name="DeliveryLimitLatitude3" Type="Int32" />
+          <Property Name="DeliveryLimitLongitude3" Type="Int32" />
+          <Property Name="DeliveryLimitLatitude4" Type="Int32" />
+          <Property Name="DeliveryLimitLongitude4" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DeliveryProduct">
+          <Key>
+            <PropertyRef Name="DeliveryProductID" />
+          </Key>
+          <Property Name="DeliveryProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeliveryUnitID" Type="Int32" Nullable="false" />
+          <Property Name="ProductUnitID" Type="Int32" Nullable="false" />
+          <Property Name="TrackTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="TrackAddress1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TrackAddress2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TrackCity" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TrackState" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TrackCountry" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Latitude" Type="Int32" Nullable="false" />
+          <Property Name="Longitude" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DeliveryProductTracingUpdateRequest">
+          <Key>
+            <PropertyRef Name="DeliveryProductTracingUpdateRequestID" />
+          </Key>
+          <Property Name="DeliveryProductTracingUpdateRequestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeliveryUnitID" Type="Int32" Nullable="false" />
+          <Property Name="ProductUnitID" Type="Int32" Nullable="false" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="IndividualID" Type="Int32" Nullable="false" />
+          <Property Name="RequestStatus" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DeliveryUnit">
+          <Key>
+            <PropertyRef Name="DeliveryUnitID" />
+          </Key>
+          <Property Name="DeliveryUnitID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeliveryID" Type="Int32" Nullable="false" />
+          <Property Name="DeliveryName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Capacity" Type="Int32" />
+          <Property Name="DeliveryUnitLimitLatitude1" Type="Int32" />
+          <Property Name="DeliveryUnitLimitLongitude1" Type="Int32" />
+          <Property Name="DeliveryUnitLimitLatitude2" Type="Int32" />
+          <Property Name="DeliveryUnitLimitLongitude2" Type="Int32" />
+          <Property Name="DeliveryUnitLimitLatitude3" Type="Int32" />
+          <Property Name="DeliveryUnitLimitLongitude3" Type="Int32" />
+          <Property Name="DeliveryUnitLimitLatitude4" Type="Int32" />
+          <Property Name="DeliveryUnitLimitLongitude4" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="EventID" />
+          </Key>
+          <Property Name="EventID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EventName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EventType" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EventImpact" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="EventFunction">
+          <Key>
+            <PropertyRef Name="EventFunctionID" />
+          </Key>
+          <Property Name="EventFunctionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EventID" Type="Int32" Nullable="false" />
+          <Property Name="FunctionID" Type="Int32" Nullable="false" />
+          <Property Name="ImpactLevel" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="IndividualCompanyHistory">
+          <Key>
+            <PropertyRef Name="IndividualCompanyHistoryID" />
+          </Key>
+          <Property Name="IndividualCompanyHistoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IndividualID" Type="Int32" Nullable="false" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="IndividualInterest">
+          <Key>
+            <PropertyRef Name="IndividualInterestsID" />
+          </Key>
+          <Property Name="IndividualInterestsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IndividualID" Type="Int32" Nullable="false" />
+          <Property Name="InterestID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Interest">
+          <Key>
+            <PropertyRef Name="InterestID" />
+          </Key>
+          <Property Name="InterestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InterestName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="MessageID" />
+          </Key>
+          <Property Name="MessageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FromID" Type="Int32" />
+          <Property Name="ToID" Type="Int32" />
+          <Property Name="Message1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ParentID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="NotificationID" />
+          </Key>
+          <Property Name="NotificationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NotificationMessage" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NotificationType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NotificationTime" Type="DateTime" Nullable="false" Precision="7" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="PostID" />
+          </Key>
+          <Property Name="PostID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Post1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Privacy" Type="Int32" />
+          <Property Name="InterestID" Type="Int32" />
+          <Property Name="createdate" Type="DateTime" Precision="7" />
+          <Property Name="imageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Privacy">
+          <Key>
+            <PropertyRef Name="PrivacyID" />
+          </Key>
+          <Property Name="PrivacyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PrivacyLabel" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProductCategory" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SKU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OtherID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="imageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ProductCompanyDemandUpdateRequest">
+          <Key>
+            <PropertyRef Name="ProductCompanyDemandUpdateRequestID" />
+          </Key>
+          <Property Name="ProductCompanyDemandUpdateRequestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductUnitID" Type="Int32" Nullable="false" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="IndividualID" Type="Int32" Nullable="false" />
+          <Property Name="RequestStatus" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ProductCompanySupply">
+          <Key>
+            <PropertyRef Name="ProductCompanySupplyID" />
+          </Key>
+          <Property Name="ProductCompanySupplyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="Month" Type="Int32" Nullable="false" />
+          <Property Name="Supply" Type="Int32" Nullable="false" />
+          <Property Name="SupplyUnit" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ProductCompanySupplyUpdateRequest">
+          <Key>
+            <PropertyRef Name="ProductCompanySupplyUpdateRequestID" />
+          </Key>
+          <Property Name="ProductCompanySupplyUpdateRequestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductUnitID" Type="Int32" Nullable="false" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="IndividualID" Type="Int32" Nullable="false" />
+          <Property Name="RequestStatus" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ProductDestination">
+          <Key>
+            <PropertyRef Name="ProductDestinationID" />
+          </Key>
+          <Property Name="ProductDestinationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductUnitID" Type="Int32" Nullable="false" />
+          <Property Name="SupplierCompanyID" Type="Int32" Nullable="false" />
+          <Property Name="DestinationCompanyID" Type="Int32" Nullable="false" />
+          <Property Name="ExpectedDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="ExpectedLevel" Type="Double" Nullable="false" />
+          <Property Name="ExpectedLevelUnit" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ProductDestinationLeadTime">
+          <Key>
+            <PropertyRef Name="ProductDestinationLeadTimeID" />
+          </Key>
+          <Property Name="ProductDestinationLeadTimeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductUnitID" Type="Int32" Nullable="false" />
+          <Property Name="DestinationCompanyID" Type="Int32" Nullable="false" />
+          <Property Name="MinLeadTime" Type="Int32" Nullable="false" />
+          <Property Name="MaxLeadTime" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductMaterial">
+          <Key>
+            <PropertyRef Name="ProductMaterialID" />
+          </Key>
+          <Property Name="ProductMaterialID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductUnitID" Type="Int32" Nullable="false" />
+          <Property Name="MaterialUnitID" Type="Int32" Nullable="false" />
+          <Property Name="MinLeadTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="MaxLeadTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="MakeOrder" Type="Int32" Nullable="false" />
+          <Property Name="MakeQuantity" Type="Int32" />
+          <Property Name="MakeQuantityUnit" Type="Int32" />
+          <Property Name="ProcessCategory" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ProductReplacement">
+          <Key>
+            <PropertyRef Name="ProductReplacementID" />
+          </Key>
+          <Property Name="ProductReplacementID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="ReplacementID" Type="Int32" Nullable="false" />
+          <Property Name="Scarcity" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ProductTotalDemand">
+          <Key>
+            <PropertyRef Name="ProductTotalDemandID" />
+          </Key>
+          <Property Name="ProductTotalDemandID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductUnitID" Type="Int32" Nullable="false" />
+          <Property Name="DemandYear" Type="Int32" Nullable="false" />
+          <Property Name="DemandMonth" Type="Int32" Nullable="false" />
+          <Property Name="Demand" Type="Double" Nullable="false" />
+          <Property Name="DemandUnit" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ProductTracingUpdateRequest">
+          <Key>
+            <PropertyRef Name="ProductTracingUpdateRequestID" />
+          </Key>
+          <Property Name="ProductTracingUpdateRequestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductUnitID" Type="Int32" Nullable="false" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="IndividualID" Type="Int32" Nullable="false" />
+          <Property Name="RequestStatus" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ProductUnitTracing">
+          <Key>
+            <PropertyRef Name="ProductUnitID" />
+          </Key>
+          <Property Name="ProductUnitID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TrackTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="TrackAddress1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TrackAddress2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TrackCity" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TrackState" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TrackCountry" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Latitude" Type="Int32" Nullable="false" />
+          <Property Name="Longitude" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Recommendation">
+          <Key>
+            <PropertyRef Name="RecoID" />
+          </Key>
+          <Property Name="RecoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RecoTimeStamp" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Reco" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Reason" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ResellLevel">
+          <Key>
+            <PropertyRef Name="ResellLevelID" />
+          </Key>
+          <Property Name="ResellLevelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductUnitID" Type="Int32" Nullable="false" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="ExcessLevel" Type="Int32" Nullable="false" />
+          <Property Name="ExcessLevelUnit" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ResellLevelTimestamp" Type="DateTime" Nullable="false" Precision="7" />
+        </EntityType>
+        <EntityType Name="ResellUpdateRequest">
+          <Key>
+            <PropertyRef Name="ResellUpdateRequestID" />
+          </Key>
+          <Property Name="ResellUpdateRequestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductUnitID" Type="Int32" Nullable="false" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="IndividualID" Type="Int32" Nullable="false" />
+          <Property Name="RequestStatus" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RequestDate" Type="DateTime" Nullable="false" Precision="7" />
+        </EntityType>
+        <EntityType Name="ShareList">
+          <Key>
+            <PropertyRef Name="ShareListID" />
+          </Key>
+          <Property Name="ShareListID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PostID" Type="Int32" Nullable="false" />
+          <Property Name="IndividualID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ShortageLevel">
+          <Key>
+            <PropertyRef Name="ShortageLevelID" />
+          </Key>
+          <Property Name="ShortageLevelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductUnitID" Type="Int32" Nullable="false" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="ShortageLevel1" Type="Int32" Nullable="false" />
+          <Property Name="ShoratgeLevelUnit" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ResellLevelTimestamp" Type="DateTime" Nullable="false" Precision="7" />
+        </EntityType>
+        <EntityType Name="ShortageUpdateRequest">
+          <Key>
+            <PropertyRef Name="ShortageUpdateRequestID" />
+          </Key>
+          <Property Name="ShortageUpdateRequestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductUnitID" Type="Int32" Nullable="false" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="IndividualID" Type="Int32" Nullable="false" />
+          <Property Name="RequestStatus" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RequestDate" Type="DateTime" Nullable="false" Precision="7" />
+        </EntityType>
+        <EntityType Name="Skill">
+          <Key>
+            <PropertyRef Name="SkillID" />
+          </Key>
+          <Property Name="SkillID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IndividualID" Type="Int32" Nullable="false" />
+          <Property Name="Available" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StorageCategory">
+          <Key>
+            <PropertyRef Name="StorageCategoryID" />
+          </Key>
+          <Property Name="StorageCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StorageCategoryName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="StorageUnit">
+          <Key>
+            <PropertyRef Name="StorageID" />
+          </Key>
+          <Property Name="StorageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StorageName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TotalCapacity" Type="Int32" />
+          <Property Name="AvailableCapacity" Type="Int32" />
+          <Property Name="StorageAddress1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StorageAddress2" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StorageCity" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StorageState" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StorageCountry" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StorageLatitude" Type="Int32" />
+          <Property Name="StorageLongitude" Type="Int32" />
+        </EntityType>
+        <EntityType Name="StorageUnitCategory">
+          <Key>
+            <PropertyRef Name="StorageUnitCategoryID" />
+          </Key>
+          <Property Name="StorageUnitCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StorageID" Type="Int32" Nullable="false" />
+          <Property Name="StorageCategoryID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SupplierCompany">
+          <Key>
+            <PropertyRef Name="SupplierCompanyID" />
+          </Key>
+          <Property Name="SupplierCompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SupplierID" Type="Int32" Nullable="false" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="ContractStartDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="ContractEndDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="ContractDesc" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SupplierInvite">
+          <Key>
+            <PropertyRef Name="SupplierInviteID" />
+          </Key>
+          <Property Name="SupplierInviteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="SupplierName" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="SupplierEmail" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InviteDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="User" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="InviteLastSent" Type="DateTime" Precision="3" />
+          <Property Name="InviteCount" Type="Int32" />
+          <Property Name="InviteAccepted" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="UnitID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RiskAlert">
+          <Key>
+            <PropertyRef Name="RiskAlertID" />
+          </Key>
+          <Property Name="RiskAlertID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RiskLocation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RiskDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RiskImpact" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="RiskDate" Type="DateTime" Precision="3" />
+          <Property Name="RiskLatitude" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="RiskLongitude" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="RiskFunction" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ProductCompany">
+          <Key>
+            <PropertyRef Name="ProductCompanyID" />
+          </Key>
+          <Property Name="ProductCompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyID" Type="Int32" />
+          <Property Name="ProductID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ProductCompanyDemand">
+          <Key>
+            <PropertyRef Name="ProductCompanyDemandID" />
+          </Key>
+          <Property Name="ProductCompanyDemandID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="Month" Type="Int32" Nullable="false" />
+          <Property Name="Demand" Type="Int32" Nullable="false" />
+          <Property Name="DemandUnit" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="safety" Type="Int32" Nullable="false" />
+          <Property Name="sold" Type="Int32" Nullable="false" />
+          <Property Name="backorder" Type="Int32" Nullable="false" />
+          <Property Name="instock" Type="Int32" />
+          <Property Name="demanddate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ProfilePic">
+          <Key>
+            <PropertyRef Name="ProfilePicID" />
+          </Key>
+          <Property Name="ProfilePicID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="ProfilePicURL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="FunctionLookup">
+          <Key>
+            <PropertyRef Name="FunctionLookupID" />
+          </Key>
+          <Property Name="FunctionLookupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FunctionName" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UnitOfMeasure">
+          <Key>
+            <PropertyRef Name="UnitMeasureID" />
+          </Key>
+          <Property Name="UnitMeasureID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UnitMeasure" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GraphConnection">
+          <Key>
+            <PropertyRef Name="GraphConnectionID" />
+          </Key>
+          <Property Name="GraphConnectionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ChainId" Type="Int32" Nullable="false" />
+          <Property Name="SubChainId" Type="Int32" />
+          <Property Name="NodeNameOne" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NodeNameTwo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GraphNode">
+          <Key>
+            <PropertyRef Name="GraphNodeID" />
+          </Key>
+          <Property Name="GraphNodeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ChainId" Type="Int32" Nullable="false" />
+          <Property Name="NodeName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Color" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Category" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GreenCompany">
+          <Key>
+            <PropertyRef Name="GreenCompanyID" />
+          </Key>
+          <Property Name="GreenCompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="TotalScore" Type="Int32" Nullable="false" />
+          <Property Name="CertificationScore" Type="Int32" Nullable="false" />
+          <Property Name="GreenProductScore" Type="Int32" Nullable="false" />
+          <Property Name="PensionFundInvestmentScore" Type="Int32" Nullable="false" />
+          <Property Name="RenewableElectricitySource" Type="Int32" Nullable="false" />
+          <Property Name="GreenFleetScore" Type="Int32" Nullable="false" />
+          <Property Name="EnergyAuditScore" Type="Int32" Nullable="false" />
+          <Property Name="FoodWastageScore" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="GreenFunctionAverage">
+          <Key>
+            <PropertyRef Name="GreenFunctionAverageID" />
+          </Key>
+          <Property Name="GreenFunctionAverageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AvgTotalScore" Type="Int32" Nullable="false" />
+          <Property Name="AvgCertificationScore" Type="Int32" Nullable="false" />
+          <Property Name="AvgGreenProductScore" Type="Int32" Nullable="false" />
+          <Property Name="AvgPensionFundInvestmentScore" Type="Int32" Nullable="false" />
+          <Property Name="AvgRenewableElectricitySource" Type="Int32" Nullable="false" />
+          <Property Name="AvgGreenFleetScore" Type="Int32" Nullable="false" />
+          <Property Name="AvgEnergyAuditScore" Type="Int32" Nullable="false" />
+          <Property Name="AvgFoodWastageScore" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="GreenReco">
+          <Key>
+            <PropertyRef Name="GreenRecoID" />
+          </Key>
+          <Property Name="GreenRecoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="CertificationReco" Type="Int32" Nullable="false" />
+          <Property Name="GreenProductReco" Type="Int32" Nullable="false" />
+          <Property Name="PensionFundInvestmentReco" Type="Int32" Nullable="false" />
+          <Property Name="RenewableElectricityReco" Type="Int32" Nullable="false" />
+          <Property Name="GreenFleetReco" Type="Int32" Nullable="false" />
+          <Property Name="EnergyAuditReco" Type="Int32" Nullable="false" />
+          <Property Name="FoodWastageReco" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="NewsID" />
+          </Key>
+          <Property Name="NewsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NewsMapID" Type="Int32" Nullable="false" />
+          <Property Name="NewsBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NewsImpact" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NewsDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="NewsMap">
+          <Key>
+            <PropertyRef Name="NewsMapID" />
+            <PropertyRef Name="CompanyID" />
+            <PropertyRef Name="NewsWord" />
+          </Key>
+          <Property Name="NewsMapID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="NewsWord" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CompanyProductGraph">
+          <Key>
+            <PropertyRef Name="CompanyProductGraphID" />
+          </Key>
+          <Property Name="CompanyProductGraphID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="ChainId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Holiday">
+          <Key>
+            <PropertyRef Name="HolidayID" />
+          </Key>
+          <Property Name="HolidayID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HolidayName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HolidayDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Federal" Type="Int32" Nullable="false" />
+          <Property Name="Regional" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ExcelPath">
+          <Key>
+            <PropertyRef Name="ExcelPathID" />
+          </Key>
+          <Property Name="ExcelPathID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="ExcelPath1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserID" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Vendor">
+          <Key>
+            <PropertyRef Name="ServiceVendorID" />
+          </Key>
+          <Property Name="ServiceVendorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ServiceType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ServiceDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ServiceImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HourlyCost" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="VendorMessage">
+          <Key>
+            <PropertyRef Name="VendorMessageID" />
+          </Key>
+          <Property Name="VendorMessageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VendorID" Type="Int32" Nullable="false" />
+          <Property Name="VendorMessage1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserID" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="ProductInfo">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProductCategory" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProductSubCategory" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SKU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OtherID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PricePerUnit" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="PriceUnit" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MinimumOrderQuantity" Type="Int32" />
+          <Property Name="MOQUnit" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Rating" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShelfLife" Type="Int32" />
+          <Property Name="ShelfLifeUnit" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ExpertMessage">
+          <Key>
+            <PropertyRef Name="ExpertMessageID" />
+            <PropertyRef Name="ExpertID" />
+            <PropertyRef Name="Message" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="CreateDate" />
+          </Key>
+          <Property Name="ExpertMessageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExpertID" Type="Int32" Nullable="false" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserID" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Expert1">
+          <Key>
+            <PropertyRef Name="ExpertID" />
+            <PropertyRef Name="ExpertType" />
+          </Key>
+          <Property Name="ExpertID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExpertType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ExpertDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HourlyCost" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Professional">
+          <Key>
+            <PropertyRef Name="ProfessionalID" />
+            <PropertyRef Name="ProfessionalType" />
+          </Key>
+          <Property Name="ProfessionalID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProfessionalType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ProfessionalDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HourlyCost" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Bio">
+          <Key>
+            <PropertyRef Name="BioID" />
+            <PropertyRef Name="BioType" />
+          </Key>
+          <Property Name="BioID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BioType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BioDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HourlyCost" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Resume">
+          <Key>
+            <PropertyRef Name="ResumeID" />
+            <PropertyRef Name="ResumeType" />
+          </Key>
+          <Property Name="ResumeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResumeType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ResumeDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HourlyCost" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MonitorProduct">
+          <Key>
+            <PropertyRef Name="MonitorProductID" />
+          </Key>
+          <Property Name="MonitorProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MonitorProductName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SKU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OtherID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Priority" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MonStatu">
+          <Key>
+            <PropertyRef Name="MonitorStatusID" />
+          </Key>
+          <Property Name="MonitorStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MonitorProductID" Type="Int32" Nullable="false" />
+          <Property Name="MonitorStatus" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyID" Type="Int32" />
+          <Property Name="latitude" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="longitude" Type="Decimal" Precision="18" Scale="5" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CardBossModel1StoreContainer" CdmEntityContainer="CardBossEntities1">
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="CardBossModel1.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="CardBossModel1.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="CardBossModel1.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserRoles">
+            <EntityTypeMapping TypeName="CardBossModel1.AspNetUserRole">
+              <MappingFragment StoreEntitySet="AspNetUserRoles">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Centers">
+            <EntityTypeMapping TypeName="CardBossModel1.Center">
+              <MappingFragment StoreEntitySet="Center">
+                <ScalarProperty Name="CenterCountry" ColumnName="CenterCountry" />
+                <ScalarProperty Name="CenterState" ColumnName="CenterState" />
+                <ScalarProperty Name="CenterCity" ColumnName="CenterCity" />
+                <ScalarProperty Name="CenterAddress2" ColumnName="CenterAddress2" />
+                <ScalarProperty Name="CenterAddress1" ColumnName="CenterAddress1" />
+                <ScalarProperty Name="CenterName" ColumnName="CenterName" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="CenterID" ColumnName="CenterID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CenterFunctions">
+            <EntityTypeMapping TypeName="CardBossModel1.CenterFunction">
+              <MappingFragment StoreEntitySet="CenterFunction">
+                <ScalarProperty Name="FunctionType" ColumnName="FunctionType" />
+                <ScalarProperty Name="FunctionName" ColumnName="FunctionName" />
+                <ScalarProperty Name="FunctionID" ColumnName="FunctionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="CardBossModel1.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="CompanyLongitude" ColumnName="CompanyLongitude" />
+                <ScalarProperty Name="CompanyLatitude" ColumnName="CompanyLatitude" />
+                <ScalarProperty Name="CompanyLocationPhone" ColumnName="CompanyLocationPhone" />
+                <ScalarProperty Name="CompanyZipCode" ColumnName="CompanyZipCode" />
+                <ScalarProperty Name="CompanyCountry" ColumnName="CompanyCountry" />
+                <ScalarProperty Name="CompanyState" ColumnName="CompanyState" />
+                <ScalarProperty Name="CompanyCity" ColumnName="CompanyCity" />
+                <ScalarProperty Name="CompanyAddressLine2" ColumnName="CompanyAddressLine2" />
+                <ScalarProperty Name="CompanyAddressLine1" ColumnName="CompanyAddressLine1" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompanyAdmins">
+            <EntityTypeMapping TypeName="CardBossModel1.CompanyAdmin">
+              <MappingFragment StoreEntitySet="CompanyAdmin">
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="CompanyAdminID" ColumnName="CompanyAdminID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompanyFunctions">
+            <EntityTypeMapping TypeName="CardBossModel1.CompanyFunction">
+              <MappingFragment StoreEntitySet="CompanyFunction">
+                <ScalarProperty Name="FunctionID" ColumnName="FunctionID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="CompanyFunctionID" ColumnName="CompanyFunctionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompanyLocations">
+            <EntityTypeMapping TypeName="CardBossModel1.CompanyLocation">
+              <MappingFragment StoreEntitySet="CompanyLocation">
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="CompanyLongitude" ColumnName="CompanyLongitude" />
+                <ScalarProperty Name="CompanyLatitude" ColumnName="CompanyLatitude" />
+                <ScalarProperty Name="CompanyLocationPhone" ColumnName="CompanyLocationPhone" />
+                <ScalarProperty Name="CompanyZipCode" ColumnName="CompanyZipCode" />
+                <ScalarProperty Name="CompanyCountry" ColumnName="CompanyCountry" />
+                <ScalarProperty Name="CompanyState" ColumnName="CompanyState" />
+                <ScalarProperty Name="CompanyCity" ColumnName="CompanyCity" />
+                <ScalarProperty Name="CompanyAddressLine2" ColumnName="CompanyAddressLine2" />
+                <ScalarProperty Name="CompanyAddressLine1" ColumnName="CompanyAddressLine1" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="CompanyLocationID" ColumnName="CompanyLocationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Connections">
+            <EntityTypeMapping TypeName="CardBossModel1.Connection">
+              <MappingFragment StoreEntitySet="Connection">
+                <ScalarProperty Name="ConnectStatus" ColumnName="ConnectStatus" />
+                <ScalarProperty Name="ConnectAcceptDate" ColumnName="ConnectAcceptDate" />
+                <ScalarProperty Name="ConnectRequestDate" ColumnName="ConnectRequestDate" />
+                <ScalarProperty Name="IndividualTo" ColumnName="IndividualTo" />
+                <ScalarProperty Name="IndividualFrom" ColumnName="IndividualFrom" />
+                <ScalarProperty Name="ConnectionID" ColumnName="ConnectionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Deliveries">
+            <EntityTypeMapping TypeName="CardBossModel1.Delivery">
+              <MappingFragment StoreEntitySet="Delivery">
+                <ScalarProperty Name="DeliveryLimitLongitude4" ColumnName="DeliveryLimitLongitude4" />
+                <ScalarProperty Name="DeliveryLimitLatitude4" ColumnName="DeliveryLimitLatitude4" />
+                <ScalarProperty Name="DeliveryLimitLongitude3" ColumnName="DeliveryLimitLongitude3" />
+                <ScalarProperty Name="DeliveryLimitLatitude3" ColumnName="DeliveryLimitLatitude3" />
+                <ScalarProperty Name="DeliveryLimitLongitude2" ColumnName="DeliveryLimitLongitude2" />
+                <ScalarProperty Name="DeliveryLimitLatitude2" ColumnName="DeliveryLimitLatitude2" />
+                <ScalarProperty Name="DeliveryLimitLongitude1" ColumnName="DeliveryLimitLongitude1" />
+                <ScalarProperty Name="DeliveryLimitLatitude1" ColumnName="DeliveryLimitLatitude1" />
+                <ScalarProperty Name="DeliveryAddress" ColumnName="DeliveryAddress" />
+                <ScalarProperty Name="DeliveryName" ColumnName="DeliveryName" />
+                <ScalarProperty Name="DeliveryID" ColumnName="DeliveryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeliveryProducts">
+            <EntityTypeMapping TypeName="CardBossModel1.DeliveryProduct">
+              <MappingFragment StoreEntitySet="DeliveryProduct">
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="TrackCountry" ColumnName="TrackCountry" />
+                <ScalarProperty Name="TrackState" ColumnName="TrackState" />
+                <ScalarProperty Name="TrackCity" ColumnName="TrackCity" />
+                <ScalarProperty Name="TrackAddress2" ColumnName="TrackAddress2" />
+                <ScalarProperty Name="TrackAddress1" ColumnName="TrackAddress1" />
+                <ScalarProperty Name="TrackTime" ColumnName="TrackTime" />
+                <ScalarProperty Name="ProductUnitID" ColumnName="ProductUnitID" />
+                <ScalarProperty Name="DeliveryUnitID" ColumnName="DeliveryUnitID" />
+                <ScalarProperty Name="DeliveryProductID" ColumnName="DeliveryProductID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeliveryProductTracingUpdateRequests">
+            <EntityTypeMapping TypeName="CardBossModel1.DeliveryProductTracingUpdateRequest">
+              <MappingFragment StoreEntitySet="DeliveryProductTracingUpdateRequest">
+                <ScalarProperty Name="RequestStatus" ColumnName="RequestStatus" />
+                <ScalarProperty Name="IndividualID" ColumnName="IndividualID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="ProductUnitID" ColumnName="ProductUnitID" />
+                <ScalarProperty Name="DeliveryUnitID" ColumnName="DeliveryUnitID" />
+                <ScalarProperty Name="DeliveryProductTracingUpdateRequestID" ColumnName="DeliveryProductTracingUpdateRequestID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeliveryUnits">
+            <EntityTypeMapping TypeName="CardBossModel1.DeliveryUnit">
+              <MappingFragment StoreEntitySet="DeliveryUnit">
+                <ScalarProperty Name="DeliveryUnitLimitLongitude4" ColumnName="DeliveryUnitLimitLongitude4" />
+                <ScalarProperty Name="DeliveryUnitLimitLatitude4" ColumnName="DeliveryUnitLimitLatitude4" />
+                <ScalarProperty Name="DeliveryUnitLimitLongitude3" ColumnName="DeliveryUnitLimitLongitude3" />
+                <ScalarProperty Name="DeliveryUnitLimitLatitude3" ColumnName="DeliveryUnitLimitLatitude3" />
+                <ScalarProperty Name="DeliveryUnitLimitLongitude2" ColumnName="DeliveryUnitLimitLongitude2" />
+                <ScalarProperty Name="DeliveryUnitLimitLatitude2" ColumnName="DeliveryUnitLimitLatitude2" />
+                <ScalarProperty Name="DeliveryUnitLimitLongitude1" ColumnName="DeliveryUnitLimitLongitude1" />
+                <ScalarProperty Name="DeliveryUnitLimitLatitude1" ColumnName="DeliveryUnitLimitLatitude1" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="DeliveryName" ColumnName="DeliveryName" />
+                <ScalarProperty Name="DeliveryID" ColumnName="DeliveryID" />
+                <ScalarProperty Name="DeliveryUnitID" ColumnName="DeliveryUnitID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="CardBossModel1.Event">
+              <MappingFragment StoreEntitySet="Event">
+                <ScalarProperty Name="EventImpact" ColumnName="EventImpact" />
+                <ScalarProperty Name="EventType" ColumnName="EventType" />
+                <ScalarProperty Name="EventName" ColumnName="EventName" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventFunctions">
+            <EntityTypeMapping TypeName="CardBossModel1.EventFunction">
+              <MappingFragment StoreEntitySet="EventFunction">
+                <ScalarProperty Name="ImpactLevel" ColumnName="ImpactLevel" />
+                <ScalarProperty Name="FunctionID" ColumnName="FunctionID" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+                <ScalarProperty Name="EventFunctionID" ColumnName="EventFunctionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IndividualCompanyHistories">
+            <EntityTypeMapping TypeName="CardBossModel1.IndividualCompanyHistory">
+              <MappingFragment StoreEntitySet="IndividualCompanyHistory">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="IndividualID" ColumnName="IndividualID" />
+                <ScalarProperty Name="IndividualCompanyHistoryID" ColumnName="IndividualCompanyHistoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IndividualInterests">
+            <EntityTypeMapping TypeName="CardBossModel1.IndividualInterest">
+              <MappingFragment StoreEntitySet="IndividualInterests">
+                <ScalarProperty Name="InterestID" ColumnName="InterestID" />
+                <ScalarProperty Name="IndividualID" ColumnName="IndividualID" />
+                <ScalarProperty Name="IndividualInterestsID" ColumnName="IndividualInterestsID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Interests">
+            <EntityTypeMapping TypeName="CardBossModel1.Interest">
+              <MappingFragment StoreEntitySet="Interest">
+                <ScalarProperty Name="InterestName" ColumnName="InterestName" />
+                <ScalarProperty Name="InterestID" ColumnName="InterestID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="CardBossModel1.Message">
+              <MappingFragment StoreEntitySet="Messages">
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="Message1" ColumnName="Message" />
+                <ScalarProperty Name="ToID" ColumnName="ToID" />
+                <ScalarProperty Name="FromID" ColumnName="FromID" />
+                <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notifications">
+            <EntityTypeMapping TypeName="CardBossModel1.Notification">
+              <MappingFragment StoreEntitySet="Notifications">
+                <ScalarProperty Name="NotificationTime" ColumnName="NotificationTime" />
+                <ScalarProperty Name="NotificationType" ColumnName="NotificationType" />
+                <ScalarProperty Name="NotificationMessage" ColumnName="NotificationMessage" />
+                <ScalarProperty Name="NotificationID" ColumnName="NotificationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Posts">
+            <EntityTypeMapping TypeName="CardBossModel1.Post">
+              <MappingFragment StoreEntitySet="Post">
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="imageURL" ColumnName="imageURL" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="InterestID" ColumnName="InterestID" />
+                <ScalarProperty Name="Privacy" ColumnName="Privacy" />
+                <ScalarProperty Name="Post1" ColumnName="Post" />
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Privacies">
+            <EntityTypeMapping TypeName="CardBossModel1.Privacy">
+              <MappingFragment StoreEntitySet="Privacy">
+                <ScalarProperty Name="PrivacyLabel" ColumnName="PrivacyLabel" />
+                <ScalarProperty Name="PrivacyID" ColumnName="PrivacyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="CardBossModel1.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="imageURL" ColumnName="imageURL" />
+                <ScalarProperty Name="OtherID" ColumnName="OtherID" />
+                <ScalarProperty Name="SKU" ColumnName="SKU" />
+                <ScalarProperty Name="ProductCategory" ColumnName="ProductCategory" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductCompanyDemandUpdateRequests">
+            <EntityTypeMapping TypeName="CardBossModel1.ProductCompanyDemandUpdateRequest">
+              <MappingFragment StoreEntitySet="ProductCompanyDemandUpdateRequest">
+                <ScalarProperty Name="RequestStatus" ColumnName="RequestStatus" />
+                <ScalarProperty Name="IndividualID" ColumnName="IndividualID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="ProductUnitID" ColumnName="ProductUnitID" />
+                <ScalarProperty Name="ProductCompanyDemandUpdateRequestID" ColumnName="ProductCompanyDemandUpdateRequestID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductCompanySupplies">
+            <EntityTypeMapping TypeName="CardBossModel1.ProductCompanySupply">
+              <MappingFragment StoreEntitySet="ProductCompanySupply">
+                <ScalarProperty Name="SupplyUnit" ColumnName="SupplyUnit" />
+                <ScalarProperty Name="Supply" ColumnName="Supply" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="ProductCompanySupplyID" ColumnName="ProductCompanySupplyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductCompanySupplyUpdateRequests">
+            <EntityTypeMapping TypeName="CardBossModel1.ProductCompanySupplyUpdateRequest">
+              <MappingFragment StoreEntitySet="ProductCompanySupplyUpdateRequest">
+                <ScalarProperty Name="RequestStatus" ColumnName="RequestStatus" />
+                <ScalarProperty Name="IndividualID" ColumnName="IndividualID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="ProductUnitID" ColumnName="ProductUnitID" />
+                <ScalarProperty Name="ProductCompanySupplyUpdateRequestID" ColumnName="ProductCompanySupplyUpdateRequestID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductDestinations">
+            <EntityTypeMapping TypeName="CardBossModel1.ProductDestination">
+              <MappingFragment StoreEntitySet="ProductDestination">
+                <ScalarProperty Name="ExpectedLevelUnit" ColumnName="ExpectedLevelUnit" />
+                <ScalarProperty Name="ExpectedLevel" ColumnName="ExpectedLevel" />
+                <ScalarProperty Name="ExpectedDate" ColumnName="ExpectedDate" />
+                <ScalarProperty Name="DestinationCompanyID" ColumnName="DestinationCompanyID" />
+                <ScalarProperty Name="SupplierCompanyID" ColumnName="SupplierCompanyID" />
+                <ScalarProperty Name="ProductUnitID" ColumnName="ProductUnitID" />
+                <ScalarProperty Name="ProductDestinationID" ColumnName="ProductDestinationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductDestinationLeadTimes">
+            <EntityTypeMapping TypeName="CardBossModel1.ProductDestinationLeadTime">
+              <MappingFragment StoreEntitySet="ProductDestinationLeadTime">
+                <ScalarProperty Name="MaxLeadTime" ColumnName="MaxLeadTime" />
+                <ScalarProperty Name="MinLeadTime" ColumnName="MinLeadTime" />
+                <ScalarProperty Name="DestinationCompanyID" ColumnName="DestinationCompanyID" />
+                <ScalarProperty Name="ProductUnitID" ColumnName="ProductUnitID" />
+                <ScalarProperty Name="ProductDestinationLeadTimeID" ColumnName="ProductDestinationLeadTimeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductMaterials">
+            <EntityTypeMapping TypeName="CardBossModel1.ProductMaterial">
+              <MappingFragment StoreEntitySet="ProductMaterial">
+                <ScalarProperty Name="ProcessCategory" ColumnName="ProcessCategory" />
+                <ScalarProperty Name="MakeQuantityUnit" ColumnName="MakeQuantityUnit" />
+                <ScalarProperty Name="MakeQuantity" ColumnName="MakeQuantity" />
+                <ScalarProperty Name="MakeOrder" ColumnName="MakeOrder" />
+                <ScalarProperty Name="MaxLeadTime" ColumnName="MaxLeadTime" />
+                <ScalarProperty Name="MinLeadTime" ColumnName="MinLeadTime" />
+                <ScalarProperty Name="MaterialUnitID" ColumnName="MaterialUnitID" />
+                <ScalarProperty Name="ProductUnitID" ColumnName="ProductUnitID" />
+                <ScalarProperty Name="ProductMaterialID" ColumnName="ProductMaterialID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductReplacements">
+            <EntityTypeMapping TypeName="CardBossModel1.ProductReplacement">
+              <MappingFragment StoreEntitySet="ProductReplacement">
+                <ScalarProperty Name="Scarcity" ColumnName="Scarcity" />
+                <ScalarProperty Name="ReplacementID" ColumnName="ReplacementID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductReplacementID" ColumnName="ProductReplacementID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductTotalDemands">
+            <EntityTypeMapping TypeName="CardBossModel1.ProductTotalDemand">
+              <MappingFragment StoreEntitySet="ProductTotalDemand">
+                <ScalarProperty Name="DemandUnit" ColumnName="DemandUnit" />
+                <ScalarProperty Name="Demand" ColumnName="Demand" />
+                <ScalarProperty Name="DemandMonth" ColumnName="DemandMonth" />
+                <ScalarProperty Name="DemandYear" ColumnName="DemandYear" />
+                <ScalarProperty Name="ProductUnitID" ColumnName="ProductUnitID" />
+                <ScalarProperty Name="ProductTotalDemandID" ColumnName="ProductTotalDemandID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductTracingUpdateRequests">
+            <EntityTypeMapping TypeName="CardBossModel1.ProductTracingUpdateRequest">
+              <MappingFragment StoreEntitySet="ProductTracingUpdateRequest">
+                <ScalarProperty Name="RequestStatus" ColumnName="RequestStatus" />
+                <ScalarProperty Name="IndividualID" ColumnName="IndividualID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="ProductUnitID" ColumnName="ProductUnitID" />
+                <ScalarProperty Name="ProductTracingUpdateRequestID" ColumnName="ProductTracingUpdateRequestID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductUnitTracings">
+            <EntityTypeMapping TypeName="CardBossModel1.ProductUnitTracing">
+              <MappingFragment StoreEntitySet="ProductUnitTracing">
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="TrackCountry" ColumnName="TrackCountry" />
+                <ScalarProperty Name="TrackState" ColumnName="TrackState" />
+                <ScalarProperty Name="TrackCity" ColumnName="TrackCity" />
+                <ScalarProperty Name="TrackAddress2" ColumnName="TrackAddress2" />
+                <ScalarProperty Name="TrackAddress1" ColumnName="TrackAddress1" />
+                <ScalarProperty Name="TrackTime" ColumnName="TrackTime" />
+                <ScalarProperty Name="ProductUnitID" ColumnName="ProductUnitID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recommendations">
+            <EntityTypeMapping TypeName="CardBossModel1.Recommendation">
+              <MappingFragment StoreEntitySet="Recommendation">
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="Reco" ColumnName="Reco" />
+                <ScalarProperty Name="RecoTimeStamp" ColumnName="RecoTimeStamp" />
+                <ScalarProperty Name="RecoID" ColumnName="RecoID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResellLevels">
+            <EntityTypeMapping TypeName="CardBossModel1.ResellLevel">
+              <MappingFragment StoreEntitySet="ResellLevel">
+                <ScalarProperty Name="ResellLevelTimestamp" ColumnName="ResellLevelTimestamp" />
+                <ScalarProperty Name="ExcessLevelUnit" ColumnName="ExcessLevelUnit" />
+                <ScalarProperty Name="ExcessLevel" ColumnName="ExcessLevel" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="ProductUnitID" ColumnName="ProductUnitID" />
+                <ScalarProperty Name="ResellLevelID" ColumnName="ResellLevelID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResellUpdateRequests">
+            <EntityTypeMapping TypeName="CardBossModel1.ResellUpdateRequest">
+              <MappingFragment StoreEntitySet="ResellUpdateRequest">
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="RequestStatus" ColumnName="RequestStatus" />
+                <ScalarProperty Name="IndividualID" ColumnName="IndividualID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="ProductUnitID" ColumnName="ProductUnitID" />
+                <ScalarProperty Name="ResellUpdateRequestID" ColumnName="ResellUpdateRequestID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShareLists">
+            <EntityTypeMapping TypeName="CardBossModel1.ShareList">
+              <MappingFragment StoreEntitySet="ShareList">
+                <ScalarProperty Name="IndividualID" ColumnName="IndividualID" />
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
+                <ScalarProperty Name="ShareListID" ColumnName="ShareListID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShortageLevels">
+            <EntityTypeMapping TypeName="CardBossModel1.ShortageLevel">
+              <MappingFragment StoreEntitySet="ShortageLevel">
+                <ScalarProperty Name="ResellLevelTimestamp" ColumnName="ResellLevelTimestamp" />
+                <ScalarProperty Name="ShoratgeLevelUnit" ColumnName="ShoratgeLevelUnit" />
+                <ScalarProperty Name="ShortageLevel1" ColumnName="ShortageLevel" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="ProductUnitID" ColumnName="ProductUnitID" />
+                <ScalarProperty Name="ShortageLevelID" ColumnName="ShortageLevelID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShortageUpdateRequests">
+            <EntityTypeMapping TypeName="CardBossModel1.ShortageUpdateRequest">
+              <MappingFragment StoreEntitySet="ShortageUpdateRequest">
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="RequestStatus" ColumnName="RequestStatus" />
+                <ScalarProperty Name="IndividualID" ColumnName="IndividualID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="ProductUnitID" ColumnName="ProductUnitID" />
+                <ScalarProperty Name="ShortageUpdateRequestID" ColumnName="ShortageUpdateRequestID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Skills">
+            <EntityTypeMapping TypeName="CardBossModel1.Skill">
+              <MappingFragment StoreEntitySet="Skill">
+                <ScalarProperty Name="Available" ColumnName="Available" />
+                <ScalarProperty Name="IndividualID" ColumnName="IndividualID" />
+                <ScalarProperty Name="SkillID" ColumnName="SkillID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StorageCategories">
+            <EntityTypeMapping TypeName="CardBossModel1.StorageCategory">
+              <MappingFragment StoreEntitySet="StorageCategory">
+                <ScalarProperty Name="StorageCategoryName" ColumnName="StorageCategoryName" />
+                <ScalarProperty Name="StorageCategoryID" ColumnName="StorageCategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StorageUnits">
+            <EntityTypeMapping TypeName="CardBossModel1.StorageUnit">
+              <MappingFragment StoreEntitySet="StorageUnit">
+                <ScalarProperty Name="StorageLongitude" ColumnName="StorageLongitude" />
+                <ScalarProperty Name="StorageLatitude" ColumnName="StorageLatitude" />
+                <ScalarProperty Name="StorageCountry" ColumnName="StorageCountry" />
+                <ScalarProperty Name="StorageState" ColumnName="StorageState" />
+                <ScalarProperty Name="StorageCity" ColumnName="StorageCity" />
+                <ScalarProperty Name="StorageAddress2" ColumnName="StorageAddress2" />
+                <ScalarProperty Name="StorageAddress1" ColumnName="StorageAddress1" />
+                <ScalarProperty Name="AvailableCapacity" ColumnName="AvailableCapacity" />
+                <ScalarProperty Name="TotalCapacity" ColumnName="TotalCapacity" />
+                <ScalarProperty Name="StorageName" ColumnName="StorageName" />
+                <ScalarProperty Name="StorageID" ColumnName="StorageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StorageUnitCategories">
+            <EntityTypeMapping TypeName="CardBossModel1.StorageUnitCategory">
+              <MappingFragment StoreEntitySet="StorageUnitCategory">
+                <ScalarProperty Name="StorageCategoryID" ColumnName="StorageCategoryID" />
+                <ScalarProperty Name="StorageID" ColumnName="StorageID" />
+                <ScalarProperty Name="StorageUnitCategoryID" ColumnName="StorageUnitCategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SupplierCompanies">
+            <EntityTypeMapping TypeName="CardBossModel1.SupplierCompany">
+              <MappingFragment StoreEntitySet="SupplierCompany">
+                <ScalarProperty Name="ContractDesc" ColumnName="ContractDesc" />
+                <ScalarProperty Name="ContractEndDate" ColumnName="ContractEndDate" />
+                <ScalarProperty Name="ContractStartDate" ColumnName="ContractStartDate" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="SupplierCompanyID" ColumnName="SupplierCompanyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SupplierInvites">
+            <EntityTypeMapping TypeName="CardBossModel1.SupplierInvite">
+              <MappingFragment StoreEntitySet="SupplierInvite">
+                <ScalarProperty Name="InviteAccepted" ColumnName="InviteAccepted" />
+                <ScalarProperty Name="InviteCount" ColumnName="InviteCount" />
+                <ScalarProperty Name="InviteLastSent" ColumnName="InviteLastSent" />
+                <ScalarProperty Name="User" ColumnName="User" />
+                <ScalarProperty Name="InviteDate" ColumnName="InviteDate" />
+                <ScalarProperty Name="SupplierEmail" ColumnName="SupplierEmail" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="SupplierInviteID" ColumnName="SupplierInviteID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Units">
+            <EntityTypeMapping TypeName="CardBossModel1.Unit">
+              <MappingFragment StoreEntitySet="Unit">
+                <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RiskAlerts">
+            <EntityTypeMapping TypeName="CardBossModel1.RiskAlert">
+              <MappingFragment StoreEntitySet="RiskAlerts">
+                <ScalarProperty Name="RiskFunction" ColumnName="RiskFunction" />
+                <ScalarProperty Name="RiskLongitude" ColumnName="RiskLongitude" />
+                <ScalarProperty Name="RiskLatitude" ColumnName="RiskLatitude" />
+                <ScalarProperty Name="RiskDate" ColumnName="RiskDate" />
+                <ScalarProperty Name="RiskImpact" ColumnName="RiskImpact" />
+                <ScalarProperty Name="RiskDesc" ColumnName="RiskDesc" />
+                <ScalarProperty Name="RiskLocation" ColumnName="RiskLocation" />
+                <ScalarProperty Name="RiskAlertID" ColumnName="RiskAlertID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductCompanies">
+            <EntityTypeMapping TypeName="CardBossModel1.ProductCompany">
+              <MappingFragment StoreEntitySet="ProductCompany">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="ProductCompanyID" ColumnName="ProductCompanyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductCompanyDemands">
+            <EntityTypeMapping TypeName="CardBossModel1.ProductCompanyDemand">
+              <MappingFragment StoreEntitySet="ProductCompanyDemand">
+                <ScalarProperty Name="demanddate" ColumnName="demanddate" />
+                <ScalarProperty Name="instock" ColumnName="instock" />
+                <ScalarProperty Name="backorder" ColumnName="backorder" />
+                <ScalarProperty Name="sold" ColumnName="sold" />
+                <ScalarProperty Name="safety" ColumnName="safety" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="DemandUnit" ColumnName="DemandUnit" />
+                <ScalarProperty Name="Demand" ColumnName="Demand" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="ProductCompanyDemandID" ColumnName="ProductCompanyDemandID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfilePics">
+            <EntityTypeMapping TypeName="CardBossModel1.ProfilePic">
+              <MappingFragment StoreEntitySet="ProfilePics">
+                <ScalarProperty Name="ProfilePicURL" ColumnName="ProfilePicURL" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ProfilePicID" ColumnName="ProfilePicID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FunctionLookups">
+            <EntityTypeMapping TypeName="CardBossModel1.FunctionLookup">
+              <MappingFragment StoreEntitySet="FunctionLookup">
+                <ScalarProperty Name="FunctionName" ColumnName="FunctionName" />
+                <ScalarProperty Name="FunctionLookupID" ColumnName="FunctionLookupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UnitOfMeasures">
+            <EntityTypeMapping TypeName="CardBossModel1.UnitOfMeasure">
+              <MappingFragment StoreEntitySet="UnitOfMeasure">
+                <ScalarProperty Name="UnitMeasure" ColumnName="UnitMeasure" />
+                <ScalarProperty Name="UnitMeasureID" ColumnName="UnitMeasureID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="InitializeCompanyProductDemand" FunctionName="CardBossModel1.Store.InitializeCompanyProductDemand" />
+          <EntitySetMapping Name="GraphConnections">
+            <EntityTypeMapping TypeName="CardBossModel1.GraphConnection">
+              <MappingFragment StoreEntitySet="GraphConnections">
+                <ScalarProperty Name="NodeNameTwo" ColumnName="NodeNameTwo" />
+                <ScalarProperty Name="NodeNameOne" ColumnName="NodeNameOne" />
+                <ScalarProperty Name="SubChainId" ColumnName="SubChainId" />
+                <ScalarProperty Name="ChainId" ColumnName="ChainId" />
+                <ScalarProperty Name="GraphConnectionID" ColumnName="GraphConnectionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GraphNodes">
+            <EntityTypeMapping TypeName="CardBossModel1.GraphNode">
+              <MappingFragment StoreEntitySet="GraphNodes">
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="NodeName" ColumnName="NodeName" />
+                <ScalarProperty Name="ChainId" ColumnName="ChainId" />
+                <ScalarProperty Name="GraphNodeID" ColumnName="GraphNodeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GreenCompanies">
+            <EntityTypeMapping TypeName="CardBossModel1.GreenCompany">
+              <MappingFragment StoreEntitySet="GreenCompany">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="FoodWastageScore" ColumnName="FoodWastageScore" />
+                <ScalarProperty Name="EnergyAuditScore" ColumnName="EnergyAuditScore" />
+                <ScalarProperty Name="GreenFleetScore" ColumnName="GreenFleetScore" />
+                <ScalarProperty Name="RenewableElectricitySource" ColumnName="RenewableElectricitySource" />
+                <ScalarProperty Name="PensionFundInvestmentScore" ColumnName="PensionFundInvestmentScore" />
+                <ScalarProperty Name="GreenProductScore" ColumnName="GreenProductScore" />
+                <ScalarProperty Name="CertificationScore" ColumnName="CertificationScore" />
+                <ScalarProperty Name="TotalScore" ColumnName="TotalScore" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="GreenCompanyID" ColumnName="GreenCompanyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GreenFunctionAverages">
+            <EntityTypeMapping TypeName="CardBossModel1.GreenFunctionAverage">
+              <MappingFragment StoreEntitySet="GreenFunctionAverage">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="AvgFoodWastageScore" ColumnName="AvgFoodWastageScore" />
+                <ScalarProperty Name="AvgEnergyAuditScore" ColumnName="AvgEnergyAuditScore" />
+                <ScalarProperty Name="AvgGreenFleetScore" ColumnName="AvgGreenFleetScore" />
+                <ScalarProperty Name="AvgRenewableElectricitySource" ColumnName="AvgRenewableElectricitySource" />
+                <ScalarProperty Name="AvgPensionFundInvestmentScore" ColumnName="AvgPensionFundInvestmentScore" />
+                <ScalarProperty Name="AvgGreenProductScore" ColumnName="AvgGreenProductScore" />
+                <ScalarProperty Name="AvgCertificationScore" ColumnName="AvgCertificationScore" />
+                <ScalarProperty Name="AvgTotalScore" ColumnName="AvgTotalScore" />
+                <ScalarProperty Name="GreenFunctionAverageID" ColumnName="GreenFunctionAverageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GreenRecoes">
+            <EntityTypeMapping TypeName="CardBossModel1.GreenReco">
+              <MappingFragment StoreEntitySet="GreenReco">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="FoodWastageReco" ColumnName="FoodWastageReco" />
+                <ScalarProperty Name="EnergyAuditReco" ColumnName="EnergyAuditReco" />
+                <ScalarProperty Name="GreenFleetReco" ColumnName="GreenFleetReco" />
+                <ScalarProperty Name="RenewableElectricityReco" ColumnName="RenewableElectricityReco" />
+                <ScalarProperty Name="PensionFundInvestmentReco" ColumnName="PensionFundInvestmentReco" />
+                <ScalarProperty Name="GreenProductReco" ColumnName="GreenProductReco" />
+                <ScalarProperty Name="CertificationReco" ColumnName="CertificationReco" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="GreenRecoID" ColumnName="GreenRecoID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="CardBossModel1.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="NewsDate" ColumnName="NewsDate" />
+                <ScalarProperty Name="NewsImpact" ColumnName="NewsImpact" />
+                <ScalarProperty Name="NewsBody" ColumnName="NewsBody" />
+                <ScalarProperty Name="NewsMapID" ColumnName="NewsMapID" />
+                <ScalarProperty Name="NewsID" ColumnName="NewsID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NewsMaps">
+            <EntityTypeMapping TypeName="CardBossModel1.NewsMap">
+              <MappingFragment StoreEntitySet="NewsMap">
+                <ScalarProperty Name="NewsWord" ColumnName="NewsWord" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="NewsMapID" ColumnName="NewsMapID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompanyProductGraphs">
+            <EntityTypeMapping TypeName="CardBossModel1.CompanyProductGraph">
+              <MappingFragment StoreEntitySet="CompanyProductGraph">
+                <ScalarProperty Name="ChainId" ColumnName="ChainId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="CompanyProductGraphID" ColumnName="CompanyProductGraphID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Holidays">
+            <EntityTypeMapping TypeName="CardBossModel1.Holiday">
+              <MappingFragment StoreEntitySet="Holiday">
+                <ScalarProperty Name="Regional" ColumnName="Regional" />
+                <ScalarProperty Name="Federal" ColumnName="Federal" />
+                <ScalarProperty Name="HolidayDate" ColumnName="HolidayDate" />
+                <ScalarProperty Name="HolidayName" ColumnName="HolidayName" />
+                <ScalarProperty Name="HolidayID" ColumnName="HolidayID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="IsTypeOf(CardBossModel1.AspNetUser)">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="zipCode" ColumnName="zipCode" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="LastLoggedIn" ColumnName="LastLoggedIn" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExcelPaths">
+            <EntityTypeMapping TypeName="CardBossModel1.ExcelPath">
+              <MappingFragment StoreEntitySet="ExcelPath">
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ExcelPath1" ColumnName="ExcelPath" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="ExcelPathID" ColumnName="ExcelPathID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vendors">
+            <EntityTypeMapping TypeName="CardBossModel1.Vendor">
+              <MappingFragment StoreEntitySet="Vendor">
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="HourlyCost" ColumnName="HourlyCost" />
+                <ScalarProperty Name="ServiceImage" ColumnName="ServiceImage" />
+                <ScalarProperty Name="ServiceDesc" ColumnName="ServiceDesc" />
+                <ScalarProperty Name="ServiceType" ColumnName="ServiceType" />
+                <ScalarProperty Name="ServiceVendorID" ColumnName="ServiceVendorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VendorMessages">
+            <EntityTypeMapping TypeName="CardBossModel1.VendorMessage">
+              <MappingFragment StoreEntitySet="VendorMessage">
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="VendorMessage1" ColumnName="VendorMessage" />
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+                <ScalarProperty Name="VendorMessageID" ColumnName="VendorMessageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductInfoes">
+            <EntityTypeMapping TypeName="CardBossModel1.ProductInfo">
+              <MappingFragment StoreEntitySet="ProductInfo">
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+                <ScalarProperty Name="ShelfLifeUnit" ColumnName="ShelfLifeUnit" />
+                <ScalarProperty Name="ShelfLife" ColumnName="ShelfLife" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="MOQUnit" ColumnName="MOQUnit" />
+                <ScalarProperty Name="MinimumOrderQuantity" ColumnName="MinimumOrderQuantity" />
+                <ScalarProperty Name="PriceUnit" ColumnName="PriceUnit" />
+                <ScalarProperty Name="PricePerUnit" ColumnName="PricePerUnit" />
+                <ScalarProperty Name="OtherID" ColumnName="OtherID" />
+                <ScalarProperty Name="SKU" ColumnName="SKU" />
+                <ScalarProperty Name="ProductSubCategory" ColumnName="ProductSubCategory" />
+                <ScalarProperty Name="ProductCategory" ColumnName="ProductCategory" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExpertMessages">
+            <EntityTypeMapping TypeName="CardBossModel1.ExpertMessage">
+              <MappingFragment StoreEntitySet="ExpertMessage">
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="ExpertID" ColumnName="ExpertID" />
+                <ScalarProperty Name="ExpertMessageID" ColumnName="ExpertMessageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Expert1">
+            <EntityTypeMapping TypeName="CardBossModel1.Expert1">
+              <MappingFragment StoreEntitySet="Experts">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="HourlyCost" ColumnName="HourlyCost" />
+                <ScalarProperty Name="ExpertDesc" ColumnName="ExpertDesc" />
+                <ScalarProperty Name="ExpertType" ColumnName="ExpertType" />
+                <ScalarProperty Name="ExpertID" ColumnName="ExpertID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Professionals">
+            <EntityTypeMapping TypeName="CardBossModel1.Professional">
+              <MappingFragment StoreEntitySet="Professional">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="HourlyCost" ColumnName="HourlyCost" />
+                <ScalarProperty Name="ProfessionalDesc" ColumnName="ProfessionalDesc" />
+                <ScalarProperty Name="ProfessionalType" ColumnName="ProfessionalType" />
+                <ScalarProperty Name="ProfessionalID" ColumnName="ProfessionalID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bios">
+            <EntityTypeMapping TypeName="CardBossModel1.Bio">
+              <MappingFragment StoreEntitySet="Bio">
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="HourlyCost" ColumnName="HourlyCost" />
+                <ScalarProperty Name="BioDesc" ColumnName="BioDesc" />
+                <ScalarProperty Name="BioType" ColumnName="BioType" />
+                <ScalarProperty Name="BioID" ColumnName="BioID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Resumes">
+            <EntityTypeMapping TypeName="CardBossModel1.Resume">
+              <MappingFragment StoreEntitySet="Resume">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="HourlyCost" ColumnName="HourlyCost" />
+                <ScalarProperty Name="ResumeDesc" ColumnName="ResumeDesc" />
+                <ScalarProperty Name="ResumeType" ColumnName="ResumeType" />
+                <ScalarProperty Name="ResumeID" ColumnName="ResumeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MonitorProducts">
+            <EntityTypeMapping TypeName="CardBossModel1.MonitorProduct">
+              <MappingFragment StoreEntitySet="MonitorProduct">
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="OtherID" ColumnName="OtherID" />
+                <ScalarProperty Name="SKU" ColumnName="SKU" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="MonitorProductName" ColumnName="MonitorProductName" />
+                <ScalarProperty Name="MonitorProductID" ColumnName="MonitorProductID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MonStatus">
+            <EntityTypeMapping TypeName="CardBossModel1.MonStatu">
+              <MappingFragment StoreEntitySet="MonStatus">
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="MonitorStatus" ColumnName="MonitorStatus" />
+                <ScalarProperty Name="MonitorProductID" ColumnName="MonitorProductID" />
+                <ScalarProperty Name="MonitorStatusID" ColumnName="MonitorStatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,96 @@
+﻿/* Media Responsiveness */
+/* Small devices (tablets, 700px and up) */
+@media (min-width: 700px) {
+
+    .short-control {
+        width: 50%;
+    }
+
+    .long-control {
+        width: 90%;
+    }
+
+    .search-control {
+        width: 70%;
+    }
+
+    #logindiv {
+        margin-left: 35%;
+    }
+
+    .registerdiv {
+        margin-left: 35%;
+    }
+
+    #loginButtonDiv {
+        margin-left: 15%;
+    }
+
+    .registerButtonDiv {
+        margin-left: 15%;
+    }
+
+    #altLoginDiv {
+        margin-left: 8%;
+    }
+
+    .registerCompanyAdminDiv {
+        margin-left: 0%;
+    }
+
+    #analyticone {
+        height: 300px;
+        width: 400px;
+        margin-left: 25%;
+    }
+
+    #analytictwo {
+        height: 300px;
+        width: 400px;
+        margin-left: 25%;
+    }
+
+    #gaugealert {
+        text-align: center;
+        font-size: 18px;
+        background-color: transparent;
+        color: orangered;
+        border: none;
+        box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.5);
+        width: 80%;
+        margin-left:20%;
+    }
+
+
+    #demandalert {
+        text-align: center;
+        font-size: 18px;
+        background-color: transparent;
+        color: orangered;
+        border: none;
+        box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.5);
+        width: 80%;
+        margin-left: 20%;
+    }
+
+    .timeline-panel {
+        width: 30%;
+    }
+
+    .calendarentry {
+        border: none;
+        padding: 20px;
+        background-color: transparent;
+        height: 100%;
+    }
+
+    .calendarcontrol {
+        width: 80%;
+        margin-left:30px;
+    }
+
+    .calendarformlabel {
+        margin-left:30px;
+    }
+
+}

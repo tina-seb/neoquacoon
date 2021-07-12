@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title style="color:white;">@ViewBag.Title - Quacoon</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="icon"
+          type="image/png"
+          href="~/Content/Images/favicon.ico">
+
+</head>
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed glyphicon glyphicon-th icon" data-toggle="collapse" data-target="#main-nav-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                <a id="logo" class="navbar-brand logo" href="https://localhost:44356/">
+                        <img align="left" class="img img-logo img-responsive" style="height:30px;width:30px;color:white;" src="~/Content/Images/favicon.ico" /><span style="color:white;margin-left:20px;font-weight:bold;margin-top:10px;">QUACOON</span>
+                    </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="main-nav-collapse">
+                <ul id="site-nav" class="nav navbar-nav">
+                </ul>
+                <!--Site Nav / navbar left-->
+
+                @Html.Partial("_LoginPartial")
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <footer>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

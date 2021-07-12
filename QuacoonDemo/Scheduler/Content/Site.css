@@ -1,0 +1,662 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+#bodycontainer {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+table.table tbody tr td,
+table.table thead tr th,
+table.table thead {
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+}
+
+a {
+    color: white;
+    text-decoration: underline;
+}
+
+#lead {
+    color: white;
+}
+
+.navbar-nav {
+    float: none;
+}
+
+.navbar-nav > li {
+        float: none;
+    }
+
+.navbar-inverse .navbar-nav > li > a {
+    color:white;
+}
+
+#cbbutton {
+    color:white;
+}
+
+    /* Set padding to keep content from hitting the edges */
+    .body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+@font-face {
+    font-family: 'SFSportsNight';
+    src: url('SFSportsNight.ttf');
+}
+
+.classname {
+    font-family: 'Dense';
+}
+
+.cbjumbo {
+    background-size: 100% auto;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url('https://quacoo.s3.us-east-2.amazonaws.com/supplychain1.jpg');
+    background-repeat: repeat-y;
+    height: 300px;
+    padding-left: -15px;
+    padding-right: -15px;
+}
+
+.cbcards {
+    background-size: 100% auto;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url('https://quacoo.s3.us-east-2.amazonaws.com/warehouse.jpg');
+    background-repeat: repeat-y;
+    height: 800px;
+    padding-left: -15px;
+    padding-right: -15px;
+}
+
+.cbCardDetails {
+    font-size : 35px;
+    font-weight:bold;
+    width: 400px;
+}
+
+.cblogin {
+    background-size: 100% auto;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url('https://quacoo.s3.us-east-2.amazonaws.com/warehouse.jpg');
+    background-repeat: repeat-y;
+    height: 500px;
+    padding-left: -15px;
+    padding-right: -15px;
+}
+
+.cbsubscribe {
+    background-size: 100% auto;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url('https://quacoo.s3.us-east-2.amazonaws.com/warehouse.jpg');
+    background-repeat: repeat-y;
+    height: 500px;
+    padding-left: -15px;
+    padding-right: -15px;
+}
+
+#idlead {
+    color: white;
+    text-align: left;
+    margin-top: 70px;
+    font-family: 'Arial Rounded MT';
+    line-height: 1.42;
+    font-weight: 400;
+}
+
+/*.cbpanel {
+    width: 500px;
+}*/
+
+.cbbutton {
+    background-color: rgb(117, 35, 45); 
+    color: white;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    
+}
+
+.cbLink {
+    background-color: rgb(117, 35, 45);
+    color: white;
+    border: none;
+    color: white;
+    text-decoration: underline;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: underline;
+    display: inline-block;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.control-label {
+    color : white;
+}
+
+#qheader {
+    color:white;
+}
+
+.checkbox {
+    color:white;
+}
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+#termLabel {
+    width: 240px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: #fff;
+    border: solid 1px #cccccc;
+    text-align: left;
+    padding: 7.5px 15px;
+    color: #ccc;
+    letter-spacing: 0.7px;
+    margin-top: 25px;
+}
+
+#budgetLabel {
+    width: 240px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: #fff;
+    border: solid 1px #cccccc;
+    text-align: left;
+    padding: 7.5px 15px;
+    color: #ccc;
+    letter-spacing: 0.7px;
+    margin-top: 25px;
+}
+
+.caret {
+    float: right;
+    margin-top: 9px;
+    display: block;
+}
+
+.dropdown-menu {
+    width: 240px;
+    padding: 0;
+    margin: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.dropdown button:hover, .dropdown button:focus {
+    border: none;
+    outline: 0;
+}
+
+.dropdown.open button#budgetLabel {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.23);
+    border: solid 1px #666;
+    border-bottom: none;
+}
+
+.dropdown.open button#termLabel {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.23);
+    border: solid 1px #666;
+    border-bottom: none;
+}
+
+.dropdown.open ul {
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.23);
+    border: solid 1px #666;
+    border-top: none;
+    height: 200px;
+    overflow-y: scroll;
+}
+
+.dropdown-menu li {
+    line-height: 1.5;
+    letter-spacing: 0.7px;
+    color: #666;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 7.5px 15px;
+    border-top: solid 1px #f3f3f3;
+}
+
+    .dropdown-menu li:hover {
+        background-color: #ccc;
+    }
+
+    /*Responsiveness*/
+
+.section-image {
+    width:40px;
+    height:40px;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+    .jumbotron p {
+        font-size: 32px;
+        font-weight : bold;
+    }
+
+    .cbjumbo {
+        background-repeat: repeat-y;
+    }
+
+    .cbcards {
+        background-repeat: repeat-y;
+    }
+
+    .cbsubscribe {
+        margin-top: 20px;
+    }
+
+    #cbmodaltitle {
+        font-size: 18px;
+    }
+
+    .cbpanel {
+        width: 300px;
+    }
+
+    #cbbanner {
+        color: rgb(117, 35, 45);
+        text-align: center;
+        font-family: 'Arial Rounded MT';
+        line-height: 1.42;
+        font-weight: 400;
+        width: 300px;
+        font-size: 30px;
+    }
+
+    #cbdropdown {
+        margin-top: 30px;
+    }
+
+    #qregisterbanner {
+        margin-top: 45px;
+        font-size : 18px;
+    }
+
+    #qtermsbanner {
+        margin-top: 45px;
+        font-size: 14px;
+    }
+
+    #cbModal {
+        width: 100px;
+        margin: 0 auto;
+    }
+
+    .modal-dialog {
+        width: 400px;
+    } 
+
+    #cbModalChart {
+        display : none;
+        visibility : hidden;
+    }
+
+    #startcircle {
+        display: none;
+        visibility: hidden;
+    }
+
+    #cbModalContent {
+        color: white;
+        background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url('//img1.wsimg.com/isteam/stock/14082/:/rs=w:800,h:280,cg:true,m/cr=w:800,h:280,a:cc/fx-gs');
+        padding: 5px;
+        background-clip: content-box;
+        box-shadow: inset 0 0 0 10px rgb(117, 35, 45);
+    }
+
+    .cblead {
+        color: white;
+        text-align: left;
+        margin-top: 30px;
+        font-family: 'Arial Rounded MT';
+        line-height: 1.42;
+        font-weight: 400;
+        font-size: 32px;
+    }
+
+    #cbsublead {
+        color: white;
+        text-align: left;
+        margin-top: 15px;
+        font-family: 'Arial Rounded MT';
+        line-height: 1.42;
+        font-weight: 400;
+        font-size: 28px;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+    .cbsubscribe {
+        margin-top: 40px;
+    }
+
+    #cbmodaltitle {
+        font-size: 35px;
+    }
+
+    .cblead {
+        color:white;
+        font-size: 35px;
+    }
+
+    .jumbotron p {
+        font-size: 35px;
+    }
+
+    .cbpanel {
+        width: 500px;
+    }
+
+    #cbbanner {
+        color: rgb(117, 35, 45);
+        text-align: center;
+        font-family: 'Arial Rounded MT';
+        line-height: 1.42;
+        font-weight: 400;
+        width: 500px;
+        font-size: 35px;
+    }
+
+    #cbdropdown {
+        margin-top: 50px;
+    }
+
+    #qregisterbanner {
+        margin-top: 55px;
+    }
+
+    #cbModal {
+        width: 1500px;
+    }
+
+    #cbModalChart {
+        display: block;
+        visibility: visible;
+    }
+
+    .modal-dialog {
+        width: 800px;
+    } 
+
+    #startcircle {
+        display: block;
+        visibility: visible;
+    }
+
+    #cbModalContent {
+        color: white;
+        background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url('//img1.wsimg.com/isteam/stock/14082/:/rs=w:800,h:280,cg:true,m/cr=w:800,h:280,a:cc/fx-gs');
+        padding: 10px;
+        background-clip: content-box;
+        box-shadow: inset 0 0 0 20px rgb(117, 35, 45);
+    }
+
+    .cblead {
+        color: white;
+        text-align: left;
+        margin-top: 70px;
+        font-family: 'Arial Rounded MT';
+        line-height: 1.42;
+        font-weight: 400;
+        font-size: 35px;
+    }
+
+    #cbsublead {
+        color: white;
+        text-align: left;
+        margin-top: 70px;
+        font-family: 'Arial Rounded MT';
+        line-height: 1.42;
+        font-weight: 400;
+        font-size: 35px;
+    }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+    .cbsubscribe {
+        margin-top:40px;
+    }
+
+    #cbmodaltitle {
+        font-size: 35px;
+    }
+
+    .cblead {
+        color:white;
+        font-size: 35px;
+    }
+
+    .jumbotron p {
+        font-size: 35px;
+    }
+
+    .cbpanel {
+        width: 500px;
+    }
+
+    #cbbanner {
+        color: rgb(117, 35, 45);
+        text-align: center;
+        font-family: 'Arial Rounded MT';
+        line-height: 1.42;
+        font-weight: 400;
+        width: 500px;
+        font-size: 35px;
+    }
+
+    #cbdropdown {
+        margin-top: 50px;
+    }
+
+    #qregisterbanner {
+        margin-top:55px;
+    }
+
+    #cbModal {
+        width: 1500px;
+    }
+
+    #cbModalChart {
+        display: block;
+        visibility: visible;
+    }
+
+    .modal-dialog {
+        width: 800px;
+    } 
+
+    #startcircle {
+        display: block;
+        visibility: visible;
+    }
+
+    #cbModalContent {
+        color:white;
+        background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url('//img1.wsimg.com/isteam/stock/14082/:/rs=w:800,h:280,cg:true,m/cr=w:800,h:280,a:cc/fx-gs'); 
+        padding:15px;
+        background-clip: content-box;
+        box-shadow: inset 0 0 0 30px rgb(117, 35, 45);
+    }
+
+    .cblead {
+        color: white;
+        text-align: left;
+        margin-top: 70px;
+        font-family: 'Arial Rounded MT';
+        line-height: 1.42;
+        font-weight: 400;
+    }
+
+    #cbsublead {
+        color: white;
+        text-align: left;
+        margin-top: 70px;
+        font-family: 'Arial Rounded MT';
+        line-height: 1.42;
+        font-weight: 400;
+        font-size: 35px;
+    }
+}
+
+.hero-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("~/Content/Images/door.jpg");
+    height: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.hero-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+
+.loader {
+    color:white;
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    margin: 100px auto;
+    position: relative;
+    box-sizing: border-box;
+    text-align: center;
+    z-index: 0;
+    text-transform: uppercase;
+}
+
+    .loader:before,
+    .loader:after {
+        opacity: 0;
+        box-sizing: border-box;
+        content: "\0020";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 100px;
+        border: 5px solid rgb(117, 35, 45);
+        box-shadow: 0 0 50px rgb(117, 35, 45), inset 0 0 50px #fff;
+    }
+
+    .loader:after {
+        z-index: 1;
+        -webkit-animation: gogoloader 2s infinite 1s;
+    }
+
+    .loader:before {
+        z-index: 2;
+        -webkit-animation: gogoloader 2s infinite;
+    }
+
+@-webkit-keyframes gogoloader {
+    0% {
+        -webkit-transform: scale(0);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        opacity: 0;
+    }
+}
+
+.background {
+    fill: none;
+    pointer-events: all;
+}
+
+#states {
+    fill: #aaaaaa;
+}
+
+    #states .active {
+        fill: #ff0000;
+        fill-opacity: .5;
+    }
+
+#state-borders {
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 1.5px;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    pointer-events: none;
+}
+
+path.link {
+    fill: none;
+    stroke: #666666;
+    stroke-width: 1.5px;
+}
+
+.stroke {
+    fill: none;
+    stroke: #000;
+    stroke-width: 3px;
+}
+
+.fill {
+    fill: #fff;
+}
+
+.graticule {
+    fill: none;
+    stroke: #777;
+    stroke-width: .5px;
+    stroke-opacity: .5;
+}
+
+.route {
+    fill: none;
+    stroke: blue;
+    stroke-width: 3px;
+}

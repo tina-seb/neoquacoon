@@ -1,0 +1,1622 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="QuacoonModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BorderRef">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Border" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Box">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Box" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Card">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EBayItemID" Type="bigint" Nullable="false" />
+          <Property Name="ItemURL" Type="nvarchar" MaxLength="4000" />
+          <Property Name="GalleryURL" Type="nvarchar" MaxLength="4000" />
+          <Property Name="CategoryID" Type="bigint" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="100" />
+          <Property Name="BuyerLocation" Type="nvarchar" MaxLength="200" />
+          <Property Name="Sellingprice" Type="float" />
+          <Property Name="ShippingPrice" Type="float" />
+          <Property Name="SoldTime" Type="datetime" />
+          <Property Name="PopulationSupply" Type="int" />
+          <Property Name="Grade" Type="nvarchar" MaxLength="50" />
+          <Property Name="GradingCompany" Type="nvarchar" MaxLength="255" />
+          <Property Name="NumPlayers" Type="int" />
+          <Property Name="CardYear" Type="int" />
+          <Property Name="Design" Type="nvarchar" MaxLength="50" />
+          <Property Name="CardManufacturer" Type="nvarchar" MaxLength="50" />
+          <Property Name="Border" Type="nvarchar" MaxLength="50" />
+          <Property Name="Era" Type="nvarchar" MaxLength="50" />
+          <Property Name="Feature" Type="nvarchar" MaxLength="50" />
+          <Property Name="Licensed" Type="int" />
+          <Property Name="AvgPastFiveSellingPrice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Original" Type="nvarchar" MaxLength="50" />
+          <Property Name="Product" Type="nvarchar" MaxLength="100" />
+          <Property Name="League" Type="nvarchar" MaxLength="100" />
+          <Property Name="Player" Type="nvarchar" MaxLength="100" />
+          <Property Name="Season" Type="nvarchar" MaxLength="100" />
+          <Property Name="Series" Type="nvarchar" MaxLength="100" />
+          <Property Name="Team" Type="nvarchar" MaxLength="100" />
+          <Property Name="Sport" Type="nvarchar" MaxLength="100" />
+          <Property Name="HighDemand" Type="int" />
+        </EntityType>
+        <EntityType Name="CardBuyer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CardID" Type="int" Nullable="false" />
+          <Property Name="BuyerPersonaID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CardCompanyRef">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CardCompany" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CardDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EBayItemID" Type="bigint" Nullable="false" />
+          <Property Name="label" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="value" Type="nvarchar" MaxLength="400" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CardFeatureRef">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CardFeature" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Quacoon.dbo.CurrentInventory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CurrentInventory">
+          <Key>
+            <PropertyRef Name="ID" />
+            
+            
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="EBayItemID" Type="bigint" Nullable="false" />
+          <Property Name="ItemURL" Type="nvarchar" MaxLength="4000" />
+          <Property Name="GalleryURL" Type="nvarchar" MaxLength="4000" />
+          <Property Name="SellingState" Type="nvarchar" MaxLength="100" />
+          <Property Name="CategoryID" Type="bigint" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="100" />
+          <Property Name="BuyerLocation" Type="nvarchar" MaxLength="200" />
+          <Property Name="Sellingprice" Type="float" />
+          <Property Name="ShippingPrice" Type="float" />
+          <Property Name="SoldTime" Type="datetime" />
+          <Property Name="PopulationSupply" Type="int" />
+          <Property Name="Grade" Type="nvarchar" MaxLength="50" />
+          <Property Name="GradingCompany" Type="nvarchar" MaxLength="255" />
+          <Property Name="NumPlayers" Type="int" />
+          <Property Name="CardYear" Type="int" />
+          <Property Name="Design" Type="nvarchar" MaxLength="50" />
+          <Property Name="CardManufacturer" Type="nvarchar" MaxLength="50" />
+          <Property Name="Border" Type="nvarchar" MaxLength="50" />
+          <Property Name="Era" Type="nvarchar" MaxLength="50" />
+          <Property Name="Feature" Type="nvarchar" MaxLength="50" />
+          <Property Name="Licensed" Type="int" />
+          <Property Name="AvgPastFiveSellingPrice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Original" Type="nvarchar" MaxLength="50" />
+          <Property Name="Product" Type="nvarchar" MaxLength="100" />
+          <Property Name="League" Type="nvarchar" MaxLength="100" />
+          <Property Name="Player" Type="nvarchar" MaxLength="100" />
+          <Property Name="Season" Type="nvarchar" MaxLength="100" />
+          <Property Name="Series" Type="nvarchar" MaxLength="100" />
+          <Property Name="Team" Type="nvarchar" MaxLength="100" />
+          <Property Name="Sport" Type="nvarchar" MaxLength="100" />
+          <Property Name="WatchCount" Type="int" />
+          <Property Name="HighDemand" Type="int" />
+          <Property Name="Goal" Type="nvarchar" MaxLength="200" />
+          <Property Name="Processed" Type="int" />
+        </EntityType>
+        <EntityType Name="DesignRef">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Design" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Era">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Era" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Quacoon.dbo.FilterInventory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="FilterInventory">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="EBayItemID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="EBayItemID" Type="bigint" Nullable="false" />
+          <Property Name="ItemURL" Type="nvarchar" MaxLength="4000" />
+          <Property Name="GalleryURL" Type="nvarchar" MaxLength="4000" />
+          <Property Name="SellingState" Type="nvarchar" MaxLength="100" />
+          <Property Name="CategoryID" Type="bigint" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="100" />
+          <Property Name="BuyerLocation" Type="nvarchar" MaxLength="200" />
+          <Property Name="Sellingprice" Type="float" />
+          <Property Name="ShippingPrice" Type="float" />
+          <Property Name="SoldTime" Type="datetime" />
+          <Property Name="PopulationSupply" Type="int" />
+          <Property Name="Grade" Type="nvarchar" MaxLength="50" />
+          <Property Name="GradingCompany" Type="nvarchar" MaxLength="255" />
+          <Property Name="NumPlayers" Type="int" />
+          <Property Name="CardYear" Type="int" />
+          <Property Name="Design" Type="nvarchar" MaxLength="50" />
+          <Property Name="CardManufacturer" Type="nvarchar" MaxLength="50" />
+          <Property Name="Border" Type="nvarchar" MaxLength="50" />
+          <Property Name="Era" Type="nvarchar" MaxLength="50" />
+          <Property Name="Feature" Type="nvarchar" MaxLength="50" />
+          <Property Name="Licensed" Type="int" />
+          <Property Name="AvgPastFiveSellingPrice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Original" Type="nvarchar" MaxLength="50" />
+          <Property Name="Product" Type="nvarchar" MaxLength="100" />
+          <Property Name="League" Type="nvarchar" MaxLength="100" />
+          <Property Name="Player" Type="nvarchar" MaxLength="100" />
+          <Property Name="Season" Type="nvarchar" MaxLength="100" />
+          <Property Name="Series" Type="nvarchar" MaxLength="100" />
+          <Property Name="Team" Type="nvarchar" MaxLength="100" />
+          <Property Name="Sport" Type="nvarchar" MaxLength="100" />
+          <Property Name="WatchCount" Type="int" />
+          <Property Name="HighDemand" Type="int" />
+          <Property Name="Goal" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="GradingRef">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GradingCompany" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Grade" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="GradeDesc" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="HallOfFame">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HallOfFame" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InitialTrainingData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EBayItemID" Type="bigint" />
+          <Property Name="EbayTitle" Type="nvarchar" MaxLength="400" />
+          <Property Name="SellingPrice" Type="float" />
+          <Property Name="SoldTime" Type="datetime" />
+          <Property Name="Original" Type="nvarchar" MaxLength="50" />
+          <Property Name="Grader" Type="nvarchar" MaxLength="100" />
+          <Property Name="Manufacturer" Type="nvarchar" MaxLength="100" />
+          <Property Name="CardYear" Type="nvarchar" MaxLength="10" />
+          <Property Name="Product" Type="nvarchar" MaxLength="50" />
+          <Property Name="Grade" Type="nvarchar" MaxLength="50" />
+          <Property Name="League" Type="nvarchar" MaxLength="50" />
+          <Property Name="Era" Type="nvarchar" MaxLength="100" />
+          <Property Name="Player" Type="nvarchar" MaxLength="100" />
+          <Property Name="CardAttributes" Type="nvarchar" MaxLength="100" />
+          <Property Name="Season" Type="nvarchar" MaxLength="100" />
+          <Property Name="Series" Type="nvarchar" MaxLength="100" />
+          <Property Name="Team" Type="nvarchar" MaxLength="100" />
+          <Property Name="ItemURL" Type="nvarchar" MaxLength="4000" />
+          <Property Name="GalleryURL" Type="nvarchar" MaxLength="4000" />
+          <Property Name="CategoryID" Type="bigint" />
+          <Property Name="Sport" Type="nvarchar" MaxLength="100" />
+          <Property Name="BuyerLocation" Type="nvarchar" MaxLength="200" />
+          <Property Name="BidderCount" Type="int" />
+          <Property Name="CardNo" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="InjuryHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InjuryHistory" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="League">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="League" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="License">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Company" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Sport" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Original">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Original" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Player">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar(max)" Nullable="false" />
+          <Property Name="PER" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="FutureExpectationDesc" Type="varchar(max)" />
+          <Property Name="FutureExpectationRating" Type="int" />
+          <Property Name="FiveYearMarketValue" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="PersonalAttributesDesc" Type="varchar(max)" />
+          <Property Name="PersonalAttributesRating" Type="int" />
+          <Property Name="Tweets" Type="varchar(max)" />
+          <Property Name="TwitterSentimentScore" Type="int" />
+          <Property Name="RecentInjuryHistory" Type="int" />
+          <Property Name="TeamName" Type="varchar(max)" />
+          <Property Name="TeamRank" Type="int" />
+          <Property Name="HallofFame" Type="int" />
+          <Property Name="Retirement" Type="int" />
+          <Property Name="League" Type="int" />
+          <Property Name="Legend" Type="int" />
+        </EntityType>
+        <EntityType Name="PlayerGraph">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar(max)" Nullable="false" />
+          <Property Name="Zero" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="One" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Two" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Three" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Four" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Five" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="PlayerStats">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar(max)" Nullable="false" />
+          <Property Name="PlayerEfficiencyRating" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="TrueShootingPerc" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AssistRatio" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="TurnoverRatio" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="UsageRatio" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OffensiveReboundRate" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DefensiveReboundRate" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="ReboundRate" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="ValueAdded" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="EstimatedWinsAdded" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="PriceChangeRef">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PriceChange" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Retirement">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Retirement" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RookieCardInfluence">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RookieCardInfluence" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SoldInventory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EBayItemID" Type="bigint" Nullable="false" />
+          <Property Name="EbayTitle" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="CardID" Type="int" />
+          <Property Name="ItemURL" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="GalleryURL" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="CategoryID" Type="bigint" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="100" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="30" />
+          <Property Name="BuyerLocation" Type="nvarchar" MaxLength="200" />
+          <Property Name="SellingPrice" Type="float" />
+          <Property Name="ShippingPrice" Type="float" />
+          <Property Name="SoldTime" Type="datetime" />
+          <Property Name="PlayerID" Type="int" />
+          <Property Name="PriceChange" Type="int" />
+        </EntityType>
+        <EntityType Name="TeamRank">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Team" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="TeamRank" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Quacoon.dbo.TopInventory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TopInventory">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="EBayItemID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="EBayItemID" Type="bigint" Nullable="false" />
+          <Property Name="ItemURL" Type="nvarchar" MaxLength="4000" />
+          <Property Name="GalleryURL" Type="nvarchar" MaxLength="4000" />
+          <Property Name="SellingState" Type="nvarchar" MaxLength="100" />
+          <Property Name="CategoryID" Type="bigint" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="100" />
+          <Property Name="BuyerLocation" Type="nvarchar" MaxLength="200" />
+          <Property Name="Sellingprice" Type="float" />
+          <Property Name="ShippingPrice" Type="float" />
+          <Property Name="SoldTime" Type="datetime" />
+          <Property Name="PopulationSupply" Type="int" />
+          <Property Name="Grade" Type="nvarchar" MaxLength="50" />
+          <Property Name="GradingCompany" Type="nvarchar" MaxLength="255" />
+          <Property Name="NumPlayers" Type="int" />
+          <Property Name="CardYear" Type="int" />
+          <Property Name="Design" Type="nvarchar" MaxLength="50" />
+          <Property Name="CardManufacturer" Type="nvarchar" MaxLength="50" />
+          <Property Name="Border" Type="nvarchar" MaxLength="50" />
+          <Property Name="Era" Type="nvarchar" MaxLength="50" />
+          <Property Name="Feature" Type="nvarchar" MaxLength="50" />
+          <Property Name="Licensed" Type="int" />
+          <Property Name="AvgPastFiveSellingPrice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Original" Type="nvarchar" MaxLength="50" />
+          <Property Name="Product" Type="nvarchar" MaxLength="100" />
+          <Property Name="League" Type="nvarchar" MaxLength="100" />
+          <Property Name="Player" Type="nvarchar" MaxLength="100" />
+          <Property Name="Season" Type="nvarchar" MaxLength="100" />
+          <Property Name="Series" Type="nvarchar" MaxLength="100" />
+          <Property Name="Team" Type="nvarchar" MaxLength="100" />
+          <Property Name="Sport" Type="nvarchar" MaxLength="100" />
+          <Property Name="WatchCount" Type="int" />
+          <Property Name="HighDemand" Type="int" />
+          <Property Name="Goal" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Year">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="QuacoonModel1StoreContainer">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BorderRef" EntityType="Self.BorderRef" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Box" EntityType="Self.Box" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Card" EntityType="Self.Card" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CardBuyer" EntityType="Self.CardBuyer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CardCompanyRef" EntityType="Self.CardCompanyRef" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CardDetails" EntityType="Self.CardDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CardFeatureRef" EntityType="Self.CardFeatureRef" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DesignRef" EntityType="Self.DesignRef" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Era" EntityType="Self.Era" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GradingRef" EntityType="Self.GradingRef" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HallOfFame" EntityType="Self.HallOfFame" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InitialTrainingData" EntityType="Self.InitialTrainingData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InjuryHistory" EntityType="Self.InjuryHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="League" EntityType="Self.League" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="License" EntityType="Self.License" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Original" EntityType="Self.Original" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Player" EntityType="Self.Player" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PlayerGraph" EntityType="Self.PlayerGraph" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PlayerStats" EntityType="Self.PlayerStats" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PriceChangeRef" EntityType="Self.PriceChangeRef" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Retirement" EntityType="Self.Retirement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RookieCardInfluence" EntityType="Self.RookieCardInfluence" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SoldInventory" EntityType="Self.SoldInventory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TeamRank" EntityType="Self.TeamRank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Year" EntityType="Self.Year" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CurrentInventory" EntityType="Self.CurrentInventory" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CurrentInventory].[ID] AS [ID], 
+    [CurrentInventory].[Title] AS [Title], 
+    [CurrentInventory].[EBayItemID] AS [EBayItemID], 
+    [CurrentInventory].[ItemURL] AS [ItemURL], 
+    [CurrentInventory].[GalleryURL] AS [GalleryURL], 
+    [CurrentInventory].[SellingState] AS [SellingState], 
+    [CurrentInventory].[CategoryID] AS [CategoryID], 
+    [CurrentInventory].[CategoryName] AS [CategoryName], 
+    [CurrentInventory].[BuyerLocation] AS [BuyerLocation], 
+    [CurrentInventory].[Sellingprice] AS [Sellingprice], 
+    [CurrentInventory].[ShippingPrice] AS [ShippingPrice], 
+    [CurrentInventory].[SoldTime] AS [SoldTime], 
+    [CurrentInventory].[PopulationSupply] AS [PopulationSupply], 
+    [CurrentInventory].[Grade] AS [Grade], 
+    [CurrentInventory].[GradingCompany] AS [GradingCompany], 
+    [CurrentInventory].[NumPlayers] AS [NumPlayers], 
+    [CurrentInventory].[CardYear] AS [CardYear], 
+    [CurrentInventory].[Design] AS [Design], 
+    [CurrentInventory].[CardManufacturer] AS [CardManufacturer], 
+    [CurrentInventory].[Border] AS [Border], 
+    [CurrentInventory].[Era] AS [Era], 
+    [CurrentInventory].[Feature] AS [Feature], 
+    [CurrentInventory].[Licensed] AS [Licensed], 
+    [CurrentInventory].[AvgPastFiveSellingPrice] AS [AvgPastFiveSellingPrice], 
+    [CurrentInventory].[Original] AS [Original], 
+    [CurrentInventory].[Product] AS [Product], 
+    [CurrentInventory].[League] AS [League], 
+    [CurrentInventory].[Player] AS [Player], 
+    [CurrentInventory].[Season] AS [Season], 
+    [CurrentInventory].[Series] AS [Series], 
+    [CurrentInventory].[Team] AS [Team], 
+    [CurrentInventory].[Sport] AS [Sport], 
+    [CurrentInventory].[WatchCount] AS [WatchCount], 
+    [CurrentInventory].[HighDemand] AS [HighDemand], 
+    [CurrentInventory].[Goal] AS [Goal], 
+    [CurrentInventory].[Processed] AS [Processed]
+    FROM [dbo].[CurrentInventory] AS [CurrentInventory]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="FilterInventory" EntityType="Self.FilterInventory" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [FilterInventory].[ID] AS [ID], 
+    [FilterInventory].[Title] AS [Title], 
+    [FilterInventory].[EBayItemID] AS [EBayItemID], 
+    [FilterInventory].[ItemURL] AS [ItemURL], 
+    [FilterInventory].[GalleryURL] AS [GalleryURL], 
+    [FilterInventory].[SellingState] AS [SellingState], 
+    [FilterInventory].[CategoryID] AS [CategoryID], 
+    [FilterInventory].[CategoryName] AS [CategoryName], 
+    [FilterInventory].[BuyerLocation] AS [BuyerLocation], 
+    [FilterInventory].[Sellingprice] AS [Sellingprice], 
+    [FilterInventory].[ShippingPrice] AS [ShippingPrice], 
+    [FilterInventory].[SoldTime] AS [SoldTime], 
+    [FilterInventory].[PopulationSupply] AS [PopulationSupply], 
+    [FilterInventory].[Grade] AS [Grade], 
+    [FilterInventory].[GradingCompany] AS [GradingCompany], 
+    [FilterInventory].[NumPlayers] AS [NumPlayers], 
+    [FilterInventory].[CardYear] AS [CardYear], 
+    [FilterInventory].[Design] AS [Design], 
+    [FilterInventory].[CardManufacturer] AS [CardManufacturer], 
+    [FilterInventory].[Border] AS [Border], 
+    [FilterInventory].[Era] AS [Era], 
+    [FilterInventory].[Feature] AS [Feature], 
+    [FilterInventory].[Licensed] AS [Licensed], 
+    [FilterInventory].[AvgPastFiveSellingPrice] AS [AvgPastFiveSellingPrice], 
+    [FilterInventory].[Original] AS [Original], 
+    [FilterInventory].[Product] AS [Product], 
+    [FilterInventory].[League] AS [League], 
+    [FilterInventory].[Player] AS [Player], 
+    [FilterInventory].[Season] AS [Season], 
+    [FilterInventory].[Series] AS [Series], 
+    [FilterInventory].[Team] AS [Team], 
+    [FilterInventory].[Sport] AS [Sport], 
+    [FilterInventory].[WatchCount] AS [WatchCount], 
+    [FilterInventory].[HighDemand] AS [HighDemand], 
+    [FilterInventory].[Goal] AS [Goal]
+    FROM [dbo].[FilterInventory] AS [FilterInventory]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TopInventory" EntityType="Self.TopInventory" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TopInventory].[ID] AS [ID], 
+    [TopInventory].[Title] AS [Title], 
+    [TopInventory].[EBayItemID] AS [EBayItemID], 
+    [TopInventory].[ItemURL] AS [ItemURL], 
+    [TopInventory].[GalleryURL] AS [GalleryURL], 
+    [TopInventory].[SellingState] AS [SellingState], 
+    [TopInventory].[CategoryID] AS [CategoryID], 
+    [TopInventory].[CategoryName] AS [CategoryName], 
+    [TopInventory].[BuyerLocation] AS [BuyerLocation], 
+    [TopInventory].[Sellingprice] AS [Sellingprice], 
+    [TopInventory].[ShippingPrice] AS [ShippingPrice], 
+    [TopInventory].[SoldTime] AS [SoldTime], 
+    [TopInventory].[PopulationSupply] AS [PopulationSupply], 
+    [TopInventory].[Grade] AS [Grade], 
+    [TopInventory].[GradingCompany] AS [GradingCompany], 
+    [TopInventory].[NumPlayers] AS [NumPlayers], 
+    [TopInventory].[CardYear] AS [CardYear], 
+    [TopInventory].[Design] AS [Design], 
+    [TopInventory].[CardManufacturer] AS [CardManufacturer], 
+    [TopInventory].[Border] AS [Border], 
+    [TopInventory].[Era] AS [Era], 
+    [TopInventory].[Feature] AS [Feature], 
+    [TopInventory].[Licensed] AS [Licensed], 
+    [TopInventory].[AvgPastFiveSellingPrice] AS [AvgPastFiveSellingPrice], 
+    [TopInventory].[Original] AS [Original], 
+    [TopInventory].[Product] AS [Product], 
+    [TopInventory].[League] AS [League], 
+    [TopInventory].[Player] AS [Player], 
+    [TopInventory].[Season] AS [Season], 
+    [TopInventory].[Series] AS [Series], 
+    [TopInventory].[Team] AS [Team], 
+    [TopInventory].[Sport] AS [Sport], 
+    [TopInventory].[WatchCount] AS [WatchCount], 
+    [TopInventory].[HighDemand] AS [HighDemand], 
+    [TopInventory].[Goal] AS [Goal]
+    FROM [dbo].[TopInventory] AS [TopInventory]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QuacoonModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRole">
+          <Key>
+            <PropertyRef Name="RoleId" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="RoleId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BorderRef">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Border" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Box">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Box1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Card">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EBayItemID" Type="Int64" Nullable="false" />
+          <Property Name="ItemURL" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="GalleryURL" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryID" Type="Int64" />
+          <Property Name="CategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BuyerLocation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Sellingprice" Type="Double" />
+          <Property Name="ShippingPrice" Type="Double" />
+          <Property Name="SoldTime" Type="DateTime" Precision="3" />
+          <Property Name="PopulationSupply" Type="Int32" />
+          <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GradingCompany" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NumPlayers" Type="Int32" />
+          <Property Name="CardYear" Type="Int32" />
+          <Property Name="Design" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CardManufacturer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Border" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Era" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Feature" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Licensed" Type="Int32" />
+          <Property Name="AvgPastFiveSellingPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Original" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Product" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="League" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Player" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Season" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Series" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Team" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Sport" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="HighDemand" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CardBuyer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CardID" Type="Int32" Nullable="false" />
+          <Property Name="BuyerPersonaID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CardCompanyRef">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CardCompany" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CardFeatureRef">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CardFeature" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CurrentInventory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EBayItemID" Type="Int64" Nullable="false" />
+          <Property Name="ItemURL" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="GalleryURL" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="SellingState" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryID" Type="Int64" />
+          <Property Name="CategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BuyerLocation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Sellingprice" Type="Double" />
+          <Property Name="ShippingPrice" Type="Double" />
+          <Property Name="SoldTime" Type="DateTime" Precision="3" />
+          <Property Name="PopulationSupply" Type="Int32" />
+          <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GradingCompany" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NumPlayers" Type="Int32" />
+          <Property Name="CardYear" Type="Int32" />
+          <Property Name="Design" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CardManufacturer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Border" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Era" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Feature" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Licensed" Type="Int32" />
+          <Property Name="AvgPastFiveSellingPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Original" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Product" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="League" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Player" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Season" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Series" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Team" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Sport" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="WatchCount" Type="Int32" />
+          <Property Name="HighDemand" Type="Int32" />
+          <Property Name="Goal" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Processed" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DesignRef">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Design" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Era">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Era1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GradingRef">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GradingCompany" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Grade" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GradeDesc" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="HallOfFame">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HallOfFame1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InitialTrainingData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EBayItemID" Type="Int64" />
+          <Property Name="EbayTitle" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="SellingPrice" Type="Double" />
+          <Property Name="SoldTime" Type="DateTime" Precision="3" />
+          <Property Name="Original" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Grader" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Manufacturer" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CardYear" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Product" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="League" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Era" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Player" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CardAttributes" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Season" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Series" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Team" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ItemURL" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="GalleryURL" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryID" Type="Int64" />
+          <Property Name="Sport" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BuyerLocation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="BidderCount" Type="Int32" />
+          <Property Name="CardNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="InjuryHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InjuryHistory1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="League">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="League1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="License">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Company" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sport" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Original">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Original1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Player">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PER" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="FutureExpectationDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FutureExpectationRating" Type="Int32" />
+          <Property Name="FiveYearMarketValue" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PersonalAttributesDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PersonalAttributesRating" Type="Int32" />
+          <Property Name="Tweets" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TwitterSentimentScore" Type="Int32" />
+          <Property Name="RecentInjuryHistory" Type="Int32" />
+          <Property Name="TeamName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TeamRank" Type="Int32" />
+          <Property Name="HallofFame" Type="Int32" />
+          <Property Name="Retirement" Type="Int32" />
+          <Property Name="League" Type="Int32" />
+          <Property Name="Legend" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PlayerStat">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PlayerEfficiencyRating" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TrueShootingPerc" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AssistRatio" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TurnoverRatio" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="UsageRatio" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OffensiveReboundRate" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DefensiveReboundRate" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ReboundRate" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ValueAdded" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="EstimatedWinsAdded" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="PriceChangeRef">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PriceChange" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Retirement">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Retirement1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RookieCardInfluence">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RookieCardInfluence1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TeamRank">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Team" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TeamRank1" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Year">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Year1" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="QuacoonEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRole" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="BorderRefs" EntityType="Self.BorderRef" />
+          <EntitySet Name="Boxes" EntityType="Self.Box" />
+          <EntitySet Name="Cards" EntityType="Self.Card" />
+          <EntitySet Name="CardBuyers" EntityType="Self.CardBuyer" />
+          <EntitySet Name="CardCompanyRefs" EntityType="Self.CardCompanyRef" />
+          <EntitySet Name="CardFeatureRefs" EntityType="Self.CardFeatureRef" />
+          <EntitySet Name="CurrentInventories" EntityType="Self.CurrentInventory" />
+          <EntitySet Name="DesignRefs" EntityType="Self.DesignRef" />
+          <EntitySet Name="Eras" EntityType="Self.Era" />
+          <EntitySet Name="GradingRefs" EntityType="Self.GradingRef" />
+          <EntitySet Name="HallOfFames" EntityType="Self.HallOfFame" />
+          <EntitySet Name="InitialTrainingDatas" EntityType="Self.InitialTrainingData" />
+          <EntitySet Name="InjuryHistories" EntityType="Self.InjuryHistory" />
+          <EntitySet Name="Leagues" EntityType="Self.League" />
+          <EntitySet Name="Licenses" EntityType="Self.License" />
+          <EntitySet Name="Originals" EntityType="Self.Original" />
+          <EntitySet Name="Players" EntityType="Self.Player" />
+          <EntitySet Name="PlayerStats" EntityType="Self.PlayerStat" />
+          <EntitySet Name="PriceChangeRefs" EntityType="Self.PriceChangeRef" />
+          <EntitySet Name="Retirements" EntityType="Self.Retirement" />
+          <EntitySet Name="RookieCardInfluences" EntityType="Self.RookieCardInfluence" />
+          <EntitySet Name="TeamRanks" EntityType="Self.TeamRank" />
+          <EntitySet Name="Years" EntityType="Self.Year" />
+          <EntitySet Name="TopInventories" EntityType="QuacoonModel1.TopInventory" />
+          <EntitySet Name="CardDetails" EntityType="QuacoonModel1.CardDetail" />
+          <EntitySet Name="PlayerGraphs" EntityType="QuacoonModel1.PlayerGraph" />
+          <EntitySet Name="SoldInventories" EntityType="QuacoonModel1.SoldInventory" />
+          <EntitySet Name="FilterInventories" EntityType="QuacoonModel1.FilterInventory" />
+        </EntityContainer>
+        <EntityType Name="TopInventory">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="EBayItemID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EBayItemID" Type="Int64" Nullable="false" />
+          <Property Name="ItemURL" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="GalleryURL" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="SellingState" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryID" Type="Int64" />
+          <Property Name="CategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BuyerLocation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Sellingprice" Type="Double" />
+          <Property Name="ShippingPrice" Type="Double" />
+          <Property Name="SoldTime" Type="DateTime" Precision="3" />
+          <Property Name="PopulationSupply" Type="Int32" />
+          <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GradingCompany" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NumPlayers" Type="Int32" />
+          <Property Name="CardYear" Type="Int32" />
+          <Property Name="Design" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CardManufacturer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Border" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Era" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Feature" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Licensed" Type="Int32" />
+          <Property Name="AvgPastFiveSellingPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Original" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Product" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="League" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Player" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Season" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Series" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Team" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Sport" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="WatchCount" Type="Int32" />
+          <Property Name="HighDemand" Type="Int32" />
+          <Property Name="Goal" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CardDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EBayItemID" Type="Int64" Nullable="false" />
+          <Property Name="label" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="value" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PlayerGraph">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Zero" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="One" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Two" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Three" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Four" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Five" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="SoldInventory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EBayItemID" Type="Int64" Nullable="false" />
+          <Property Name="EbayTitle" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="CardID" Type="Int32" />
+          <Property Name="ItemURL" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="GalleryURL" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryID" Type="Int64" Nullable="false" />
+          <Property Name="CategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PostalCode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="BuyerLocation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SellingPrice" Type="Double" />
+          <Property Name="ShippingPrice" Type="Double" />
+          <Property Name="SoldTime" Type="DateTime" Precision="3" />
+          <Property Name="PlayerID" Type="Int32" />
+          <Property Name="PriceChange" Type="Int32" />
+        </EntityType>
+        <EntityType Name="FilterInventory">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="EBayItemID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EBayItemID" Type="Int64" Nullable="false" />
+          <Property Name="ItemURL" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="GalleryURL" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="SellingState" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryID" Type="Int64" />
+          <Property Name="CategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BuyerLocation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Sellingprice" Type="Double" />
+          <Property Name="ShippingPrice" Type="Double" />
+          <Property Name="SoldTime" Type="DateTime" Precision="3" />
+          <Property Name="PopulationSupply" Type="Int32" />
+          <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GradingCompany" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NumPlayers" Type="Int32" />
+          <Property Name="CardYear" Type="Int32" />
+          <Property Name="Design" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CardManufacturer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Border" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Era" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Feature" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Licensed" Type="Int32" />
+          <Property Name="AvgPastFiveSellingPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Original" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Product" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="League" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Player" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Season" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Series" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Team" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Sport" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="WatchCount" Type="Int32" />
+          <Property Name="HighDemand" Type="Int32" />
+          <Property Name="Goal" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QuacoonModel1StoreContainer" CdmEntityContainer="QuacoonEntities1">
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="QuacoonModel1.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="QuacoonModel1.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="QuacoonModel1.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserRoles">
+            <EntityTypeMapping TypeName="QuacoonModel1.AspNetUserRole">
+              <MappingFragment StoreEntitySet="AspNetUserRoles">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="QuacoonModel1.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BorderRefs">
+            <EntityTypeMapping TypeName="QuacoonModel1.BorderRef">
+              <MappingFragment StoreEntitySet="BorderRef">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Border" ColumnName="Border" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Boxes">
+            <EntityTypeMapping TypeName="QuacoonModel1.Box">
+              <MappingFragment StoreEntitySet="Box">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Box1" ColumnName="Box" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cards">
+            <EntityTypeMapping TypeName="QuacoonModel1.Card">
+              <MappingFragment StoreEntitySet="Card">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EBayItemID" ColumnName="EBayItemID" />
+                <ScalarProperty Name="ItemURL" ColumnName="ItemURL" />
+                <ScalarProperty Name="GalleryURL" ColumnName="GalleryURL" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="BuyerLocation" ColumnName="BuyerLocation" />
+                <ScalarProperty Name="Sellingprice" ColumnName="Sellingprice" />
+                <ScalarProperty Name="ShippingPrice" ColumnName="ShippingPrice" />
+                <ScalarProperty Name="SoldTime" ColumnName="SoldTime" />
+                <ScalarProperty Name="PopulationSupply" ColumnName="PopulationSupply" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="GradingCompany" ColumnName="GradingCompany" />
+                <ScalarProperty Name="NumPlayers" ColumnName="NumPlayers" />
+                <ScalarProperty Name="CardYear" ColumnName="CardYear" />
+                <ScalarProperty Name="Design" ColumnName="Design" />
+                <ScalarProperty Name="CardManufacturer" ColumnName="CardManufacturer" />
+                <ScalarProperty Name="Border" ColumnName="Border" />
+                <ScalarProperty Name="Era" ColumnName="Era" />
+                <ScalarProperty Name="Feature" ColumnName="Feature" />
+                <ScalarProperty Name="Licensed" ColumnName="Licensed" />
+                <ScalarProperty Name="AvgPastFiveSellingPrice" ColumnName="AvgPastFiveSellingPrice" />
+                <ScalarProperty Name="Original" ColumnName="Original" />
+                <ScalarProperty Name="Product" ColumnName="Product" />
+                <ScalarProperty Name="League" ColumnName="League" />
+                <ScalarProperty Name="Player" ColumnName="Player" />
+                <ScalarProperty Name="Season" ColumnName="Season" />
+                <ScalarProperty Name="Series" ColumnName="Series" />
+                <ScalarProperty Name="Team" ColumnName="Team" />
+                <ScalarProperty Name="Sport" ColumnName="Sport" />
+                <ScalarProperty Name="HighDemand" ColumnName="HighDemand" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CardBuyers">
+            <EntityTypeMapping TypeName="QuacoonModel1.CardBuyer">
+              <MappingFragment StoreEntitySet="CardBuyer">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CardID" ColumnName="CardID" />
+                <ScalarProperty Name="BuyerPersonaID" ColumnName="BuyerPersonaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CardCompanyRefs">
+            <EntityTypeMapping TypeName="QuacoonModel1.CardCompanyRef">
+              <MappingFragment StoreEntitySet="CardCompanyRef">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CardCompany" ColumnName="CardCompany" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CardFeatureRefs">
+            <EntityTypeMapping TypeName="QuacoonModel1.CardFeatureRef">
+              <MappingFragment StoreEntitySet="CardFeatureRef">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CardFeature" ColumnName="CardFeature" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CurrentInventories">
+            <EntityTypeMapping TypeName="QuacoonModel1.CurrentInventory">
+              <MappingFragment StoreEntitySet="CurrentInventory">
+                <ScalarProperty Name="Processed" ColumnName="Processed" />
+                <ScalarProperty Name="Goal" ColumnName="Goal" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="EBayItemID" ColumnName="EBayItemID" />
+                <ScalarProperty Name="ItemURL" ColumnName="ItemURL" />
+                <ScalarProperty Name="GalleryURL" ColumnName="GalleryURL" />
+                <ScalarProperty Name="SellingState" ColumnName="SellingState" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="BuyerLocation" ColumnName="BuyerLocation" />
+                <ScalarProperty Name="Sellingprice" ColumnName="Sellingprice" />
+                <ScalarProperty Name="ShippingPrice" ColumnName="ShippingPrice" />
+                <ScalarProperty Name="SoldTime" ColumnName="SoldTime" />
+                <ScalarProperty Name="PopulationSupply" ColumnName="PopulationSupply" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="GradingCompany" ColumnName="GradingCompany" />
+                <ScalarProperty Name="NumPlayers" ColumnName="NumPlayers" />
+                <ScalarProperty Name="CardYear" ColumnName="CardYear" />
+                <ScalarProperty Name="Design" ColumnName="Design" />
+                <ScalarProperty Name="CardManufacturer" ColumnName="CardManufacturer" />
+                <ScalarProperty Name="Border" ColumnName="Border" />
+                <ScalarProperty Name="Era" ColumnName="Era" />
+                <ScalarProperty Name="Feature" ColumnName="Feature" />
+                <ScalarProperty Name="Licensed" ColumnName="Licensed" />
+                <ScalarProperty Name="AvgPastFiveSellingPrice" ColumnName="AvgPastFiveSellingPrice" />
+                <ScalarProperty Name="Original" ColumnName="Original" />
+                <ScalarProperty Name="Product" ColumnName="Product" />
+                <ScalarProperty Name="League" ColumnName="League" />
+                <ScalarProperty Name="Player" ColumnName="Player" />
+                <ScalarProperty Name="Season" ColumnName="Season" />
+                <ScalarProperty Name="Series" ColumnName="Series" />
+                <ScalarProperty Name="Team" ColumnName="Team" />
+                <ScalarProperty Name="Sport" ColumnName="Sport" />
+                <ScalarProperty Name="WatchCount" ColumnName="WatchCount" />
+                <ScalarProperty Name="HighDemand" ColumnName="HighDemand" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DesignRefs">
+            <EntityTypeMapping TypeName="QuacoonModel1.DesignRef">
+              <MappingFragment StoreEntitySet="DesignRef">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Design" ColumnName="Design" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Eras">
+            <EntityTypeMapping TypeName="QuacoonModel1.Era">
+              <MappingFragment StoreEntitySet="Era">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Era1" ColumnName="Era" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GradingRefs">
+            <EntityTypeMapping TypeName="QuacoonModel1.GradingRef">
+              <MappingFragment StoreEntitySet="GradingRef">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="GradingCompany" ColumnName="GradingCompany" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="GradeDesc" ColumnName="GradeDesc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HallOfFames">
+            <EntityTypeMapping TypeName="QuacoonModel1.HallOfFame">
+              <MappingFragment StoreEntitySet="HallOfFame">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="HallOfFame1" ColumnName="HallOfFame" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InitialTrainingDatas">
+            <EntityTypeMapping TypeName="QuacoonModel1.InitialTrainingData">
+              <MappingFragment StoreEntitySet="InitialTrainingData">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EBayItemID" ColumnName="EBayItemID" />
+                <ScalarProperty Name="EbayTitle" ColumnName="EbayTitle" />
+                <ScalarProperty Name="SellingPrice" ColumnName="SellingPrice" />
+                <ScalarProperty Name="SoldTime" ColumnName="SoldTime" />
+                <ScalarProperty Name="Original" ColumnName="Original" />
+                <ScalarProperty Name="Grader" ColumnName="Grader" />
+                <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+                <ScalarProperty Name="CardYear" ColumnName="CardYear" />
+                <ScalarProperty Name="Product" ColumnName="Product" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="League" ColumnName="League" />
+                <ScalarProperty Name="Era" ColumnName="Era" />
+                <ScalarProperty Name="Player" ColumnName="Player" />
+                <ScalarProperty Name="CardAttributes" ColumnName="CardAttributes" />
+                <ScalarProperty Name="Season" ColumnName="Season" />
+                <ScalarProperty Name="Series" ColumnName="Series" />
+                <ScalarProperty Name="Team" ColumnName="Team" />
+                <ScalarProperty Name="ItemURL" ColumnName="ItemURL" />
+                <ScalarProperty Name="GalleryURL" ColumnName="GalleryURL" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="Sport" ColumnName="Sport" />
+                <ScalarProperty Name="BuyerLocation" ColumnName="BuyerLocation" />
+                <ScalarProperty Name="BidderCount" ColumnName="BidderCount" />
+                <ScalarProperty Name="CardNo" ColumnName="CardNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InjuryHistories">
+            <EntityTypeMapping TypeName="QuacoonModel1.InjuryHistory">
+              <MappingFragment StoreEntitySet="InjuryHistory">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="InjuryHistory1" ColumnName="InjuryHistory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Leagues">
+            <EntityTypeMapping TypeName="QuacoonModel1.League">
+              <MappingFragment StoreEntitySet="League">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="League1" ColumnName="League" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Licenses">
+            <EntityTypeMapping TypeName="QuacoonModel1.License">
+              <MappingFragment StoreEntitySet="License">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="Sport" ColumnName="Sport" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Originals">
+            <EntityTypeMapping TypeName="QuacoonModel1.Original">
+              <MappingFragment StoreEntitySet="Original">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Original1" ColumnName="Original" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Players">
+            <EntityTypeMapping TypeName="QuacoonModel1.Player">
+              <MappingFragment StoreEntitySet="Player">
+                <ScalarProperty Name="Legend" ColumnName="Legend" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PER" ColumnName="PER" />
+                <ScalarProperty Name="FutureExpectationDesc" ColumnName="FutureExpectationDesc" />
+                <ScalarProperty Name="FutureExpectationRating" ColumnName="FutureExpectationRating" />
+                <ScalarProperty Name="FiveYearMarketValue" ColumnName="FiveYearMarketValue" />
+                <ScalarProperty Name="PersonalAttributesDesc" ColumnName="PersonalAttributesDesc" />
+                <ScalarProperty Name="PersonalAttributesRating" ColumnName="PersonalAttributesRating" />
+                <ScalarProperty Name="Tweets" ColumnName="Tweets" />
+                <ScalarProperty Name="TwitterSentimentScore" ColumnName="TwitterSentimentScore" />
+                <ScalarProperty Name="RecentInjuryHistory" ColumnName="RecentInjuryHistory" />
+                <ScalarProperty Name="TeamName" ColumnName="TeamName" />
+                <ScalarProperty Name="TeamRank" ColumnName="TeamRank" />
+                <ScalarProperty Name="HallofFame" ColumnName="HallofFame" />
+                <ScalarProperty Name="Retirement" ColumnName="Retirement" />
+                <ScalarProperty Name="League" ColumnName="League" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlayerStats">
+            <EntityTypeMapping TypeName="QuacoonModel1.PlayerStat">
+              <MappingFragment StoreEntitySet="PlayerStats">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PlayerEfficiencyRating" ColumnName="PlayerEfficiencyRating" />
+                <ScalarProperty Name="TrueShootingPerc" ColumnName="TrueShootingPerc" />
+                <ScalarProperty Name="AssistRatio" ColumnName="AssistRatio" />
+                <ScalarProperty Name="TurnoverRatio" ColumnName="TurnoverRatio" />
+                <ScalarProperty Name="UsageRatio" ColumnName="UsageRatio" />
+                <ScalarProperty Name="OffensiveReboundRate" ColumnName="OffensiveReboundRate" />
+                <ScalarProperty Name="DefensiveReboundRate" ColumnName="DefensiveReboundRate" />
+                <ScalarProperty Name="ReboundRate" ColumnName="ReboundRate" />
+                <ScalarProperty Name="ValueAdded" ColumnName="ValueAdded" />
+                <ScalarProperty Name="EstimatedWinsAdded" ColumnName="EstimatedWinsAdded" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PriceChangeRefs">
+            <EntityTypeMapping TypeName="QuacoonModel1.PriceChangeRef">
+              <MappingFragment StoreEntitySet="PriceChangeRef">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PriceChange" ColumnName="PriceChange" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Retirements">
+            <EntityTypeMapping TypeName="QuacoonModel1.Retirement">
+              <MappingFragment StoreEntitySet="Retirement">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Retirement1" ColumnName="Retirement" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RookieCardInfluences">
+            <EntityTypeMapping TypeName="QuacoonModel1.RookieCardInfluence">
+              <MappingFragment StoreEntitySet="RookieCardInfluence">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RookieCardInfluence1" ColumnName="RookieCardInfluence" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TeamRanks">
+            <EntityTypeMapping TypeName="QuacoonModel1.TeamRank">
+              <MappingFragment StoreEntitySet="TeamRank">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Team" ColumnName="Team" />
+                <ScalarProperty Name="TeamRank1" ColumnName="TeamRank" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Years">
+            <EntityTypeMapping TypeName="QuacoonModel1.Year">
+              <MappingFragment StoreEntitySet="Year">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Year1" ColumnName="Year" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TopInventories">
+            <EntityTypeMapping TypeName="QuacoonModel1.TopInventory">
+              <MappingFragment StoreEntitySet="TopInventory">
+                <ScalarProperty Name="Goal" ColumnName="Goal" />
+                <ScalarProperty Name="HighDemand" ColumnName="HighDemand" />
+                <ScalarProperty Name="WatchCount" ColumnName="WatchCount" />
+                <ScalarProperty Name="Sport" ColumnName="Sport" />
+                <ScalarProperty Name="Team" ColumnName="Team" />
+                <ScalarProperty Name="Series" ColumnName="Series" />
+                <ScalarProperty Name="Season" ColumnName="Season" />
+                <ScalarProperty Name="Player" ColumnName="Player" />
+                <ScalarProperty Name="League" ColumnName="League" />
+                <ScalarProperty Name="Product" ColumnName="Product" />
+                <ScalarProperty Name="Original" ColumnName="Original" />
+                <ScalarProperty Name="AvgPastFiveSellingPrice" ColumnName="AvgPastFiveSellingPrice" />
+                <ScalarProperty Name="Licensed" ColumnName="Licensed" />
+                <ScalarProperty Name="Feature" ColumnName="Feature" />
+                <ScalarProperty Name="Era" ColumnName="Era" />
+                <ScalarProperty Name="Border" ColumnName="Border" />
+                <ScalarProperty Name="CardManufacturer" ColumnName="CardManufacturer" />
+                <ScalarProperty Name="Design" ColumnName="Design" />
+                <ScalarProperty Name="CardYear" ColumnName="CardYear" />
+                <ScalarProperty Name="NumPlayers" ColumnName="NumPlayers" />
+                <ScalarProperty Name="GradingCompany" ColumnName="GradingCompany" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="PopulationSupply" ColumnName="PopulationSupply" />
+                <ScalarProperty Name="SoldTime" ColumnName="SoldTime" />
+                <ScalarProperty Name="ShippingPrice" ColumnName="ShippingPrice" />
+                <ScalarProperty Name="Sellingprice" ColumnName="Sellingprice" />
+                <ScalarProperty Name="BuyerLocation" ColumnName="BuyerLocation" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="SellingState" ColumnName="SellingState" />
+                <ScalarProperty Name="GalleryURL" ColumnName="GalleryURL" />
+                <ScalarProperty Name="ItemURL" ColumnName="ItemURL" />
+                <ScalarProperty Name="EBayItemID" ColumnName="EBayItemID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CardDetails">
+            <EntityTypeMapping TypeName="QuacoonModel1.CardDetail">
+              <MappingFragment StoreEntitySet="CardDetails">
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="label" ColumnName="label" />
+                <ScalarProperty Name="EBayItemID" ColumnName="EBayItemID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlayerGraphs">
+            <EntityTypeMapping TypeName="QuacoonModel1.PlayerGraph">
+              <MappingFragment StoreEntitySet="PlayerGraph">
+                <ScalarProperty Name="Five" ColumnName="Five" />
+                <ScalarProperty Name="Four" ColumnName="Four" />
+                <ScalarProperty Name="Three" ColumnName="Three" />
+                <ScalarProperty Name="Two" ColumnName="Two" />
+                <ScalarProperty Name="One" ColumnName="One" />
+                <ScalarProperty Name="Zero" ColumnName="Zero" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SoldInventories">
+            <EntityTypeMapping TypeName="QuacoonModel1.SoldInventory">
+              <MappingFragment StoreEntitySet="SoldInventory">
+                <ScalarProperty Name="PriceChange" ColumnName="PriceChange" />
+                <ScalarProperty Name="PlayerID" ColumnName="PlayerID" />
+                <ScalarProperty Name="SoldTime" ColumnName="SoldTime" />
+                <ScalarProperty Name="ShippingPrice" ColumnName="ShippingPrice" />
+                <ScalarProperty Name="SellingPrice" ColumnName="SellingPrice" />
+                <ScalarProperty Name="BuyerLocation" ColumnName="BuyerLocation" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="GalleryURL" ColumnName="GalleryURL" />
+                <ScalarProperty Name="ItemURL" ColumnName="ItemURL" />
+                <ScalarProperty Name="CardID" ColumnName="CardID" />
+                <ScalarProperty Name="EbayTitle" ColumnName="EbayTitle" />
+                <ScalarProperty Name="EBayItemID" ColumnName="EBayItemID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FilterInventories">
+            <EntityTypeMapping TypeName="QuacoonModel1.FilterInventory">
+              <MappingFragment StoreEntitySet="FilterInventory">
+                <ScalarProperty Name="Goal" ColumnName="Goal" />
+                <ScalarProperty Name="HighDemand" ColumnName="HighDemand" />
+                <ScalarProperty Name="WatchCount" ColumnName="WatchCount" />
+                <ScalarProperty Name="Sport" ColumnName="Sport" />
+                <ScalarProperty Name="Team" ColumnName="Team" />
+                <ScalarProperty Name="Series" ColumnName="Series" />
+                <ScalarProperty Name="Season" ColumnName="Season" />
+                <ScalarProperty Name="Player" ColumnName="Player" />
+                <ScalarProperty Name="League" ColumnName="League" />
+                <ScalarProperty Name="Product" ColumnName="Product" />
+                <ScalarProperty Name="Original" ColumnName="Original" />
+                <ScalarProperty Name="AvgPastFiveSellingPrice" ColumnName="AvgPastFiveSellingPrice" />
+                <ScalarProperty Name="Licensed" ColumnName="Licensed" />
+                <ScalarProperty Name="Feature" ColumnName="Feature" />
+                <ScalarProperty Name="Era" ColumnName="Era" />
+                <ScalarProperty Name="Border" ColumnName="Border" />
+                <ScalarProperty Name="CardManufacturer" ColumnName="CardManufacturer" />
+                <ScalarProperty Name="Design" ColumnName="Design" />
+                <ScalarProperty Name="CardYear" ColumnName="CardYear" />
+                <ScalarProperty Name="NumPlayers" ColumnName="NumPlayers" />
+                <ScalarProperty Name="GradingCompany" ColumnName="GradingCompany" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="PopulationSupply" ColumnName="PopulationSupply" />
+                <ScalarProperty Name="SoldTime" ColumnName="SoldTime" />
+                <ScalarProperty Name="ShippingPrice" ColumnName="ShippingPrice" />
+                <ScalarProperty Name="Sellingprice" ColumnName="Sellingprice" />
+                <ScalarProperty Name="BuyerLocation" ColumnName="BuyerLocation" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="SellingState" ColumnName="SellingState" />
+                <ScalarProperty Name="GalleryURL" ColumnName="GalleryURL" />
+                <ScalarProperty Name="ItemURL" ColumnName="ItemURL" />
+                <ScalarProperty Name="EBayItemID" ColumnName="EBayItemID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

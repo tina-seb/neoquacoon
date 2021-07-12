@@ -1,0 +1,1023 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CardBossModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="AccountId" Type="int" />
+    <Property Name="FirstName" Type="varchar(max)" />
+    <Property Name="LastName" Type="varchar(max)" />
+    <Property Name="CreateDate" Type="datetime2" Precision="7" />
+    <Property Name="UserType" Type="int" />
+    <Property Name="LastLoggedIn" Type="datetime2" Precision="7" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="Title" Type="varchar(max)" />
+    <Property Name="zipCode" Type="varchar" MaxLength="12" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Quacoon.dbo.Bio' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Bio">
+    <Key>
+      <PropertyRef Name="BioID" />
+      <PropertyRef Name="BioType" />
+    </Key>
+    <Property Name="BioID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BioType" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="BioDesc" Type="nvarchar(max)" />
+    <Property Name="HourlyCost" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar(max)" />
+    <Property Name="CompanyId" Type="int" />
+  </EntityType>
+  <EntityType Name="Center">
+    <Key>
+      <PropertyRef Name="CenterID" />
+    </Key>
+    <Property Name="CenterID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyID" Type="int" Nullable="false" />
+    <Property Name="CenterName" Type="nvarchar" MaxLength="400" Nullable="false" />
+    <Property Name="CenterAddress1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CenterAddress2" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CenterCity" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CenterState" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CenterCountry" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CenterFunction">
+    <Key>
+      <PropertyRef Name="FunctionID" />
+    </Key>
+    <Property Name="FunctionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FunctionName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FunctionType" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="CompanyID" />
+    </Key>
+    <Property Name="CompanyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="400" Nullable="false" />
+    <Property Name="CompanyAddressLine1" Type="nvarchar(max)" />
+    <Property Name="CompanyAddressLine2" Type="nvarchar(max)" />
+    <Property Name="CompanyCity" Type="nvarchar" MaxLength="400" />
+    <Property Name="CompanyState" Type="nvarchar" MaxLength="400" />
+    <Property Name="CompanyCountry" Type="nvarchar" MaxLength="400" />
+    <Property Name="CompanyZipCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="CompanyLocationPhone" Type="nvarchar" MaxLength="20" />
+    <Property Name="CompanyLatitude" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="CompanyLongitude" Type="decimal" Precision="18" Scale="5" />
+  </EntityType>
+  <EntityType Name="CompanyAdmin">
+    <Key>
+      <PropertyRef Name="CompanyAdminID" />
+    </Key>
+    <Property Name="CompanyAdminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyID" Type="int" Nullable="false" />
+    <Property Name="AdminID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CompanyFunction">
+    <Key>
+      <PropertyRef Name="CompanyFunctionID" />
+    </Key>
+    <Property Name="CompanyFunctionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyID" Type="int" Nullable="false" />
+    <Property Name="FunctionID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CompanyLocation">
+    <Key>
+      <PropertyRef Name="CompanyLocationID" />
+    </Key>
+    <Property Name="CompanyLocationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyID" Type="int" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="400" Nullable="false" />
+    <Property Name="CompanyAddressLine1" Type="nvarchar(max)" />
+    <Property Name="CompanyAddressLine2" Type="nvarchar(max)" />
+    <Property Name="CompanyCity" Type="nvarchar" MaxLength="400" />
+    <Property Name="CompanyState" Type="nvarchar" MaxLength="400" />
+    <Property Name="CompanyCountry" Type="nvarchar" MaxLength="400" />
+    <Property Name="CompanyZipCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="CompanyLocationPhone" Type="nvarchar" MaxLength="20" />
+    <Property Name="CompanyLatitude" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="CompanyLongitude" Type="decimal" Precision="18" Scale="5" />
+  </EntityType>
+  <EntityType Name="CompanyProductGraph">
+    <Key>
+      <PropertyRef Name="CompanyProductGraphID" />
+    </Key>
+    <Property Name="CompanyProductGraphID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="ProductId" Type="int" Nullable="false" />
+    <Property Name="ChainId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Connection">
+    <Key>
+      <PropertyRef Name="ConnectionID" />
+    </Key>
+    <Property Name="ConnectionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IndividualFrom" Type="int" Nullable="false" />
+    <Property Name="IndividualTo" Type="int" Nullable="false" />
+    <Property Name="ConnectRequestDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="ConnectAcceptDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="ConnectStatus" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Delivery">
+    <Key>
+      <PropertyRef Name="DeliveryID" />
+    </Key>
+    <Property Name="DeliveryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeliveryName" Type="nvarchar" MaxLength="400" Nullable="false" />
+    <Property Name="DeliveryAddress" Type="nvarchar(max)" />
+    <Property Name="DeliveryLimitLatitude1" Type="int" />
+    <Property Name="DeliveryLimitLongitude1" Type="int" />
+    <Property Name="DeliveryLimitLatitude2" Type="int" />
+    <Property Name="DeliveryLimitLongitude2" Type="int" />
+    <Property Name="DeliveryLimitLatitude3" Type="int" />
+    <Property Name="DeliveryLimitLongitude3" Type="int" />
+    <Property Name="DeliveryLimitLatitude4" Type="int" />
+    <Property Name="DeliveryLimitLongitude4" Type="int" />
+  </EntityType>
+  <EntityType Name="DeliveryProduct">
+    <Key>
+      <PropertyRef Name="DeliveryProductID" />
+    </Key>
+    <Property Name="DeliveryProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeliveryUnitID" Type="int" Nullable="false" />
+    <Property Name="ProductUnitID" Type="int" Nullable="false" />
+    <Property Name="TrackTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="TrackAddress1" Type="varchar(max)" Nullable="false" />
+    <Property Name="TrackAddress2" Type="varchar(max)" />
+    <Property Name="TrackCity" Type="varchar(max)" />
+    <Property Name="TrackState" Type="varchar(max)" />
+    <Property Name="TrackCountry" Type="varchar(max)" />
+    <Property Name="Latitude" Type="int" Nullable="false" />
+    <Property Name="Longitude" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DeliveryProductTracingUpdateRequest">
+    <Key>
+      <PropertyRef Name="DeliveryProductTracingUpdateRequestID" />
+    </Key>
+    <Property Name="DeliveryProductTracingUpdateRequestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeliveryUnitID" Type="int" Nullable="false" />
+    <Property Name="ProductUnitID" Type="int" Nullable="false" />
+    <Property Name="CompanyID" Type="int" Nullable="false" />
+    <Property Name="IndividualID" Type="int" Nullable="false" />
+    <Property Name="RequestStatus" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DeliveryUnit">
+    <Key>
+      <PropertyRef Name="DeliveryUnitID" />
+    </Key>
+    <Property Name="DeliveryUnitID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeliveryID" Type="int" Nullable="false" />
+    <Property Name="DeliveryName" Type="nvarchar(max)" />
+    <Property Name="Capacity" Type="int" />
+    <Property Name="DeliveryUnitLimitLatitude1" Type="int" />
+    <Property Name="DeliveryUnitLimitLongitude1" Type="int" />
+    <Property Name="DeliveryUnitLimitLatitude2" Type="int" />
+    <Property Name="DeliveryUnitLimitLongitude2" Type="int" />
+    <Property Name="DeliveryUnitLimitLatitude3" Type="int" />
+    <Property Name="DeliveryUnitLimitLongitude3" Type="int" />
+    <Property Name="DeliveryUnitLimitLatitude4" Type="int" />
+    <Property Name="DeliveryUnitLimitLongitude4" Type="int" />
+  </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="EventID" />
+    </Key>
+    <Property Name="EventID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EventType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EventImpact" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EventFunction">
+    <Key>
+      <PropertyRef Name="EventFunctionID" />
+    </Key>
+    <Property Name="EventFunctionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventID" Type="int" Nullable="false" />
+    <Property Name="FunctionID" Type="int" Nullable="false" />
+    <Property Name="ImpactLevel" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ExcelPath">
+    <Key>
+      <PropertyRef Name="ExcelPathID" />
+    </Key>
+    <Property Name="ExcelPathID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyID" Type="int" Nullable="false" />
+    <Property Name="ExcelPath" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Quacoon.dbo.ExpertMessage' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ExpertMessage">
+    <Key>
+      <PropertyRef Name="ExpertMessageID" />
+      <PropertyRef Name="ExpertID" />
+      <PropertyRef Name="Message" />
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="CreateDate" />
+    </Key>
+    <Property Name="ExpertMessageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExpertID" Type="int" Nullable="false" />
+    <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Quacoon.dbo.Experts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Experts">
+    <Key>
+      <PropertyRef Name="ExpertID" />
+      <PropertyRef Name="ExpertType" />
+    </Key>
+    <Property Name="ExpertID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExpertType" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ExpertDesc" Type="nvarchar(max)" />
+    <Property Name="HourlyCost" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar(max)" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="FunctionLookup">
+    <Key>
+      <PropertyRef Name="FunctionLookupID" />
+    </Key>
+    <Property Name="FunctionLookupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FunctionName" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GraphConnections">
+    <Key>
+      <PropertyRef Name="GraphConnectionID" />
+    </Key>
+    <Property Name="GraphConnectionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ChainId" Type="int" Nullable="false" />
+    <Property Name="SubChainId" Type="int" />
+    <Property Name="NodeNameOne" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NodeNameTwo" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GraphNodes">
+    <Key>
+      <PropertyRef Name="GraphNodeID" />
+    </Key>
+    <Property Name="GraphNodeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ChainId" Type="int" Nullable="false" />
+    <Property Name="NodeName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Color" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Category" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GreenCompany">
+    <Key>
+      <PropertyRef Name="GreenCompanyID" />
+    </Key>
+    <Property Name="GreenCompanyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyID" Type="int" Nullable="false" />
+    <Property Name="TotalScore" Type="int" Nullable="false" />
+    <Property Name="CertificationScore" Type="int" Nullable="false" />
+    <Property Name="GreenProductScore" Type="int" Nullable="false" />
+    <Property Name="PensionFundInvestmentScore" Type="int" Nullable="false" />
+    <Property Name="RenewableElectricitySource" Type="int" Nullable="false" />
+    <Property Name="GreenFleetScore" Type="int" Nullable="false" />
+    <Property Name="EnergyAuditScore" Type="int" Nullable="false" />
+    <Property Name="FoodWastageScore" Type="int" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GreenFunctionAverage">
+    <Key>
+      <PropertyRef Name="GreenFunctionAverageID" />
+    </Key>
+    <Property Name="GreenFunctionAverageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AvgTotalScore" Type="int" Nullable="false" />
+    <Property Name="AvgCertificationScore" Type="int" Nullable="false" />
+    <Property Name="AvgGreenProductScore" Type="int" Nullable="false" />
+    <Property Name="AvgPensionFundInvestmentScore" Type="int" Nullable="false" />
+    <Property Name="AvgRenewableElectricitySource" Type="int" Nullable="false" />
+    <Property Name="AvgGreenFleetScore" Type="int" Nullable="false" />
+    <Property Name="AvgEnergyAuditScore" Type="int" Nullable="false" />
+    <Property Name="AvgFoodWastageScore" Type="int" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GreenReco">
+    <Key>
+      <PropertyRef Name="GreenRecoID" />
+    </Key>
+    <Property Name="GreenRecoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyID" Type="int" Nullable="false" />
+    <Property Name="CertificationReco" Type="int" Nullable="false" />
+    <Property Name="GreenProductReco" Type="int" Nullable="false" />
+    <Property Name="PensionFundInvestmentReco" Type="int" Nullable="false" />
+    <Property Name="RenewableElectricityReco" Type="int" Nullable="false" />
+    <Property Name="GreenFleetReco" Type="int" Nullable="false" />
+    <Property Name="EnergyAuditReco" Type="int" Nullable="false" />
+    <Property Name="FoodWastageReco" Type="int" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Holiday">
+    <Key>
+      <PropertyRef Name="HolidayID" />
+    </Key>
+    <Property Name="HolidayID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HolidayName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HolidayDate" Type="datetime" Nullable="false" />
+    <Property Name="Federal" Type="int" Nullable="false" />
+    <Property Name="Regional" Type="int" />
+  </EntityType>
+  <EntityType Name="IndividualCompanyHistory">
+    <Key>
+      <PropertyRef Name="IndividualCompanyHistoryID" />
+    </Key>
+    <Property Name="IndividualCompanyHistoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IndividualID" Type="int" Nullable="false" />
+    <Property Name="CompanyID" Type="int" Nullable="false" />
+    <Property Name="StartDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="EndDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="Title" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IndividualInterests">
+    <Key>
+      <PropertyRef Name="IndividualInterestsID" />
+    </Key>
+    <Property Name="IndividualInterestsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IndividualID" Type="int" Nullable="false" />
+    <Property Name="InterestID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Interest">
+    <Key>
+      <PropertyRef Name="InterestID" />
+    </Key>
+    <Property Name="InterestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InterestName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Messages">
+    <Key>
+      <PropertyRef Name="MessageID" />
+    </Key>
+    <Property Name="MessageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FromID" Type="int" />
+    <Property Name="ToID" Type="int" />
+    <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ParentID" Type="int" />
+  </EntityType>
+  <EntityType Name="MonitorProduct">
+    <Key>
+      <PropertyRef Name="MonitorProductID" />
+    </Key>
+    <Property Name="MonitorProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MonitorProductName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SKU" Type="nvarchar(max)" />
+    <Property Name="OtherID" Type="nvarchar(max)" />
+    <Property Name="Priority" Type="int" />
+  </EntityType>
+  <EntityType Name="MonStatus">
+    <Key>
+      <PropertyRef Name="MonitorStatusID" />
+    </Key>
+    <Property Name="MonitorStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MonitorProductID" Type="int" Nullable="false" />
+    <Property Name="MonitorStatus" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ZipCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="CompanyID" Type="int" />
+    <Property Name="latitude" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="longitude" Type="decimal" Precision="18" Scale="5" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="NewsID" />
+    </Key>
+    <Property Name="NewsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NewsMapID" Type="int" Nullable="false" />
+    <Property Name="NewsBody" Type="nvarchar(max)" />
+    <Property Name="NewsImpact" Type="nvarchar" MaxLength="20" />
+    <Property Name="NewsDate" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Quacoon.dbo.NewsMap' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="NewsMap">
+    <Key>
+      <PropertyRef Name="NewsMapID" />
+      <PropertyRef Name="CompanyID" />
+      <PropertyRef Name="NewsWord" />
+    </Key>
+    <Property Name="NewsMapID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyID" Type="int" Nullable="false" />
+    <Property Name="NewsWord" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Notifications">
+    <Key>
+      <PropertyRef Name="NotificationID" />
+    </Key>
+    <Property Name="NotificationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NotificationMessage" Type="varchar(max)" Nullable="false" />
+    <Property Name="NotificationType" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="NotificationTime" Type="datetime2" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="PostID" />
+    </Key>
+    <Property Name="PostID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Post" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Privacy" Type="int" />
+    <Property Name="InterestID" Type="int" />
+    <Property Name="createdate" Type="datetime2" Precision="7" />
+    <Property Name="imageURL" Type="nvarchar(max)" />
+    <Property Name="username" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Privacy">
+    <Key>
+      <PropertyRef Name="PrivacyID" />
+    </Key>
+    <Property Name="PrivacyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PrivacyLabel" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProductCategory" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SKU" Type="nvarchar(max)" />
+    <Property Name="OtherID" Type="nvarchar(max)" />
+    <Property Name="imageURL" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ProductCompany">
+    <Key>
+      <PropertyRef Name="ProductCompanyID" />
+    </Key>
+    <Property Name="ProductCompanyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyID" Type="int" />
+    <Property Name="ProductID" Type="int" />
+  </EntityType>
+  <EntityType Name="ProductCompanyDemand">
+    <Key>
+      <PropertyRef Name="ProductCompanyDemandID" />
+    </Key>
+    <Property Name="ProductCompanyDemandID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="Year" Type="int" Nullable="false" />
+    <Property Name="Month" Type="int" Nullable="false" />
+    <Property Name="Demand" Type="int" Nullable="false" />
+    <Property Name="DemandUnit" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="safety" Type="int" Nullable="false" />
+    <Property Name="sold" Type="int" Nullable="false" />
+    <Property Name="backorder" Type="int" Nullable="false" />
+    <Property Name="instock" Type="int" />
+    <Property Name="demanddate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ProductCompanyDemandUpdateRequest">
+    <Key>
+      <PropertyRef Name="ProductCompanyDemandUpdateRequestID" />
+    </Key>
+    <Property Name="ProductCompanyDemandUpdateRequestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductUnitID" Type="int" Nullable="false" />
+    <Property Name="CompanyID" Type="int" Nullable="false" />
+    <Property Name="IndividualID" Type="int" Nullable="false" />
+    <Property Name="RequestStatus" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductCompanySupply">
+    <Key>
+      <PropertyRef Name="ProductCompanySupplyID" />
+    </Key>
+    <Property Name="ProductCompanySupplyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="Year" Type="int" Nullable="false" />
+    <Property Name="Month" Type="int" Nullable="false" />
+    <Property Name="Supply" Type="int" Nullable="false" />
+    <Property Name="SupplyUnit" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductCompanySupplyUpdateRequest">
+    <Key>
+      <PropertyRef Name="ProductCompanySupplyUpdateRequestID" />
+    </Key>
+    <Property Name="ProductCompanySupplyUpdateRequestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductUnitID" Type="int" Nullable="false" />
+    <Property Name="CompanyID" Type="int" Nullable="false" />
+    <Property Name="IndividualID" Type="int" Nullable="false" />
+    <Property Name="RequestStatus" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductDestination">
+    <Key>
+      <PropertyRef Name="ProductDestinationID" />
+    </Key>
+    <Property Name="ProductDestinationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductUnitID" Type="int" Nullable="false" />
+    <Property Name="SupplierCompanyID" Type="int" Nullable="false" />
+    <Property Name="DestinationCompanyID" Type="int" Nullable="false" />
+    <Property Name="ExpectedDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="ExpectedLevel" Type="float" Nullable="false" />
+    <Property Name="ExpectedLevelUnit" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductDestinationLeadTime">
+    <Key>
+      <PropertyRef Name="ProductDestinationLeadTimeID" />
+    </Key>
+    <Property Name="ProductDestinationLeadTimeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductUnitID" Type="int" Nullable="false" />
+    <Property Name="DestinationCompanyID" Type="int" Nullable="false" />
+    <Property Name="MinLeadTime" Type="int" Nullable="false" />
+    <Property Name="MaxLeadTime" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductInfo">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProductCategory" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProductSubCategory" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SKU" Type="nvarchar(max)" />
+    <Property Name="OtherID" Type="nvarchar(max)" />
+    <Property Name="ImageURL" Type="nvarchar(max)" />
+    <Property Name="PricePerUnit" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="PriceUnit" Type="nvarchar" MaxLength="100" />
+    <Property Name="MinimumOrderQuantity" Type="int" />
+    <Property Name="MOQUnit" Type="nvarchar" MaxLength="100" />
+    <Property Name="Rating" Type="nvarchar(max)" />
+    <Property Name="ShelfLife" Type="int" />
+    <Property Name="ShelfLifeUnit" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ProductMaterial">
+    <Key>
+      <PropertyRef Name="ProductMaterialID" />
+    </Key>
+    <Property Name="ProductMaterialID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductUnitID" Type="int" Nullable="false" />
+    <Property Name="MaterialUnitID" Type="int" Nullable="false" />
+    <Property Name="MinLeadTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="MaxLeadTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="MakeOrder" Type="int" Nullable="false" />
+    <Property Name="MakeQuantity" Type="int" />
+    <Property Name="MakeQuantityUnit" Type="int" />
+    <Property Name="ProcessCategory" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ProductReplacement">
+    <Key>
+      <PropertyRef Name="ProductReplacementID" />
+    </Key>
+    <Property Name="ProductReplacementID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="ReplacementID" Type="int" Nullable="false" />
+    <Property Name="Scarcity" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductTotalDemand">
+    <Key>
+      <PropertyRef Name="ProductTotalDemandID" />
+    </Key>
+    <Property Name="ProductTotalDemandID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductUnitID" Type="int" Nullable="false" />
+    <Property Name="DemandYear" Type="int" Nullable="false" />
+    <Property Name="DemandMonth" Type="int" Nullable="false" />
+    <Property Name="Demand" Type="float" Nullable="false" />
+    <Property Name="DemandUnit" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductTracingUpdateRequest">
+    <Key>
+      <PropertyRef Name="ProductTracingUpdateRequestID" />
+    </Key>
+    <Property Name="ProductTracingUpdateRequestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductUnitID" Type="int" Nullable="false" />
+    <Property Name="CompanyID" Type="int" Nullable="false" />
+    <Property Name="IndividualID" Type="int" Nullable="false" />
+    <Property Name="RequestStatus" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductUnitTracing">
+    <Key>
+      <PropertyRef Name="ProductUnitID" />
+    </Key>
+    <Property Name="ProductUnitID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TrackTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="TrackAddress1" Type="varchar(max)" Nullable="false" />
+    <Property Name="TrackAddress2" Type="varchar(max)" />
+    <Property Name="TrackCity" Type="varchar(max)" />
+    <Property Name="TrackState" Type="varchar(max)" />
+    <Property Name="TrackCountry" Type="varchar(max)" />
+    <Property Name="Latitude" Type="int" Nullable="false" />
+    <Property Name="Longitude" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Quacoon.dbo.Professional' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Professional">
+    <Key>
+      <PropertyRef Name="ProfessionalID" />
+      <PropertyRef Name="ProfessionalType" />
+    </Key>
+    <Property Name="ProfessionalID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProfessionalType" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ProfessionalDesc" Type="nvarchar(max)" />
+    <Property Name="HourlyCost" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar(max)" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="ProfilePics">
+    <Key>
+      <PropertyRef Name="ProfilePicID" />
+    </Key>
+    <Property Name="ProfilePicID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProfilePicURL" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Recommendation">
+    <Key>
+      <PropertyRef Name="RecoID" />
+    </Key>
+    <Property Name="RecoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RecoTimeStamp" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="Reco" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Reason" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ResellLevel">
+    <Key>
+      <PropertyRef Name="ResellLevelID" />
+    </Key>
+    <Property Name="ResellLevelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductUnitID" Type="int" Nullable="false" />
+    <Property Name="CompanyID" Type="int" Nullable="false" />
+    <Property Name="ExcessLevel" Type="int" Nullable="false" />
+    <Property Name="ExcessLevelUnit" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ResellLevelTimestamp" Type="datetime2" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ResellUpdateRequest">
+    <Key>
+      <PropertyRef Name="ResellUpdateRequestID" />
+    </Key>
+    <Property Name="ResellUpdateRequestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductUnitID" Type="int" Nullable="false" />
+    <Property Name="CompanyID" Type="int" Nullable="false" />
+    <Property Name="IndividualID" Type="int" Nullable="false" />
+    <Property Name="RequestStatus" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="RequestDate" Type="datetime2" Precision="7" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Quacoon.dbo.Resume' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Resume">
+    <Key>
+      <PropertyRef Name="ResumeID" />
+      <PropertyRef Name="ResumeType" />
+    </Key>
+    <Property Name="ResumeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ResumeType" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ResumeDesc" Type="nvarchar(max)" />
+    <Property Name="HourlyCost" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar(max)" />
+    <Property Name="UserId" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="RiskAlerts">
+    <Key>
+      <PropertyRef Name="RiskAlertID" />
+    </Key>
+    <Property Name="RiskAlertID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RiskLocation" Type="nvarchar(max)" />
+    <Property Name="RiskDesc" Type="nvarchar(max)" />
+    <Property Name="RiskImpact" Type="nvarchar" MaxLength="20" />
+    <Property Name="RiskDate" Type="datetime" />
+    <Property Name="RiskLatitude" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="RiskLongitude" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="RiskFunction" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ShareList">
+    <Key>
+      <PropertyRef Name="ShareListID" />
+    </Key>
+    <Property Name="ShareListID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PostID" Type="int" Nullable="false" />
+    <Property Name="IndividualID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ShortageLevel">
+    <Key>
+      <PropertyRef Name="ShortageLevelID" />
+    </Key>
+    <Property Name="ShortageLevelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductUnitID" Type="int" Nullable="false" />
+    <Property Name="CompanyID" Type="int" Nullable="false" />
+    <Property Name="ShortageLevel" Type="int" Nullable="false" />
+    <Property Name="ShoratgeLevelUnit" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ResellLevelTimestamp" Type="datetime2" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ShortageUpdateRequest">
+    <Key>
+      <PropertyRef Name="ShortageUpdateRequestID" />
+    </Key>
+    <Property Name="ShortageUpdateRequestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductUnitID" Type="int" Nullable="false" />
+    <Property Name="CompanyID" Type="int" Nullable="false" />
+    <Property Name="IndividualID" Type="int" Nullable="false" />
+    <Property Name="RequestStatus" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="RequestDate" Type="datetime2" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Skill">
+    <Key>
+      <PropertyRef Name="SkillID" />
+    </Key>
+    <Property Name="SkillID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IndividualID" Type="int" Nullable="false" />
+    <Property Name="Available" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StorageCategory">
+    <Key>
+      <PropertyRef Name="StorageCategoryID" />
+    </Key>
+    <Property Name="StorageCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StorageCategoryName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StorageUnit">
+    <Key>
+      <PropertyRef Name="StorageID" />
+    </Key>
+    <Property Name="StorageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StorageName" Type="nvarchar(max)" />
+    <Property Name="TotalCapacity" Type="int" />
+    <Property Name="AvailableCapacity" Type="int" />
+    <Property Name="StorageAddress1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StorageAddress2" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StorageCity" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StorageState" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StorageCountry" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StorageLatitude" Type="int" />
+    <Property Name="StorageLongitude" Type="int" />
+  </EntityType>
+  <EntityType Name="StorageUnitCategory">
+    <Key>
+      <PropertyRef Name="StorageUnitCategoryID" />
+    </Key>
+    <Property Name="StorageUnitCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StorageID" Type="int" Nullable="false" />
+    <Property Name="StorageCategoryID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SupplierCompany">
+    <Key>
+      <PropertyRef Name="SupplierCompanyID" />
+    </Key>
+    <Property Name="SupplierCompanyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SupplierID" Type="int" Nullable="false" />
+    <Property Name="CompanyID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="ContractStartDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="ContractEndDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="ContractDesc" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SupplierInvite">
+    <Key>
+      <PropertyRef Name="SupplierInviteID" />
+    </Key>
+    <Property Name="SupplierInviteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="400" Nullable="false" />
+    <Property Name="SupplierName" Type="nvarchar" MaxLength="400" Nullable="false" />
+    <Property Name="SupplierEmail" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="User" Type="nvarchar" MaxLength="400" Nullable="false" />
+    <Property Name="InviteDate" Type="datetime" Nullable="false" />
+    <Property Name="InviteLastSent" Type="datetime" />
+    <Property Name="InviteCount" Type="int" />
+    <Property Name="InviteAccepted" Type="int" />
+  </EntityType>
+  <EntityType Name="Unit">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyID" Type="int" Nullable="false" />
+    <Property Name="UnitID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UnitOfMeasure">
+    <Key>
+      <PropertyRef Name="UnitMeasureID" />
+    </Key>
+    <Property Name="UnitMeasureID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UnitMeasure" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Vendor">
+    <Key>
+      <PropertyRef Name="ServiceVendorID" />
+    </Key>
+    <Property Name="ServiceVendorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ServiceType" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ServiceDesc" Type="nvarchar(max)" />
+    <Property Name="ServiceImage" Type="nvarchar(max)" />
+    <Property Name="HourlyCost" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar(max)" />
+    <Property Name="CompanyId" Type="int" />
+  </EntityType>
+  <EntityType Name="VendorMessage">
+    <Key>
+      <PropertyRef Name="VendorMessageID" />
+    </Key>
+    <Property Name="VendorMessageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VendorID" Type="int" Nullable="false" />
+    <Property Name="VendorMessage" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Function Name="InitializeCompanyProductDemand" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="companyid" Type="int" Mode="In" />
+    <Parameter Name="productid" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="CardBossModel1StoreContainer">
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Center" EntityType="Self.Center" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CenterFunction" EntityType="Self.CenterFunction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CompanyAdmin" EntityType="Self.CompanyAdmin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CompanyFunction" EntityType="Self.CompanyFunction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CompanyLocation" EntityType="Self.CompanyLocation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CompanyProductGraph" EntityType="Self.CompanyProductGraph" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Connection" EntityType="Self.Connection" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Delivery" EntityType="Self.Delivery" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeliveryProduct" EntityType="Self.DeliveryProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeliveryProductTracingUpdateRequest" EntityType="Self.DeliveryProductTracingUpdateRequest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeliveryUnit" EntityType="Self.DeliveryUnit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventFunction" EntityType="Self.EventFunction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExcelPath" EntityType="Self.ExcelPath" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FunctionLookup" EntityType="Self.FunctionLookup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GraphConnections" EntityType="Self.GraphConnections" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GraphNodes" EntityType="Self.GraphNodes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GreenCompany" EntityType="Self.GreenCompany" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GreenFunctionAverage" EntityType="Self.GreenFunctionAverage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GreenReco" EntityType="Self.GreenReco" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Holiday" EntityType="Self.Holiday" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IndividualCompanyHistory" EntityType="Self.IndividualCompanyHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IndividualInterests" EntityType="Self.IndividualInterests" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Interest" EntityType="Self.Interest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MonitorProduct" EntityType="Self.MonitorProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MonStatus" EntityType="Self.MonStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notifications" EntityType="Self.Notifications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Privacy" EntityType="Self.Privacy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductCompany" EntityType="Self.ProductCompany" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductCompanyDemand" EntityType="Self.ProductCompanyDemand" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductCompanyDemandUpdateRequest" EntityType="Self.ProductCompanyDemandUpdateRequest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductCompanySupply" EntityType="Self.ProductCompanySupply" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductCompanySupplyUpdateRequest" EntityType="Self.ProductCompanySupplyUpdateRequest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductDestination" EntityType="Self.ProductDestination" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductDestinationLeadTime" EntityType="Self.ProductDestinationLeadTime" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductInfo" EntityType="Self.ProductInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductMaterial" EntityType="Self.ProductMaterial" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductReplacement" EntityType="Self.ProductReplacement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductTotalDemand" EntityType="Self.ProductTotalDemand" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductTracingUpdateRequest" EntityType="Self.ProductTracingUpdateRequest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductUnitTracing" EntityType="Self.ProductUnitTracing" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProfilePics" EntityType="Self.ProfilePics" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Recommendation" EntityType="Self.Recommendation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ResellLevel" EntityType="Self.ResellLevel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ResellUpdateRequest" EntityType="Self.ResellUpdateRequest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RiskAlerts" EntityType="Self.RiskAlerts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShareList" EntityType="Self.ShareList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShortageLevel" EntityType="Self.ShortageLevel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShortageUpdateRequest" EntityType="Self.ShortageUpdateRequest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Skill" EntityType="Self.Skill" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StorageCategory" EntityType="Self.StorageCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StorageUnit" EntityType="Self.StorageUnit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StorageUnitCategory" EntityType="Self.StorageUnitCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SupplierCompany" EntityType="Self.SupplierCompany" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SupplierInvite" EntityType="Self.SupplierInvite" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Unit" EntityType="Self.Unit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UnitOfMeasure" EntityType="Self.UnitOfMeasure" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vendor" EntityType="Self.Vendor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VendorMessage" EntityType="Self.VendorMessage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bio" EntityType="Self.Bio" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Bio].[BioID] AS [BioID], 
+    [Bio].[BioType] AS [BioType], 
+    [Bio].[BioDesc] AS [BioDesc], 
+    [Bio].[HourlyCost] AS [HourlyCost], 
+    [Bio].[CreateDate] AS [CreateDate], 
+    [Bio].[CreatedBy] AS [CreatedBy], 
+    [Bio].[UpdateDate] AS [UpdateDate], 
+    [Bio].[UpdatedBy] AS [UpdatedBy], 
+    [Bio].[CompanyId] AS [CompanyId]
+    FROM [dbo].[Bio] AS [Bio]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ExpertMessage" EntityType="Self.ExpertMessage" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ExpertMessage].[ExpertMessageID] AS [ExpertMessageID], 
+    [ExpertMessage].[ExpertID] AS [ExpertID], 
+    [ExpertMessage].[Message] AS [Message], 
+    [ExpertMessage].[UserID] AS [UserID], 
+    [ExpertMessage].[UserName] AS [UserName], 
+    [ExpertMessage].[Email] AS [Email], 
+    [ExpertMessage].[CreateDate] AS [CreateDate]
+    FROM [dbo].[ExpertMessage] AS [ExpertMessage]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Experts" EntityType="Self.Experts" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Experts].[ExpertID] AS [ExpertID], 
+    [Experts].[ExpertType] AS [ExpertType], 
+    [Experts].[ExpertDesc] AS [ExpertDesc], 
+    [Experts].[HourlyCost] AS [HourlyCost], 
+    [Experts].[CreateDate] AS [CreateDate], 
+    [Experts].[CreatedBy] AS [CreatedBy], 
+    [Experts].[UpdateDate] AS [UpdateDate], 
+    [Experts].[UpdatedBy] AS [UpdatedBy], 
+    [Experts].[UserId] AS [UserId]
+    FROM [dbo].[Experts] AS [Experts]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="NewsMap" EntityType="Self.NewsMap" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [NewsMap].[NewsMapID] AS [NewsMapID], 
+    [NewsMap].[CompanyID] AS [CompanyID], 
+    [NewsMap].[NewsWord] AS [NewsWord]
+    FROM [dbo].[NewsMap] AS [NewsMap]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Professional" EntityType="Self.Professional" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Professional].[ProfessionalID] AS [ProfessionalID], 
+    [Professional].[ProfessionalType] AS [ProfessionalType], 
+    [Professional].[ProfessionalDesc] AS [ProfessionalDesc], 
+    [Professional].[HourlyCost] AS [HourlyCost], 
+    [Professional].[CreateDate] AS [CreateDate], 
+    [Professional].[CreatedBy] AS [CreatedBy], 
+    [Professional].[UpdateDate] AS [UpdateDate], 
+    [Professional].[UpdatedBy] AS [UpdatedBy], 
+    [Professional].[UserId] AS [UserId]
+    FROM [dbo].[Professional] AS [Professional]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Resume" EntityType="Self.Resume" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Resume].[ResumeID] AS [ResumeID], 
+    [Resume].[ResumeType] AS [ResumeType], 
+    [Resume].[ResumeDesc] AS [ResumeDesc], 
+    [Resume].[HourlyCost] AS [HourlyCost], 
+    [Resume].[CreateDate] AS [CreateDate], 
+    [Resume].[CreatedBy] AS [CreatedBy], 
+    [Resume].[UpdateDate] AS [UpdateDate], 
+    [Resume].[UpdatedBy] AS [UpdatedBy], 
+    [Resume].[UserId] AS [UserId]
+    FROM [dbo].[Resume] AS [Resume]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

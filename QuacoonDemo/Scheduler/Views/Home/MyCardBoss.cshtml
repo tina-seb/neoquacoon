@@ -1,0 +1,41 @@
+﻿
+@using Quacoon.Models
+@model LoginViewModel
+
+@{
+    ViewBag.Title = "MyQuacoon";
+}
+
+<div id="bodyContainer" ng-app="CardApp">
+    <div id="bodyctrl" ng-controller="CardCtrl" ng-init="init()">
+
+        <div class="jumbotron jumbotron-fluid cbjumbo">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 cbpanel">
+                        <p class="cblead" id="lead">
+                            Thank you for your interest in the Quacoon early access!
+                        </p>
+                        <p style="color:white;font-size:18px;">In the coming months, we will be opening preview access to select individuals and institutions.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="https://img1.wsimg.com/isteam/ip/static/themeFocus/foreground_generic_circle_v2.png/:/" alt="Circle" width="400" height="500">
+                    </div>
+                    <div class="col-md-4">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section scripts {
+    @Scripts.Render("~/Scripts/angular.js")
+    @Scripts.Render("~/Scripts/app/cardcontroller.js")
+    @Scripts.Render("~/Scripts/app/cb-controller.js")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/Chart.js")
+    @Scripts.Render("~/Scripts/angular-chart.js")
+}

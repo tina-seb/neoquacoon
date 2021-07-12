@@ -1,0 +1,348 @@
+﻿@using Quacoon.Models
+@model LoginViewModel
+@{ ViewBag.Title = "Scheduler Demo"; }
+
+<div id="bodyContainer" onload="loadSVG()" ng-app="CardApp">
+    <div id="bodyctrl" ng-controller="CardCtrl" ng-init="init()">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel">
+                    <div style="font-size:24px;font-weight:bold;" class="panel-heading">Test your skills against a quantum computer with a simple employee to machine scheduling problem.</div>
+                    <div class="panel-body">
+                        <p>
+                            The constraints to be satisfied are as follows :
+                        </p>
+                        <p>
+                            At least one employee must be assigned to each machine. One, and only one, employee should be assigned to each machine.
+                            No employee works two or more overlapping schedules.
+                            All employees should have roughly even work schedules.
+                        </p>
+                        <p>
+                            Alyssa is not permitted to work on Machine 3, 9 and 10. </p>
+
+                            <p>Sarah is not currently trained to work on Machine 2, 7 and 11.</p>
+                            <p>Tina is not currently trained to work on Machine 4, 7, 11 and 12.</p>
+                            <p>Aaron does not have the PPE to work on Machine 6, 11, and 15.</p>
+                            <p>Joe does not possess the skills to work on Machine 1, Machine 2, Machine 3, Machine 4, Machine 10 and Machine 14.
+                        </p>
+
+                        <p style="font-size:24px;font-weight:bold;">Click on the cells below to assign an employee to a certain machine. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel">
+                    <div class="panel-heading"></div>
+                    <div class="panel-body">
+                        <img class="img-responsive" src="https://quacoo.s3.us-east-2.amazonaws.com/schedule.jpg" id="Panel_Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <table id="qtable" class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Employee</th>
+                    <th>Machine 1</th>
+                    <th>Machine 2</th>
+                    <th>Machine 3</th>
+                    <th>Machine 4</th>
+                    <th>Machine 5</th>
+                    <th>Machine 6</th>
+                    <th>Machine 7</th>
+                    <th>Machine 8</th>
+                    <th>Machine 9</th>
+                    <th>Machine 10</th>
+                    <th>Machine 11</th>
+                    <th>Machine 12</th>
+                    <th>Machine 13</th>
+                    <th>Machine 14</th>
+                    <th>Machine 15</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="font-size:11px;">
+                    <td></td>
+                    <td> 6:30 AM - 7:30 AM</td>
+                    <td> 7:00 AM - 8:00 AM</td>
+                    <td> 7:30 AM - 8:30 AM</td>
+                    <td> 8:00 AM - 9:00 AM</td>
+                    <td> 8:30 AM - 9:30 AM</td>
+                    <td> 9:00 AM - 10:00 AM</td>
+                    <td> 10:30 AM - 11:30 AM</td>
+                    <td> 11:00 AM - 12:00 PM</td>
+                    <td> 11:30 AM - 12:30 PM</td>
+                    <td> 12:00 PM - 1:00 PM</td>
+                    <td> 12:30 PM - 1:30 PM</td>
+                    <td> 1:00 PM - 2:00 PM</td>
+                    <td> 1:30 PM - 2:30 PM</td>
+                    <td> 2:00 PM - 3:00 PM</td>
+                    <td> 3:30 PM - 4:30 PM</td>
+                </tr>
+                <tr>
+                    <td>Sarah</td>
+                    <td id="Sarah_1"></td>
+                    <td id="Sarah_2"></td>
+                    <td id="Sarah_3"></td>
+                    <td id="Sarah_4"></td>
+                    <td id="Sarah_5"></td>
+                    <td id="Sarah_6"></td>
+                    <td id="Sarah_7"></td>
+                    <td id="Sarah_8"></td>
+                    <td id="Sarah_9"></td>
+                    <td id="Sarah_10"></td>
+                    <td id="Sarah_11"></td>
+                    <td id="Sarah_12"></td>
+                    <td id="Sarah_13"></td>
+                    <td id="Sarah_14"></td>
+                    <td id="Sarah_15"></td>
+                </tr>
+                <tr>
+                    <td>Tina</td>
+                    <td id="Tina_1"></td>
+                    <td id="Tina_2"></td>
+                    <td id="Tina_3"></td>
+                    <td id="Tina_4"></td>
+                    <td id="Tina_5"></td>
+                    <td id="Tina_6"></td>
+                    <td id="Tina_7"></td>
+                    <td id="Tina_8"></td>
+                    <td id="Tina_9"></td>
+                    <td id="Tina_10"></td>
+                    <td id="Tina_11"></td>
+                    <td id="Tina_12"></td>
+                    <td id="Tina_13"></td>
+                    <td id="Tina_14"></td>
+                    <td id="Tina_15"></td>
+                </tr>
+                <tr>
+                    <td>Alyssa</td>
+                    <td id="Alyssa_1"></td>
+                    <td id="Alyssa_2"></td>
+                    <td id="Alyssa_3"></td>
+                    <td id="Alyssa_4"></td>
+                    <td id="Alyssa_5"></td>
+                    <td id="Alyssa_6"></td>
+                    <td id="Alyssa_7"></td>
+                    <td id="Alyssa_8"></td>
+                    <td id="Alyssa_9"></td>
+                    <td id="Alyssa_10"></td>
+                    <td id="Alyssa_11"></td>
+                    <td id="Alyssa_12"></td>
+                    <td id="Alyssa_13"></td>
+                    <td id="Alyssa_14"></td>
+                    <td id="Alyssa_15"></td>
+                </tr>
+                <tr>
+                    <td>Aaron</td>
+                    <td id="Aaron_1"></td>
+                    <td id="Aaron_2"></td>
+                    <td id="Aaron_3"></td>
+                    <td id="Aaron_4"></td>
+                    <td id="Aaron_5"></td>
+                    <td id="Aaron_6"></td>
+                    <td id="Aaron_7"></td>
+                    <td id="Aaron_8"></td>
+                    <td id="Aaron_9"></td>
+                    <td id="Aaron_10"></td>
+                    <td id="Aaron_11"></td>
+                    <td id="Aaron_12"></td>
+                    <td id="Aaron_13"></td>
+                    <td id="Aaron_14"></td>
+                    <td id="Aaron_15"></td>
+                </tr>
+                <tr>
+                    <td>Joe</td>
+                    <td id="Joe_1"></td>
+                    <td id="Joe_2"></td>
+                    <td id="Joe_3"></td>
+                    <td id="Joe_4"></td>
+                    <td id="Joe_5"></td>
+                    <td id="Joe_6"></td>
+                    <td id="Joe_7"></td>
+                    <td id="Joe_8"></td>
+                    <td id="Joe_9"></td>
+                    <td id="Joe_10"></td>
+                    <td id="Joe_11"></td>
+                    <td id="Joe_12"></td>
+                    <td id="Joe_13"></td>
+                    <td id="Joe_14"></td>
+                    <td id="Joe_15"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="row">
+            <div class="col-md-3">
+                <button type="button" id="submitbutton" class="btn btn-info"> Submit for results</button>
+            </div>
+            <div class="col-md-3">
+                <button type="button" id="qbutton" class="btn btn-primary"> Click to solve with quantum below</button>
+            </div>
+        </div>
+
+        <h4 id="accuracy" style="visibility:hidden;">Accuracy : <span id="accuracyspan"></span>%</h4>
+
+        <table class="table table-bordered table-striped" style="margin-top:20px;">
+            <thead>
+                <tr>
+                    <th>Employee</th>
+                    <th>Machine 1</th>
+                    <th>Machine 2</th>
+                    <th>Machine 3</th>
+                    <th>Machine 4</th>
+                    <th>Machine 5</th>
+                    <th>Machine 6</th>
+                    <th>Machine 7</th>
+                    <th>Machine 8</th>
+                    <th>Machine 9</th>
+                    <th>Machine 10</th>
+                    <th>Machine 11</th>
+                    <th>Machine 12</th>
+                    <th>Machine 13</th>
+                    <th>Machine 14</th>
+                    <th>Machine 15</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="font-size:11px;">
+                    <td></td>
+                    <td> 6:30 AM - 7:30 AM</td>
+                    <td> 7:00 AM - 8:00 AM</td>
+                    <td> 7:30 AM - 8:30 AM</td>
+                    <td> 8:00 AM - 9:00 AM</td>
+                    <td> 8:30 AM - 9:30 AM</td>
+                    <td> 9:00 AM - 10:00 AM</td>
+                    <td> 10:30 AM - 11:30 AM</td>
+                    <td> 11:00 AM - 12:00 PM</td>
+                    <td> 11:30 AM - 12:30 PM</td>
+                    <td> 12:00 PM - 1:00 PM</td>
+                    <td> 12:30 PM - 1:30 PM</td>
+                    <td> 1:00 PM - 2:00 PM</td>
+                    <td> 1:30 PM - 2:30 PM</td>
+                    <td> 2:00 PM - 3:00 PM</td>
+                    <td> 3:30 PM - 4:30 PM</td>
+                </tr>
+                <tr>
+                    <td>Sarah</td>
+                    <td id="select1"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td id="select2"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td id="select3"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Tina</td>
+                    <td></td>
+                    <td id="select4"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td id="select5"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td id="select6"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Alyssa</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td id="select7"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td id="select8"></td>
+                    <td></td>
+                    <td></td>
+                    <td id="select9"></td>
+                </tr>
+                <tr>
+                    <td>Aaron</td>
+                    <td></td>
+                    <td></td>
+                    <td id="select10"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td id="select11"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td id="select12"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Joe</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td id="select13"></td>
+                    <td></td>
+                    <td id="select14"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td id="select15"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h4 id="timetaken" style="visibility:hidden;">Time Taken : < 5 seconds</h4>
+            </div>
+            <div class="col-md-6">
+                <a href="https://quacoo.s3.us-east-2.amazonaws.com/Qscheduling.mp4" id="peekButton" class="btn-info" style="padding:5px;text-decoration:none;visibility:hidden;">Click to peek behind the scenes</a>
+            </div>
+        </div>
+
+
+
+
+    </div>
+        </div>
+
+        @section scripts {
+            @Scripts.Render("https://d3js.org/d3.v4.js")
+            @Scripts.Render("https://d3js.org/d3-scale-chromatic.v1.min.js")
+            @Scripts.Render("https://d3js.org/d3-geo-projection.v2.min.js")
+            @Scripts.Render("~/Scripts/angular.js")
+            @Scripts.Render("~/Scripts/app/cardcontroller.js")
+            @Scripts.Render("~/Scripts/app/cb-controller.js")
+            @Scripts.Render("~/bundles/jqueryval")
+            @Scripts.Render("~/Scripts/Chart.js")
+            @Scripts.Render("~/Scripts/angular-chart.js")
+            @Scripts.Render("~/Scripts/jasny-bootstrap.js")
+
+        }

@@ -1,0 +1,47 @@
+﻿@using CardBoss.Models
+@model FileModel
+@{
+    ViewBag.Title = "Upload Proof of Completion";
+
+}
+
+<div class="center">
+    <h4>Please upload proof of completion or validation.</h4>
+    <br />
+</div>
+
+<div class="center">
+
+    @using (Html.BeginForm("UploadProof", "Home", FormMethod.Post, new { enctype = "multipart/form-data", id = "profImgForm" }))
+    {
+        <form class="form-inline" role="form">
+            <div class="form-group" data-toggle="tooltip" title="Click to Upload Photo Proof">
+                <div id="fileinput-preview-id" class="fileinput fileinput-new" data-provides="fileinput">
+                    <div class="fileinput-preview thumbnail" style="color:black;" id="cardpreview" data-trigger="fileinput"></div>
+                    <div style="color:white;">
+                        <span class="btn btn-outline-secondary btn-file col-md-offset-2 col-sm-offset-2 col-xs-offset-1">
+                            <span class="fileinput-new"></span><span class="fileinput-exists"></span>
+                            <input class="cbbutton" id="profilefile2" type="file" name="postedFile">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    }
+
+</div>
+
+
+@section scripts {
+    @Scripts.Render("~/Scripts/angular.js")
+    @Scripts.Render("~/Scripts/app/cardcontroller.js")
+    @Scripts.Render("~/Scripts/app/cb-controller.js")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/Chart.js")
+    @Scripts.Render("~/Scripts/angular-chart.js")
+    @Scripts.Render("~/Scripts/jasny-bootstrap.js")
+    @Scripts.Render("https://cdn.jsdelivr.net/npm/sweetalert2@10")
+    @Scripts.Render("https://unpkg.com/@cityofzion/neon-js@next")
+}
+
+

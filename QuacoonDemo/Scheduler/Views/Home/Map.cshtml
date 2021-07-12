@@ -1,0 +1,31 @@
+﻿@using Quacoon.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Proposed Functionality";
+}
+
+<div id="bodyContainer" onload="loadSVG()" ng-app="CardApp">
+    <div id="bodyctrl" ng-controller="CardCtrl" ng-init="init()">
+             <div class="row" style="margin-top:50px;">
+                <div class="col-md-6">
+                    <div style="text-align:center">
+                        <svg id="my_dataviz" width="1000" height="1000"></svg>
+                    </div>
+                </div>
+            </div> 
+    </div>
+</div>
+
+@section scripts {
+    @Scripts.Render("https://d3js.org/d3.v4.js")
+    @Scripts.Render("https://d3js.org/d3-scale-chromatic.v1.min.js")
+    @Scripts.Render("https://d3js.org/d3-geo-projection.v2.min.js")
+    @Scripts.Render("~/Scripts/angular.js")
+    @Scripts.Render("~/Scripts/app/cardcontroller.js")
+    @Scripts.Render("~/Scripts/app/ts-controller.js")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/Chart.js")
+    @Scripts.Render("~/Scripts/angular-chart.js")
+    @Scripts.Render("~/Scripts/jasny-bootstrap.js")
+
+}

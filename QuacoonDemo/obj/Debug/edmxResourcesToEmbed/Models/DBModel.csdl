@@ -1,0 +1,947 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CardBossModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRole">
+    <Key>
+      <PropertyRef Name="RoleId" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="RoleId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AccountId" Type="Int32" />
+    <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="7" />
+    <Property Name="UserType" Type="Int32" />
+    <Property Name="LastLoggedIn" Type="DateTime" Precision="7" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="zipCode" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="CardBossEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRole" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+    <EntitySet Name="Centers" EntityType="CardBossModel1.Center" />
+    <EntitySet Name="CenterFunctions" EntityType="CardBossModel1.CenterFunction" />
+    <EntitySet Name="Companies" EntityType="CardBossModel1.Company" />
+    <EntitySet Name="CompanyAdmins" EntityType="CardBossModel1.CompanyAdmin" />
+    <EntitySet Name="CompanyFunctions" EntityType="CardBossModel1.CompanyFunction" />
+    <EntitySet Name="CompanyLocations" EntityType="CardBossModel1.CompanyLocation" />
+    <EntitySet Name="Connections" EntityType="CardBossModel1.Connection" />
+    <EntitySet Name="Deliveries" EntityType="CardBossModel1.Delivery" />
+    <EntitySet Name="DeliveryProducts" EntityType="CardBossModel1.DeliveryProduct" />
+    <EntitySet Name="DeliveryProductTracingUpdateRequests" EntityType="CardBossModel1.DeliveryProductTracingUpdateRequest" />
+    <EntitySet Name="DeliveryUnits" EntityType="CardBossModel1.DeliveryUnit" />
+    <EntitySet Name="Events" EntityType="CardBossModel1.Event" />
+    <EntitySet Name="EventFunctions" EntityType="CardBossModel1.EventFunction" />
+    <EntitySet Name="IndividualCompanyHistories" EntityType="CardBossModel1.IndividualCompanyHistory" />
+    <EntitySet Name="IndividualInterests" EntityType="CardBossModel1.IndividualInterest" />
+    <EntitySet Name="Interests" EntityType="CardBossModel1.Interest" />
+    <EntitySet Name="Messages" EntityType="CardBossModel1.Message" />
+    <EntitySet Name="Notifications" EntityType="CardBossModel1.Notification" />
+    <EntitySet Name="Posts" EntityType="CardBossModel1.Post" />
+    <EntitySet Name="Privacies" EntityType="CardBossModel1.Privacy" />
+    <EntitySet Name="Products" EntityType="CardBossModel1.Product" />
+    <EntitySet Name="ProductCompanyDemandUpdateRequests" EntityType="CardBossModel1.ProductCompanyDemandUpdateRequest" />
+    <EntitySet Name="ProductCompanySupplies" EntityType="CardBossModel1.ProductCompanySupply" />
+    <EntitySet Name="ProductCompanySupplyUpdateRequests" EntityType="CardBossModel1.ProductCompanySupplyUpdateRequest" />
+    <EntitySet Name="ProductDestinations" EntityType="CardBossModel1.ProductDestination" />
+    <EntitySet Name="ProductDestinationLeadTimes" EntityType="CardBossModel1.ProductDestinationLeadTime" />
+    <EntitySet Name="ProductMaterials" EntityType="CardBossModel1.ProductMaterial" />
+    <EntitySet Name="ProductReplacements" EntityType="CardBossModel1.ProductReplacement" />
+    <EntitySet Name="ProductTotalDemands" EntityType="CardBossModel1.ProductTotalDemand" />
+    <EntitySet Name="ProductTracingUpdateRequests" EntityType="CardBossModel1.ProductTracingUpdateRequest" />
+    <EntitySet Name="ProductUnitTracings" EntityType="CardBossModel1.ProductUnitTracing" />
+    <EntitySet Name="Recommendations" EntityType="CardBossModel1.Recommendation" />
+    <EntitySet Name="ResellLevels" EntityType="CardBossModel1.ResellLevel" />
+    <EntitySet Name="ResellUpdateRequests" EntityType="CardBossModel1.ResellUpdateRequest" />
+    <EntitySet Name="ShareLists" EntityType="CardBossModel1.ShareList" />
+    <EntitySet Name="ShortageLevels" EntityType="CardBossModel1.ShortageLevel" />
+    <EntitySet Name="ShortageUpdateRequests" EntityType="CardBossModel1.ShortageUpdateRequest" />
+    <EntitySet Name="Skills" EntityType="CardBossModel1.Skill" />
+    <EntitySet Name="StorageCategories" EntityType="CardBossModel1.StorageCategory" />
+    <EntitySet Name="StorageUnits" EntityType="CardBossModel1.StorageUnit" />
+    <EntitySet Name="StorageUnitCategories" EntityType="CardBossModel1.StorageUnitCategory" />
+    <EntitySet Name="SupplierCompanies" EntityType="CardBossModel1.SupplierCompany" />
+    <EntitySet Name="SupplierInvites" EntityType="CardBossModel1.SupplierInvite" />
+    <EntitySet Name="Units" EntityType="CardBossModel1.Unit" />
+    <EntitySet Name="RiskAlerts" EntityType="CardBossModel1.RiskAlert" />
+    <EntitySet Name="ProductCompanies" EntityType="CardBossModel1.ProductCompany" />
+    <EntitySet Name="ProductCompanyDemands" EntityType="CardBossModel1.ProductCompanyDemand" />
+    <EntitySet Name="ProfilePics" EntityType="CardBossModel1.ProfilePic" />
+    <EntitySet Name="FunctionLookups" EntityType="CardBossModel1.FunctionLookup" />
+    <EntitySet Name="UnitOfMeasures" EntityType="CardBossModel1.UnitOfMeasure" />
+    <FunctionImport Name="InitializeCompanyProductDemand">
+      <Parameter Name="companyid" Mode="In" Type="Int32" />
+      <Parameter Name="productid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="GraphConnections" EntityType="CardBossModel1.GraphConnection" />
+    <EntitySet Name="GraphNodes" EntityType="CardBossModel1.GraphNode" />
+    <EntitySet Name="GreenCompanies" EntityType="CardBossModel1.GreenCompany" />
+    <EntitySet Name="GreenFunctionAverages" EntityType="CardBossModel1.GreenFunctionAverage" />
+    <EntitySet Name="GreenRecoes" EntityType="CardBossModel1.GreenReco" />
+    <EntitySet Name="News" EntityType="CardBossModel1.News" />
+    <EntitySet Name="NewsMaps" EntityType="CardBossModel1.NewsMap" />
+    <EntitySet Name="CompanyProductGraphs" EntityType="CardBossModel1.CompanyProductGraph" />
+    <EntitySet Name="Holidays" EntityType="CardBossModel1.Holiday" />
+    <EntitySet Name="ExcelPaths" EntityType="CardBossModel1.ExcelPath" />
+    <EntitySet Name="Vendors" EntityType="CardBossModel1.Vendor" />
+    <EntitySet Name="VendorMessages" EntityType="CardBossModel1.VendorMessage" />
+    <EntitySet Name="ProductInfoes" EntityType="CardBossModel1.ProductInfo" />
+    <EntitySet Name="ExpertMessages" EntityType="CardBossModel1.ExpertMessage" />
+    <EntitySet Name="Expert1" EntityType="CardBossModel1.Expert1" />
+    <EntitySet Name="Professionals" EntityType="CardBossModel1.Professional" />
+    <EntitySet Name="Bios" EntityType="CardBossModel1.Bio" />
+    <EntitySet Name="Resumes" EntityType="CardBossModel1.Resume" />
+    <EntitySet Name="MonitorProducts" EntityType="CardBossModel1.MonitorProduct" />
+    <EntitySet Name="MonStatus" EntityType="CardBossModel1.MonStatu" />
+  </EntityContainer>
+  <EntityType Name="Center">
+    <Key>
+      <PropertyRef Name="CenterID" />
+    </Key>
+    <Property Name="CenterID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+    <Property Name="CenterName" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="CenterAddress1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CenterAddress2" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CenterCity" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CenterState" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CenterCountry" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CenterFunction">
+    <Key>
+      <PropertyRef Name="FunctionID" />
+    </Key>
+    <Property Name="FunctionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FunctionName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FunctionType" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="CompanyID" />
+    </Key>
+    <Property Name="CompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyAddressLine1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyAddressLine2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyCity" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyState" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyCountry" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyZipCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyLocationPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyLatitude" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="CompanyLongitude" Type="Decimal" Precision="18" Scale="5" />
+  </EntityType>
+  <EntityType Name="CompanyAdmin">
+    <Key>
+      <PropertyRef Name="CompanyAdminID" />
+    </Key>
+    <Property Name="CompanyAdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+    <Property Name="AdminID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CompanyFunction">
+    <Key>
+      <PropertyRef Name="CompanyFunctionID" />
+    </Key>
+    <Property Name="CompanyFunctionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+    <Property Name="FunctionID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CompanyLocation">
+    <Key>
+      <PropertyRef Name="CompanyLocationID" />
+    </Key>
+    <Property Name="CompanyLocationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyAddressLine1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyAddressLine2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyCity" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyState" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyCountry" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyZipCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyLocationPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyLatitude" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="CompanyLongitude" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Connection">
+    <Key>
+      <PropertyRef Name="ConnectionID" />
+    </Key>
+    <Property Name="ConnectionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IndividualFrom" Type="Int32" Nullable="false" />
+    <Property Name="IndividualTo" Type="Int32" Nullable="false" />
+    <Property Name="ConnectRequestDate" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ConnectAcceptDate" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ConnectStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Delivery">
+    <Key>
+      <PropertyRef Name="DeliveryID" />
+    </Key>
+    <Property Name="DeliveryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeliveryName" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="DeliveryAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DeliveryLimitLatitude1" Type="Int32" />
+    <Property Name="DeliveryLimitLongitude1" Type="Int32" />
+    <Property Name="DeliveryLimitLatitude2" Type="Int32" />
+    <Property Name="DeliveryLimitLongitude2" Type="Int32" />
+    <Property Name="DeliveryLimitLatitude3" Type="Int32" />
+    <Property Name="DeliveryLimitLongitude3" Type="Int32" />
+    <Property Name="DeliveryLimitLatitude4" Type="Int32" />
+    <Property Name="DeliveryLimitLongitude4" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DeliveryProduct">
+    <Key>
+      <PropertyRef Name="DeliveryProductID" />
+    </Key>
+    <Property Name="DeliveryProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeliveryUnitID" Type="Int32" Nullable="false" />
+    <Property Name="ProductUnitID" Type="Int32" Nullable="false" />
+    <Property Name="TrackTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="TrackAddress1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TrackAddress2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TrackCity" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TrackState" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TrackCountry" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Latitude" Type="Int32" Nullable="false" />
+    <Property Name="Longitude" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DeliveryProductTracingUpdateRequest">
+    <Key>
+      <PropertyRef Name="DeliveryProductTracingUpdateRequestID" />
+    </Key>
+    <Property Name="DeliveryProductTracingUpdateRequestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeliveryUnitID" Type="Int32" Nullable="false" />
+    <Property Name="ProductUnitID" Type="Int32" Nullable="false" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+    <Property Name="IndividualID" Type="Int32" Nullable="false" />
+    <Property Name="RequestStatus" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DeliveryUnit">
+    <Key>
+      <PropertyRef Name="DeliveryUnitID" />
+    </Key>
+    <Property Name="DeliveryUnitID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeliveryID" Type="Int32" Nullable="false" />
+    <Property Name="DeliveryName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Capacity" Type="Int32" />
+    <Property Name="DeliveryUnitLimitLatitude1" Type="Int32" />
+    <Property Name="DeliveryUnitLimitLongitude1" Type="Int32" />
+    <Property Name="DeliveryUnitLimitLatitude2" Type="Int32" />
+    <Property Name="DeliveryUnitLimitLongitude2" Type="Int32" />
+    <Property Name="DeliveryUnitLimitLatitude3" Type="Int32" />
+    <Property Name="DeliveryUnitLimitLongitude3" Type="Int32" />
+    <Property Name="DeliveryUnitLimitLatitude4" Type="Int32" />
+    <Property Name="DeliveryUnitLimitLongitude4" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="EventID" />
+    </Key>
+    <Property Name="EventID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EventName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EventType" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EventImpact" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="EventFunction">
+    <Key>
+      <PropertyRef Name="EventFunctionID" />
+    </Key>
+    <Property Name="EventFunctionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EventID" Type="Int32" Nullable="false" />
+    <Property Name="FunctionID" Type="Int32" Nullable="false" />
+    <Property Name="ImpactLevel" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="IndividualCompanyHistory">
+    <Key>
+      <PropertyRef Name="IndividualCompanyHistoryID" />
+    </Key>
+    <Property Name="IndividualCompanyHistoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IndividualID" Type="Int32" Nullable="false" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="IndividualInterest">
+    <Key>
+      <PropertyRef Name="IndividualInterestsID" />
+    </Key>
+    <Property Name="IndividualInterestsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IndividualID" Type="Int32" Nullable="false" />
+    <Property Name="InterestID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Interest">
+    <Key>
+      <PropertyRef Name="InterestID" />
+    </Key>
+    <Property Name="InterestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InterestName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="MessageID" />
+    </Key>
+    <Property Name="MessageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FromID" Type="Int32" />
+    <Property Name="ToID" Type="Int32" />
+    <Property Name="Message1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ParentID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="NotificationID" />
+    </Key>
+    <Property Name="NotificationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NotificationMessage" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="NotificationType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NotificationTime" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="PostID" />
+    </Key>
+    <Property Name="PostID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Post1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Privacy" Type="Int32" />
+    <Property Name="InterestID" Type="Int32" />
+    <Property Name="createdate" Type="DateTime" Precision="7" />
+    <Property Name="imageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="username" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Privacy">
+    <Key>
+      <PropertyRef Name="PrivacyID" />
+    </Key>
+    <Property Name="PrivacyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PrivacyLabel" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProductCategory" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SKU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="imageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ProductCompanyDemandUpdateRequest">
+    <Key>
+      <PropertyRef Name="ProductCompanyDemandUpdateRequestID" />
+    </Key>
+    <Property Name="ProductCompanyDemandUpdateRequestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductUnitID" Type="Int32" Nullable="false" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+    <Property Name="IndividualID" Type="Int32" Nullable="false" />
+    <Property Name="RequestStatus" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ProductCompanySupply">
+    <Key>
+      <PropertyRef Name="ProductCompanySupplyID" />
+    </Key>
+    <Property Name="ProductCompanySupplyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <Property Name="Month" Type="Int32" Nullable="false" />
+    <Property Name="Supply" Type="Int32" Nullable="false" />
+    <Property Name="SupplyUnit" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ProductCompanySupplyUpdateRequest">
+    <Key>
+      <PropertyRef Name="ProductCompanySupplyUpdateRequestID" />
+    </Key>
+    <Property Name="ProductCompanySupplyUpdateRequestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductUnitID" Type="Int32" Nullable="false" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+    <Property Name="IndividualID" Type="Int32" Nullable="false" />
+    <Property Name="RequestStatus" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ProductDestination">
+    <Key>
+      <PropertyRef Name="ProductDestinationID" />
+    </Key>
+    <Property Name="ProductDestinationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductUnitID" Type="Int32" Nullable="false" />
+    <Property Name="SupplierCompanyID" Type="Int32" Nullable="false" />
+    <Property Name="DestinationCompanyID" Type="Int32" Nullable="false" />
+    <Property Name="ExpectedDate" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ExpectedLevel" Type="Double" Nullable="false" />
+    <Property Name="ExpectedLevelUnit" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ProductDestinationLeadTime">
+    <Key>
+      <PropertyRef Name="ProductDestinationLeadTimeID" />
+    </Key>
+    <Property Name="ProductDestinationLeadTimeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductUnitID" Type="Int32" Nullable="false" />
+    <Property Name="DestinationCompanyID" Type="Int32" Nullable="false" />
+    <Property Name="MinLeadTime" Type="Int32" Nullable="false" />
+    <Property Name="MaxLeadTime" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductMaterial">
+    <Key>
+      <PropertyRef Name="ProductMaterialID" />
+    </Key>
+    <Property Name="ProductMaterialID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductUnitID" Type="Int32" Nullable="false" />
+    <Property Name="MaterialUnitID" Type="Int32" Nullable="false" />
+    <Property Name="MinLeadTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="MaxLeadTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="MakeOrder" Type="Int32" Nullable="false" />
+    <Property Name="MakeQuantity" Type="Int32" />
+    <Property Name="MakeQuantityUnit" Type="Int32" />
+    <Property Name="ProcessCategory" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ProductReplacement">
+    <Key>
+      <PropertyRef Name="ProductReplacementID" />
+    </Key>
+    <Property Name="ProductReplacementID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="ReplacementID" Type="Int32" Nullable="false" />
+    <Property Name="Scarcity" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ProductTotalDemand">
+    <Key>
+      <PropertyRef Name="ProductTotalDemandID" />
+    </Key>
+    <Property Name="ProductTotalDemandID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductUnitID" Type="Int32" Nullable="false" />
+    <Property Name="DemandYear" Type="Int32" Nullable="false" />
+    <Property Name="DemandMonth" Type="Int32" Nullable="false" />
+    <Property Name="Demand" Type="Double" Nullable="false" />
+    <Property Name="DemandUnit" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ProductTracingUpdateRequest">
+    <Key>
+      <PropertyRef Name="ProductTracingUpdateRequestID" />
+    </Key>
+    <Property Name="ProductTracingUpdateRequestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductUnitID" Type="Int32" Nullable="false" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+    <Property Name="IndividualID" Type="Int32" Nullable="false" />
+    <Property Name="RequestStatus" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ProductUnitTracing">
+    <Key>
+      <PropertyRef Name="ProductUnitID" />
+    </Key>
+    <Property Name="ProductUnitID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TrackTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="TrackAddress1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TrackAddress2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TrackCity" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TrackState" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TrackCountry" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Latitude" Type="Int32" Nullable="false" />
+    <Property Name="Longitude" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Recommendation">
+    <Key>
+      <PropertyRef Name="RecoID" />
+    </Key>
+    <Property Name="RecoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RecoTimeStamp" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="Reco" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Reason" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ResellLevel">
+    <Key>
+      <PropertyRef Name="ResellLevelID" />
+    </Key>
+    <Property Name="ResellLevelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductUnitID" Type="Int32" Nullable="false" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+    <Property Name="ExcessLevel" Type="Int32" Nullable="false" />
+    <Property Name="ExcessLevelUnit" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ResellLevelTimestamp" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="ResellUpdateRequest">
+    <Key>
+      <PropertyRef Name="ResellUpdateRequestID" />
+    </Key>
+    <Property Name="ResellUpdateRequestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductUnitID" Type="Int32" Nullable="false" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+    <Property Name="IndividualID" Type="Int32" Nullable="false" />
+    <Property Name="RequestStatus" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RequestDate" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="ShareList">
+    <Key>
+      <PropertyRef Name="ShareListID" />
+    </Key>
+    <Property Name="ShareListID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PostID" Type="Int32" Nullable="false" />
+    <Property Name="IndividualID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ShortageLevel">
+    <Key>
+      <PropertyRef Name="ShortageLevelID" />
+    </Key>
+    <Property Name="ShortageLevelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductUnitID" Type="Int32" Nullable="false" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+    <Property Name="ShortageLevel1" Type="Int32" Nullable="false" />
+    <Property Name="ShoratgeLevelUnit" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ResellLevelTimestamp" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="ShortageUpdateRequest">
+    <Key>
+      <PropertyRef Name="ShortageUpdateRequestID" />
+    </Key>
+    <Property Name="ShortageUpdateRequestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductUnitID" Type="Int32" Nullable="false" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+    <Property Name="IndividualID" Type="Int32" Nullable="false" />
+    <Property Name="RequestStatus" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RequestDate" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="Skill">
+    <Key>
+      <PropertyRef Name="SkillID" />
+    </Key>
+    <Property Name="SkillID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IndividualID" Type="Int32" Nullable="false" />
+    <Property Name="Available" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StorageCategory">
+    <Key>
+      <PropertyRef Name="StorageCategoryID" />
+    </Key>
+    <Property Name="StorageCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StorageCategoryName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="StorageUnit">
+    <Key>
+      <PropertyRef Name="StorageID" />
+    </Key>
+    <Property Name="StorageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StorageName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalCapacity" Type="Int32" />
+    <Property Name="AvailableCapacity" Type="Int32" />
+    <Property Name="StorageAddress1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StorageAddress2" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StorageCity" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StorageState" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StorageCountry" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StorageLatitude" Type="Int32" />
+    <Property Name="StorageLongitude" Type="Int32" />
+  </EntityType>
+  <EntityType Name="StorageUnitCategory">
+    <Key>
+      <PropertyRef Name="StorageUnitCategoryID" />
+    </Key>
+    <Property Name="StorageUnitCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StorageID" Type="Int32" Nullable="false" />
+    <Property Name="StorageCategoryID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SupplierCompany">
+    <Key>
+      <PropertyRef Name="SupplierCompanyID" />
+    </Key>
+    <Property Name="SupplierCompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SupplierID" Type="Int32" Nullable="false" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="ContractStartDate" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ContractEndDate" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ContractDesc" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SupplierInvite">
+    <Key>
+      <PropertyRef Name="SupplierInviteID" />
+    </Key>
+    <Property Name="SupplierInviteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierName" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierEmail" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InviteDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="User" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="InviteLastSent" Type="DateTime" Precision="3" />
+    <Property Name="InviteCount" Type="Int32" />
+    <Property Name="InviteAccepted" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Unit">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+    <Property Name="UnitID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RiskAlert">
+    <Key>
+      <PropertyRef Name="RiskAlertID" />
+    </Key>
+    <Property Name="RiskAlertID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RiskLocation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RiskDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RiskImpact" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="RiskDate" Type="DateTime" Precision="3" />
+    <Property Name="RiskLatitude" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="RiskLongitude" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="RiskFunction" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ProductCompany">
+    <Key>
+      <PropertyRef Name="ProductCompanyID" />
+    </Key>
+    <Property Name="ProductCompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="ProductID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ProductCompanyDemand">
+    <Key>
+      <PropertyRef Name="ProductCompanyDemandID" />
+    </Key>
+    <Property Name="ProductCompanyDemandID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <Property Name="Month" Type="Int32" Nullable="false" />
+    <Property Name="Demand" Type="Int32" Nullable="false" />
+    <Property Name="DemandUnit" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="safety" Type="Int32" Nullable="false" />
+    <Property Name="sold" Type="Int32" Nullable="false" />
+    <Property Name="backorder" Type="Int32" Nullable="false" />
+    <Property Name="instock" Type="Int32" />
+    <Property Name="demanddate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ProfilePic">
+    <Key>
+      <PropertyRef Name="ProfilePicID" />
+    </Key>
+    <Property Name="ProfilePicID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="ProfilePicURL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="FunctionLookup">
+    <Key>
+      <PropertyRef Name="FunctionLookupID" />
+    </Key>
+    <Property Name="FunctionLookupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FunctionName" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="UnitOfMeasure">
+    <Key>
+      <PropertyRef Name="UnitMeasureID" />
+    </Key>
+    <Property Name="UnitMeasureID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UnitMeasure" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="GraphConnection">
+    <Key>
+      <PropertyRef Name="GraphConnectionID" />
+    </Key>
+    <Property Name="GraphConnectionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ChainId" Type="Int32" Nullable="false" />
+    <Property Name="SubChainId" Type="Int32" />
+    <Property Name="NodeNameOne" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NodeNameTwo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="GraphNode">
+    <Key>
+      <PropertyRef Name="GraphNodeID" />
+    </Key>
+    <Property Name="GraphNodeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ChainId" Type="Int32" Nullable="false" />
+    <Property Name="NodeName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Color" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Category" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="GreenCompany">
+    <Key>
+      <PropertyRef Name="GreenCompanyID" />
+    </Key>
+    <Property Name="GreenCompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+    <Property Name="TotalScore" Type="Int32" Nullable="false" />
+    <Property Name="CertificationScore" Type="Int32" Nullable="false" />
+    <Property Name="GreenProductScore" Type="Int32" Nullable="false" />
+    <Property Name="PensionFundInvestmentScore" Type="Int32" Nullable="false" />
+    <Property Name="RenewableElectricitySource" Type="Int32" Nullable="false" />
+    <Property Name="GreenFleetScore" Type="Int32" Nullable="false" />
+    <Property Name="EnergyAuditScore" Type="Int32" Nullable="false" />
+    <Property Name="FoodWastageScore" Type="Int32" Nullable="false" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="GreenFunctionAverage">
+    <Key>
+      <PropertyRef Name="GreenFunctionAverageID" />
+    </Key>
+    <Property Name="GreenFunctionAverageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AvgTotalScore" Type="Int32" Nullable="false" />
+    <Property Name="AvgCertificationScore" Type="Int32" Nullable="false" />
+    <Property Name="AvgGreenProductScore" Type="Int32" Nullable="false" />
+    <Property Name="AvgPensionFundInvestmentScore" Type="Int32" Nullable="false" />
+    <Property Name="AvgRenewableElectricitySource" Type="Int32" Nullable="false" />
+    <Property Name="AvgGreenFleetScore" Type="Int32" Nullable="false" />
+    <Property Name="AvgEnergyAuditScore" Type="Int32" Nullable="false" />
+    <Property Name="AvgFoodWastageScore" Type="Int32" Nullable="false" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="GreenReco">
+    <Key>
+      <PropertyRef Name="GreenRecoID" />
+    </Key>
+    <Property Name="GreenRecoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+    <Property Name="CertificationReco" Type="Int32" Nullable="false" />
+    <Property Name="GreenProductReco" Type="Int32" Nullable="false" />
+    <Property Name="PensionFundInvestmentReco" Type="Int32" Nullable="false" />
+    <Property Name="RenewableElectricityReco" Type="Int32" Nullable="false" />
+    <Property Name="GreenFleetReco" Type="Int32" Nullable="false" />
+    <Property Name="EnergyAuditReco" Type="Int32" Nullable="false" />
+    <Property Name="FoodWastageReco" Type="Int32" Nullable="false" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="NewsID" />
+    </Key>
+    <Property Name="NewsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NewsMapID" Type="Int32" Nullable="false" />
+    <Property Name="NewsBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NewsImpact" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="NewsDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="NewsMap">
+    <Key>
+      <PropertyRef Name="NewsMapID" />
+      <PropertyRef Name="CompanyID" />
+      <PropertyRef Name="NewsWord" />
+    </Key>
+    <Property Name="NewsMapID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+    <Property Name="NewsWord" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CompanyProductGraph">
+    <Key>
+      <PropertyRef Name="CompanyProductGraphID" />
+    </Key>
+    <Property Name="CompanyProductGraphID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyId" Type="Int32" Nullable="false" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="ChainId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Holiday">
+    <Key>
+      <PropertyRef Name="HolidayID" />
+    </Key>
+    <Property Name="HolidayID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HolidayName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HolidayDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Federal" Type="Int32" Nullable="false" />
+    <Property Name="Regional" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ExcelPath">
+    <Key>
+      <PropertyRef Name="ExcelPathID" />
+    </Key>
+    <Property Name="ExcelPathID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+    <Property Name="ExcelPath1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserID" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Vendor">
+    <Key>
+      <PropertyRef Name="ServiceVendorID" />
+    </Key>
+    <Property Name="ServiceVendorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServiceType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ServiceDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ServiceImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HourlyCost" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="VendorMessage">
+    <Key>
+      <PropertyRef Name="VendorMessageID" />
+    </Key>
+    <Property Name="VendorMessageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VendorID" Type="Int32" Nullable="false" />
+    <Property Name="VendorMessage1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserID" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="ProductInfo">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProductCategory" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProductSubCategory" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SKU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PricePerUnit" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="PriceUnit" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MinimumOrderQuantity" Type="Int32" />
+    <Property Name="MOQUnit" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Rating" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ShelfLife" Type="Int32" />
+    <Property Name="ShelfLifeUnit" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ExpertMessage">
+    <Key>
+      <PropertyRef Name="ExpertMessageID" />
+      <PropertyRef Name="ExpertID" />
+      <PropertyRef Name="Message" />
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="CreateDate" />
+    </Key>
+    <Property Name="ExpertMessageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExpertID" Type="Int32" Nullable="false" />
+    <Property Name="Message" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserID" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Expert1">
+    <Key>
+      <PropertyRef Name="ExpertID" />
+      <PropertyRef Name="ExpertType" />
+    </Key>
+    <Property Name="ExpertID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExpertType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ExpertDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HourlyCost" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Professional">
+    <Key>
+      <PropertyRef Name="ProfessionalID" />
+      <PropertyRef Name="ProfessionalType" />
+    </Key>
+    <Property Name="ProfessionalID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProfessionalType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ProfessionalDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HourlyCost" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Bio">
+    <Key>
+      <PropertyRef Name="BioID" />
+      <PropertyRef Name="BioType" />
+    </Key>
+    <Property Name="BioID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BioType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BioDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HourlyCost" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Resume">
+    <Key>
+      <PropertyRef Name="ResumeID" />
+      <PropertyRef Name="ResumeType" />
+    </Key>
+    <Property Name="ResumeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ResumeType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ResumeDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HourlyCost" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MonitorProduct">
+    <Key>
+      <PropertyRef Name="MonitorProductID" />
+    </Key>
+    <Property Name="MonitorProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MonitorProductName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SKU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Priority" Type="Int32" />
+  </EntityType>
+  <EntityType Name="MonStatu">
+    <Key>
+      <PropertyRef Name="MonitorStatusID" />
+    </Key>
+    <Property Name="MonitorStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MonitorProductID" Type="Int32" Nullable="false" />
+    <Property Name="MonitorStatus" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ZipCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="latitude" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="longitude" Type="Decimal" Precision="18" Scale="5" />
+  </EntityType>
+</Schema>

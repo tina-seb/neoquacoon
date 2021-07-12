@@ -1,0 +1,438 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CardBossModelStoreContainer" CdmEntityContainer="CardBossEntities">
+    <EntitySetMapping Name="BorderRefs">
+      <EntityTypeMapping TypeName="CardBossModel.BorderRef">
+        <MappingFragment StoreEntitySet="BorderRef">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Border" ColumnName="Border" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Boxes">
+      <EntityTypeMapping TypeName="CardBossModel.Box">
+        <MappingFragment StoreEntitySet="Box">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Box1" ColumnName="Box" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BuyerPersonas">
+      <EntityTypeMapping TypeName="CardBossModel.BuyerPersona">
+        <MappingFragment StoreEntitySet="BuyerPersona">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Stage" ColumnName="Stage" />
+          <ScalarProperty Name="Goals" ColumnName="Goals" />
+          <ScalarProperty Name="Budget" ColumnName="Budget" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cards">
+      <EntityTypeMapping TypeName="CardBossModel.Card">
+        <MappingFragment StoreEntitySet="Card">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EBayItemID" ColumnName="EBayItemID" />
+          <ScalarProperty Name="ItemURL" ColumnName="ItemURL" />
+          <ScalarProperty Name="GalleryURL" ColumnName="GalleryURL" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="BuyerLocation" ColumnName="BuyerLocation" />
+          <ScalarProperty Name="Sellingprice" ColumnName="Sellingprice" />
+          <ScalarProperty Name="ShippingPrice" ColumnName="ShippingPrice" />
+          <ScalarProperty Name="SoldTime" ColumnName="SoldTime" />
+          <ScalarProperty Name="PopulationSupply" ColumnName="PopulationSupply" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="GradingCompany" ColumnName="GradingCompany" />
+          <ScalarProperty Name="NumPlayers" ColumnName="NumPlayers" />
+          <ScalarProperty Name="CardYear" ColumnName="CardYear" />
+          <ScalarProperty Name="Design" ColumnName="Design" />
+          <ScalarProperty Name="CardManufacturer" ColumnName="CardManufacturer" />
+          <ScalarProperty Name="Border" ColumnName="Border" />
+          <ScalarProperty Name="Era" ColumnName="Era" />
+          <ScalarProperty Name="Feature" ColumnName="Feature" />
+          <ScalarProperty Name="Licensed" ColumnName="Licensed" />
+          <ScalarProperty Name="AvgPastFiveSellingPrice" ColumnName="AvgPastFiveSellingPrice" />
+          <ScalarProperty Name="Original" ColumnName="Original" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="League" ColumnName="League" />
+          <ScalarProperty Name="Player" ColumnName="Player" />
+          <ScalarProperty Name="Season" ColumnName="Season" />
+          <ScalarProperty Name="Series" ColumnName="Series" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
+          <ScalarProperty Name="Sport" ColumnName="Sport" />
+          <ScalarProperty Name="HighDemand" ColumnName="HighDemand" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CardBuyers">
+      <EntityTypeMapping TypeName="CardBossModel.CardBuyer">
+        <MappingFragment StoreEntitySet="CardBuyer">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CardID" ColumnName="CardID" />
+          <ScalarProperty Name="BuyerPersonaID" ColumnName="BuyerPersonaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CardCompanyRefs">
+      <EntityTypeMapping TypeName="CardBossModel.CardCompanyRef">
+        <MappingFragment StoreEntitySet="CardCompanyRef">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CardCompany" ColumnName="CardCompany" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CardDetails">
+      <EntityTypeMapping TypeName="CardBossModel.CardDetail">
+        <MappingFragment StoreEntitySet="CardDetails">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EBayItemID" ColumnName="EBayItemID" />
+          <ScalarProperty Name="label" ColumnName="label" />
+          <ScalarProperty Name="value" ColumnName="value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CardFeatureRefs">
+      <EntityTypeMapping TypeName="CardBossModel.CardFeatureRef">
+        <MappingFragment StoreEntitySet="CardFeatureRef">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CardFeature" ColumnName="CardFeature" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CurrentInventories">
+      <EntityTypeMapping TypeName="CardBossModel.CurrentInventory">
+        <MappingFragment StoreEntitySet="CurrentInventory">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="EBayItemID" ColumnName="EBayItemID" />
+          <ScalarProperty Name="ItemURL" ColumnName="ItemURL" />
+          <ScalarProperty Name="GalleryURL" ColumnName="GalleryURL" />
+          <ScalarProperty Name="SellingState" ColumnName="SellingState" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="BuyerLocation" ColumnName="BuyerLocation" />
+          <ScalarProperty Name="Sellingprice" ColumnName="Sellingprice" />
+          <ScalarProperty Name="ShippingPrice" ColumnName="ShippingPrice" />
+          <ScalarProperty Name="SoldTime" ColumnName="SoldTime" />
+          <ScalarProperty Name="PopulationSupply" ColumnName="PopulationSupply" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="GradingCompany" ColumnName="GradingCompany" />
+          <ScalarProperty Name="NumPlayers" ColumnName="NumPlayers" />
+          <ScalarProperty Name="CardYear" ColumnName="CardYear" />
+          <ScalarProperty Name="Design" ColumnName="Design" />
+          <ScalarProperty Name="CardManufacturer" ColumnName="CardManufacturer" />
+          <ScalarProperty Name="Border" ColumnName="Border" />
+          <ScalarProperty Name="Era" ColumnName="Era" />
+          <ScalarProperty Name="Feature" ColumnName="Feature" />
+          <ScalarProperty Name="Licensed" ColumnName="Licensed" />
+          <ScalarProperty Name="AvgPastFiveSellingPrice" ColumnName="AvgPastFiveSellingPrice" />
+          <ScalarProperty Name="Original" ColumnName="Original" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="League" ColumnName="League" />
+          <ScalarProperty Name="Player" ColumnName="Player" />
+          <ScalarProperty Name="Season" ColumnName="Season" />
+          <ScalarProperty Name="Series" ColumnName="Series" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
+          <ScalarProperty Name="Sport" ColumnName="Sport" />
+          <ScalarProperty Name="WatchCount" ColumnName="WatchCount" />
+          <ScalarProperty Name="HighDemand" ColumnName="HighDemand" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DesignRefs">
+      <EntityTypeMapping TypeName="CardBossModel.DesignRef">
+        <MappingFragment StoreEntitySet="DesignRef">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Design" ColumnName="Design" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Eras">
+      <EntityTypeMapping TypeName="CardBossModel.Era">
+        <MappingFragment StoreEntitySet="Era">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Era1" ColumnName="Era" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GradingRefs">
+      <EntityTypeMapping TypeName="CardBossModel.GradingRef">
+        <MappingFragment StoreEntitySet="GradingRef">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="GradingCompany" ColumnName="GradingCompany" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="GradeDesc" ColumnName="GradeDesc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HallOfFames">
+      <EntityTypeMapping TypeName="CardBossModel.HallOfFame">
+        <MappingFragment StoreEntitySet="HallOfFame">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="HallOfFame1" ColumnName="HallOfFame" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InitialTrainingDatas">
+      <EntityTypeMapping TypeName="CardBossModel.InitialTrainingData">
+        <MappingFragment StoreEntitySet="InitialTrainingData">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EBayItemID" ColumnName="EBayItemID" />
+          <ScalarProperty Name="EbayTitle" ColumnName="EbayTitle" />
+          <ScalarProperty Name="SellingPrice" ColumnName="SellingPrice" />
+          <ScalarProperty Name="SoldTime" ColumnName="SoldTime" />
+          <ScalarProperty Name="Original" ColumnName="Original" />
+          <ScalarProperty Name="Grader" ColumnName="Grader" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="CardYear" ColumnName="CardYear" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="League" ColumnName="League" />
+          <ScalarProperty Name="Era" ColumnName="Era" />
+          <ScalarProperty Name="Player" ColumnName="Player" />
+          <ScalarProperty Name="CardAttributes" ColumnName="CardAttributes" />
+          <ScalarProperty Name="Season" ColumnName="Season" />
+          <ScalarProperty Name="Series" ColumnName="Series" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
+          <ScalarProperty Name="ItemURL" ColumnName="ItemURL" />
+          <ScalarProperty Name="GalleryURL" ColumnName="GalleryURL" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Sport" ColumnName="Sport" />
+          <ScalarProperty Name="BuyerLocation" ColumnName="BuyerLocation" />
+          <ScalarProperty Name="BidderCount" ColumnName="BidderCount" />
+          <ScalarProperty Name="CardNo" ColumnName="CardNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InjuryHistories">
+      <EntityTypeMapping TypeName="CardBossModel.InjuryHistory">
+        <MappingFragment StoreEntitySet="InjuryHistory">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="InjuryHistory1" ColumnName="InjuryHistory" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Leagues">
+      <EntityTypeMapping TypeName="CardBossModel.League">
+        <MappingFragment StoreEntitySet="League">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="League1" ColumnName="League" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Licenses">
+      <EntityTypeMapping TypeName="CardBossModel.License">
+        <MappingFragment StoreEntitySet="License">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Sport" ColumnName="Sport" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Originals">
+      <EntityTypeMapping TypeName="CardBossModel.Original">
+        <MappingFragment StoreEntitySet="Original">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Original1" ColumnName="Original" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Players">
+      <EntityTypeMapping TypeName="CardBossModel.Player">
+        <MappingFragment StoreEntitySet="Player">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PER" ColumnName="PER" />
+          <ScalarProperty Name="FutureExpectationDesc" ColumnName="FutureExpectationDesc" />
+          <ScalarProperty Name="FutureExpectationRating" ColumnName="FutureExpectationRating" />
+          <ScalarProperty Name="FiveYearMarketValue" ColumnName="FiveYearMarketValue" />
+          <ScalarProperty Name="PersonalAttributesDesc" ColumnName="PersonalAttributesDesc" />
+          <ScalarProperty Name="PersonalAttributesRating" ColumnName="PersonalAttributesRating" />
+          <ScalarProperty Name="Tweets" ColumnName="Tweets" />
+          <ScalarProperty Name="TwitterSentimentScore" ColumnName="TwitterSentimentScore" />
+          <ScalarProperty Name="RecentInjuryHistory" ColumnName="RecentInjuryHistory" />
+          <ScalarProperty Name="TeamName" ColumnName="TeamName" />
+          <ScalarProperty Name="TeamRank" ColumnName="TeamRank" />
+          <ScalarProperty Name="HallofFame" ColumnName="HallofFame" />
+          <ScalarProperty Name="Retirement" ColumnName="Retirement" />
+          <ScalarProperty Name="League" ColumnName="League" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlayerStats">
+      <EntityTypeMapping TypeName="CardBossModel.PlayerStat">
+        <MappingFragment StoreEntitySet="PlayerStats">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PlayerEfficiencyRating" ColumnName="PlayerEfficiencyRating" />
+          <ScalarProperty Name="TrueShootingPerc" ColumnName="TrueShootingPerc" />
+          <ScalarProperty Name="AssistRatio" ColumnName="AssistRatio" />
+          <ScalarProperty Name="TurnoverRatio" ColumnName="TurnoverRatio" />
+          <ScalarProperty Name="UsageRatio" ColumnName="UsageRatio" />
+          <ScalarProperty Name="OffensiveReboundRate" ColumnName="OffensiveReboundRate" />
+          <ScalarProperty Name="DefensiveReboundRate" ColumnName="DefensiveReboundRate" />
+          <ScalarProperty Name="ReboundRate" ColumnName="ReboundRate" />
+          <ScalarProperty Name="ValueAdded" ColumnName="ValueAdded" />
+          <ScalarProperty Name="EstimatedWinsAdded" ColumnName="EstimatedWinsAdded" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PriceChangeRefs">
+      <EntityTypeMapping TypeName="CardBossModel.PriceChangeRef">
+        <MappingFragment StoreEntitySet="PriceChangeRef">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PriceChange" ColumnName="PriceChange" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Retirements">
+      <EntityTypeMapping TypeName="CardBossModel.Retirement">
+        <MappingFragment StoreEntitySet="Retirement">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Retirement1" ColumnName="Retirement" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RookieCardInfluences">
+      <EntityTypeMapping TypeName="CardBossModel.RookieCardInfluence">
+        <MappingFragment StoreEntitySet="RookieCardInfluence">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RookieCardInfluence1" ColumnName="RookieCardInfluence" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SoldInventories">
+      <EntityTypeMapping TypeName="CardBossModel.SoldInventory">
+        <MappingFragment StoreEntitySet="SoldInventory">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EBayItemID" ColumnName="EBayItemID" />
+          <ScalarProperty Name="EbayTitle" ColumnName="EbayTitle" />
+          <ScalarProperty Name="CardID" ColumnName="CardID" />
+          <ScalarProperty Name="ItemURL" ColumnName="ItemURL" />
+          <ScalarProperty Name="GalleryURL" ColumnName="GalleryURL" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="BuyerLocation" ColumnName="BuyerLocation" />
+          <ScalarProperty Name="SellingPrice" ColumnName="SellingPrice" />
+          <ScalarProperty Name="ShippingPrice" ColumnName="ShippingPrice" />
+          <ScalarProperty Name="SoldTime" ColumnName="SoldTime" />
+          <ScalarProperty Name="PlayerID" ColumnName="PlayerID" />
+          <ScalarProperty Name="PriceChange" ColumnName="PriceChange" />
+          <ScalarProperty Name="BidCount" ColumnName="BidCount" />
+          <ScalarProperty Name="HighDemand" ColumnName="HighDemand" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeamRanks">
+      <EntityTypeMapping TypeName="CardBossModel.TeamRank">
+        <MappingFragment StoreEntitySet="TeamRank">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
+          <ScalarProperty Name="TeamRank1" ColumnName="TeamRank" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Years">
+      <EntityTypeMapping TypeName="CardBossModel.Year">
+        <MappingFragment StoreEntitySet="Year">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Year1" ColumnName="Year" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ExtractTitleData" FunctionName="CardBossModel.Store.ExtractTitleData" />
+    <FunctionImportMapping FunctionImportName="ExtractTitleDataCurrentInventory" FunctionName="CardBossModel.Store.ExtractTitleDataCurrentInventory" />
+    <FunctionImportMapping FunctionImportName="GenerateModelTrainingFile" FunctionName="CardBossModel.Store.GenerateModelTrainingFile">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CardBossModel.GenerateModelTrainingFile_Result">
+          <ScalarProperty Name="SellingPrice" ColumnName="SellingPrice" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="CardYear" ColumnName="CardYear" />
+          <ScalarProperty Name="CardManufacturer" ColumnName="CardManufacturer" />
+          <ScalarProperty Name="Era" ColumnName="Era" />
+          <ScalarProperty Name="CardFeature" ColumnName="CardFeature" />
+          <ScalarProperty Name="CardFeature1" ColumnName="CardFeature1" />
+          <ScalarProperty Name="Original" ColumnName="Original" />
+          <ScalarProperty Name="League" ColumnName="League" />
+          <ScalarProperty Name="Player" ColumnName="Player" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
+          <ScalarProperty Name="Sport" ColumnName="Sport" />
+          <ScalarProperty Name="PlayerEfficiencyRating" ColumnName="PlayerEfficiencyRating" />
+          <ScalarProperty Name="TrueShootingPerc" ColumnName="TrueShootingPerc" />
+          <ScalarProperty Name="AssistRatio" ColumnName="AssistRatio" />
+          <ScalarProperty Name="TurnoverRatio" ColumnName="TurnoverRatio" />
+          <ScalarProperty Name="UsageRatio" ColumnName="UsageRatio" />
+          <ScalarProperty Name="OffensiveReboundRate" ColumnName="OffensiveReboundRate" />
+          <ScalarProperty Name="DefensiveReboundRate" ColumnName="DefensiveReboundRate" />
+          <ScalarProperty Name="ReboundRate" ColumnName="ReboundRate" />
+          <ScalarProperty Name="ValueAdded" ColumnName="ValueAdded" />
+          <ScalarProperty Name="EstimatedWinsAdded" ColumnName="EstimatedWinsAdded" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UpdateCardData" FunctionName="CardBossModel.Store.UpdateCardData" />
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="CardBossModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="CardBossModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="CardBossModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserRoles">
+      <EntityTypeMapping TypeName="CardBossModel.AspNetUserRole">
+        <MappingFragment StoreEntitySet="AspNetUserRoles">
+          <ScalarProperty Name="AspNetUsers_Id" ColumnName="AspNetUsers_Id" />
+          <ScalarProperty Name="AspNetRoles_Id" ColumnName="AspNetRoles_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="CardBossModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="BusinessId" ColumnName="BusinessId" />
+          <ScalarProperty Name="Bio" ColumnName="Bio" />
+          <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+          <ScalarProperty Name="LastLoggedIn" ColumnName="LastLoggedIn" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

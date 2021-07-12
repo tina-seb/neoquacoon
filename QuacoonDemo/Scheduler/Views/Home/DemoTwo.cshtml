@@ -1,0 +1,60 @@
+﻿@using Quacoon.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Proposed Functionality";
+}
+
+<div id="bodyContainer" onload="loadSVG()" ng-app="CardApp">
+    <div id="bodyctrl" ng-controller="CardCtrl" ng-init="init()">
+        <div class="jumbotron jumbotron-fluid cbjumbo" style="margin-top: 50px;background-image: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.8) 100%), url('https://quacoo.s3.us-east-2.amazonaws.com/collage.jpg');">
+            <p class="cblead" id="lead" style="color:white;text-align:center;">
+                REROUTE. REPLAN. REALLOCATE.
+            </p>
+            <p class="cblead" id="lead" style="color:white;text-align:center;">
+                ON THE FLY.
+            </p>
+        </div>
+        <script src="https://d3js.org/d3.v4.js"></script>
+        <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+        <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+
+
+        <!-- Load d3.js and the geo projection plugin -->
+        <script src="https://d3js.org/d3.v4.js"></script>
+        <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+
+        <!-- Load Leaflet -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="" />
+        <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+
+        <!-- Create an element where the map will take place -->
+        <div id="mapid" style="height: 400px;"></div>
+
+
+
+
+        @*    <div class="row" style="margin-top:50px;">
+                <div class="col-md-6">
+                    <div style="text-align:center">
+                        <svg id="my_dataviz" width="1000" height="1000"></svg>
+                    </div>
+                </div>
+            </div> *@
+
+
+    </div>
+</div>
+
+@section scripts {
+    @Scripts.Render("https://d3js.org/d3.v4.js")
+    @Scripts.Render("https://d3js.org/d3-scale-chromatic.v1.min.js")
+    @Scripts.Render("https://d3js.org/d3-geo-projection.v2.min.js")
+    @Scripts.Render("~/Scripts/angular.js")
+    @Scripts.Render("~/Scripts/app/cardcontroller.js")
+    @Scripts.Render("~/Scripts/app/map-controller.js")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/Chart.js")
+    @Scripts.Render("~/Scripts/angular-chart.js")
+    @Scripts.Render("~/Scripts/jasny-bootstrap.js")
+
+}

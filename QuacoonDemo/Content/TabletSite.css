@@ -1,0 +1,86 @@
+﻿/* Media Responsiveness */
+/* Small devices (tablets, 600px and up) */
+@media (min-width: 600px) {
+
+    .short-control {
+        width: 80%;
+    }
+
+    .long-control {
+        width: 90%;
+    }
+
+    .search-control {
+        width: 70%;
+    }
+
+    #logindiv {
+        margin-left: 20%;
+    }
+
+    .registerdiv {
+        margin-left: 16%;
+    }
+
+    #loginButtonDiv {
+        margin-left: 15%;
+    }
+
+    .registerButtonDiv {
+        margin-left: 15%;
+    }
+
+    #altLoginDiv {
+        margin-left: 15%;
+    }
+
+    .registerCompanyAdminDiv {
+        margin-left: 0%;
+    }
+
+
+    #analyticone {
+        height: 300px;
+        width: 400px;
+        margin-left: 42%;
+    }
+
+    #analytictwo {
+        height: 300px;
+        width: 400px;
+        margin-left: 42%;
+    }
+
+    #gaugealert {
+        text-align: center;
+        font-size: 14px;
+        background-color: transparent;
+        color: orangered;
+        border: none;
+        box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.5);
+        width: 400px;
+        margin-left: 22%;
+    }
+
+    #demandalert {
+        text-align: center;
+        font-size: 14px;
+        background-color: transparent;
+        color: orangered;
+        border: none;
+        box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.5);
+        width: 400px;
+        margin-left: 22%;
+    }
+
+    .timeline-panel {
+        width: 30%;
+    }
+
+    calendarentry {
+        border: none;
+        padding: 30px;
+        background-color: transparent;
+        height: 100%;
+    }
+}
